@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<title>Field Tags - Field Pack Docs</title>
+	<link rel="stylesheet" href="../../_static/pygments.css" type="text/css">
+	<link rel="stylesheet" href="../../_static/css/docs.css" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="docs">
+	<script type="text/javascript">
+		if (typeof document.querySelectorAll != 'undefined')
+		{
+			document.body.className += ' hide-dds';
+		}
+	</script>
+
+	<div id="container">
+		<div id="sidebar">
+			<nav class="nav">
+				<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Field Pack Docs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html">Installing and Updating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../fields.html">Working with Field Pack Fields</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Bundled Fieldtypes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../checkboxes/index.html">Checkboxes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dropdown/index.html">Dropdown</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../list/index.html">List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../multiselect/index.html">Multiselect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pill/index.html">Pill</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Radio Buttons</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="config.html">Configuration</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="">Field Tags</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../switch/index.html">Switch</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+</ul>
+</li>
+</ul>
+
+			</nav>
+		</div>
+
+		<div id="main" class="has-sidebar">
+
+				<ul id="crumbs">
+					<li><a href="../../index.html">Field Pack Docs</a></li>
+					<li><a href="../index.html">Bundled Fieldtypes</a></li>
+					<li><a href="index.html">Radio Buttons</a></li>
+				</ul>
+
+
+
+  <div class="section" id="field-tags">
+<h1>Field Tags<a class="headerlink" href="#field-tags" title="Permalink to this headline">¶</a></h1>
+<p>The following tags are available for your Radio Buttons fields within <tt class="docutils literal"><span class="pre">{exp:channel:entries}</span></tt> tag pairs.</p>
+<div class="section" id="primary-tag">
+<h2>Primary Tag<a class="headerlink" href="#primary-tag" title="Permalink to this headline">¶</a></h2>
+<p>Calling your Radio Buttons field with a single tag returns the selected
+option’s value:</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;p&gt;</span>I really like {my_radiobutton_field}.<span class="nt">&lt;/p&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="label-tag">
+<h2><tt class="docutils literal"><span class="pre">:label</span></tt> Tag<a class="headerlink" href="#label-tag" title="Permalink to this headline">¶</a></h2>
+<p>Returns the label of the selected option.</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;p&gt;</span>I really like <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;{my_radiobutton_field}&quot;</span><span class="nt">&gt;</span>{my_radiobutton_field:label}<span class="nt">&lt;/a&gt;</span>.<span class="nt">&lt;/p&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+
+
+			<nav id="next">
+				Next up: <a href="../switch/index.html">Switch</a></li>
+			</nav>
+
+		</div>
+	</div>
+
+<script type="text/javascript" src="../../_static/js/docs.js"></script>
+
+</body>
+</html>

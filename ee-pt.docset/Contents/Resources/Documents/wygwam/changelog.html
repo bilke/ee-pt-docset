@@ -1,0 +1,523 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<title>Changelog - Wygwam Docs</title>
+	<link rel="stylesheet" href="_static/pygments.css" type="text/css">
+	<link rel="stylesheet" href="_static/css/docs.css" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="docs">
+	<script type="text/javascript">
+		if (typeof document.querySelectorAll != 'undefined')
+		{
+			document.body.className += ' hide-dds';
+		}
+	</script>
+
+	<div id="container">
+		<div id="sidebar">
+			<nav class="nav">
+				<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Wygwam Docs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Installing and Updating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using/index.html">Using Wygwam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templating/field.html">Field Tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers/index.html">Developer Docs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Changelog</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+			</nav>
+		</div>
+
+		<div id="main" class="has-sidebar">
+
+				<ul id="crumbs">
+					<li><a href="index.html">Wygwam Docs</a></li>
+				</ul>
+
+
+
+  <div class="section" id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="wygwam-2-7-1">
+<h2>Wygwam 2.7.1<a class="headerlink" href="#wygwam-2-7-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Apr 23, 2013</p>
+<ul class="simple">
+<li>ExpressionEngine 2.6 compatibility.</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-7">
+<h2>Wygwam 2.7<a class="headerlink" href="#wygwam-2-7" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jan 22, 2013</p>
+<ul class="simple">
+<li>Moved the Editor Configurations page up to the first slot in Wygwam’s module control panel</li>
+<li>If Assets is being used for Wygwam’s file browser, Wygwam will now save the file URLs as <tt class="docutils literal"><span class="pre">{assets_X}</span></tt> tags, so the URL will be updated when the file is renamed or moved</li>
+<li>Fixed a bug where Wygwam was over-aggressively replacing Page URLs with <tt class="docutils literal"><span class="pre">{page_X}</span></tt> tags</li>
+<li>Updated CKEditor to 3.6.6</li>
+<li>Updated CKFinder to 2.3.1</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-6-3">
+<h2>Wygwam 2.6.3<a class="headerlink" href="#wygwam-2-6-3" title="Permalink to this headline">¶</a></h2>
+<p>Released on Aug 29, 2012</p>
+<ul class="simple">
+<li>[EE2] Fixed a PHP error in SafeCracker forms when Wygwam is set to use EE’s File Browser</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-6-2">
+<h2>Wygwam 2.6.2<a class="headerlink" href="#wygwam-2-6-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on Aug 29, 2012</p>
+<ul class="simple">
+<li>[EE2] Fixed a Javascript error when using Wygwam within Matrix fields</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-6-1">
+<h2>Wygwam 2.6.1<a class="headerlink" href="#wygwam-2-6-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Aug 29, 2012</p>
+<ul class="simple">
+<li>[EE2] Fixed a Javascript error in Low Variables when Wygwam was set to use the EE File Browser</li>
+<li>[EE2] Wygwam is now capable of displaying the EE File Browser in Low Variables in EE 2.5.0+, rather than falling back to CKFinder</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-6">
+<h2>Wygwam 2.6<a class="headerlink" href="#wygwam-2-6" title="Permalink to this headline">¶</a></h2>
+<p>Released on Aug 28, 2012</p>
+<ul class="simple">
+<li>Updated CKEditor to 3.6.4</li>
+<li>Updated CKFinder to 2.3</li>
+<li>Added the <tt class="docutils literal"><span class="pre">remove_images=&quot;yes&quot;</span></tt> parameter</li>
+<li>[EE2] Added “Convert existing rows?” option to Matrix column settings, for converting Text columns to Wygwam</li>
+<li>Leading/trailing whitespace and empty tags are now stripped out from the content when saving</li>
+<li>CKFinder now allows .html files to be uploaded</li>
+<li>Wygwam’s data prep functions are now static methods on the Wygwam_helper class, enabling custom CKEditor instances in Safecracker, without the <tt class="docutils literal"><span class="pre">{field:field_name}</span></tt> tag</li>
+<li>Wygwam now only uses <tt class="docutils literal"><span class="pre">{page_X}</span></tt> tags when the full URL matches the page URL (for example, <tt class="docutils literal"><span class="pre">href=&quot;/about/company&quot;</span></tt> will no longer become <tt class="docutils literal"><span class="pre">href=&quot;{page_X}/company&quot;</span></tt> if there is a page with the URI “about”)</li>
+<li>Fixed a Javascript error that occurred if any site pages had non-space whitespace characters in the entry title, such as vertical tabs (common when titles are pasted in from Word)</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-5">
+<h2>Wygwam 2.5<a class="headerlink" href="#wygwam-2-5" title="Permalink to this headline">¶</a></h2>
+<p>Released on Apr 18, 2012</p>
+<ul class="simple">
+<li>Added a new <a class="reference external" href="http://pixelandtonic.com/wygwam/docs/templates#text_only">Text-Only</a> tag mode</li>
+<li>The Images-Only tag mode now applies to the <tt class="docutils literal"><span class="pre">:excerpt</span></tt> and <tt class="docutils literal"><span class="pre">:extended</span></tt> tags as well as the primary tag</li>
+<li>Updated CKEditor to 3.6.3</li>
+<li>Updated CKFinder to 2.2</li>
+<li>Added <tt class="docutils literal"><span class="pre">autoGrow_onStartup</span></tt> and <tt class="docutils literal"><span class="pre">fillEmptyBlocks</span></tt> advanced settings</li>
+<li>Fixed Defer behavior when using Wygwam within Matrix within Low Variables</li>
+<li>Fixed a bug where existing field data wasn&#8217;t getting properly encoded when using <tt class="docutils literal"><span class="pre">{field:field_name}</span></tt> tags in SafeCracker</li>
+<li>Fixed a bug where <tt class="docutils literal"><span class="pre">{page_X}</span></tt> tags wouldn’t parse if accessing an entry from a different MSM site</li>
+<li>Fixed a PHP error that occurred if <tt class="docutils literal"><span class="pre">EE-&gt;config-&gt;item('site_pages')</span></tt> returned a string</li>
+<li>Fixed a PHP error that occurred if there are any entries that don’t have an ID (What?)</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-4-0-2">
+<h2>Wygwam 2.4.0.2<a class="headerlink" href="#wygwam-2-4-0-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jan 27, 2012</p>
+<ul class="simple">
+<li>Fixed CKFinder integration</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-4-0-1">
+<h2>Wygwam 2.4.0.1<a class="headerlink" href="#wygwam-2-4-0-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jan 25, 2012</p>
+<ul class="simple">
+<li>[EE2] Fixed a bug where toolbars couldn’t be selected in EE 2.4</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-4">
+<h2>Wygwam 2.4<a class="headerlink" href="#wygwam-2-4" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jan 24, 2012</p>
+<ul class="simple">
+<li>Added a new <a class="reference external" href="http://pixelandtonic.com/wygwam/docs/templates#images_only">Images-Only</a> tag mode, and accompanying tag pair support</li>
+<li>[EE2] Added EE 2.4 compatibility, including support for the new <a class="reference external" href="http://expressionengine.com/user_guide/cp/content/files/file_upload_preferences.html#overriding-upload-paths-and-urls-using-configuration-variables">upload preference config variables</a></li>
+<li>Updated CKFinder to 2.1.1</li>
+<li>[EE2] Fixed a bug where Read More comments would turn into visible “<tt class="docutils literal"><span class="pre">&lt;!--read_more--&gt;</span></tt>” text when submitted via SafeCracker</li>
+<li>Curly brackets are no longer converted into entities (<tt class="docutils literal"><span class="pre">&amp;#123;</span></tt> and <tt class="docutils literal"><span class="pre">&amp;#125;</span></tt>) in the templates</li>
+<li>Wygwam now ensures that all pages actually have URLs (which are not just “/”) before swapping their URLs with <tt class="docutils literal"><span class="pre">{page_X}</span></tt> tags on save</li>
+<li>The Defer CKEditor Initialization setting’s placeholder Iframe is now dynamically generated</li>
+<li>Enabled extensions using the <tt class="docutils literal"><span class="pre">wygwam_config</span></tt> hook to set CKEditor’s “<tt class="docutils literal"><span class="pre">on</span></tt>” property</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-3-5">
+<h2>Wygwam 2.3.5<a class="headerlink" href="#wygwam-2-3-5" title="Permalink to this headline">¶</a></h2>
+<p>Released on Nov 1, 2011</p>
+<ul class="simple">
+<li>Updated CKEditor to 3.6.2 (adds iOS5 support!)</li>
+<li>Made minor performance improvements in the field and on the front end</li>
+<li>Fixed a couple bugs with Low Variables compatibility</li>
+<li>Fixed a couple PHP and Javascript errors</li>
+<li>Upload directories with a single slash (“/”) for the URL are now ignored when Wygwam is swapping out upload directory URLs for <tt class="docutils literal"><span class="pre">{filedir_X}</span></tt> tags</li>
+<li>Updated the Style Set documentation to use CKEditor’s new <tt class="docutils literal"><span class="pre">CKEDITOR.stylesSet.add()</span></tt> syntax</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-3-4-1">
+<h2>Wygwam 2.3.4.1<a class="headerlink" href="#wygwam-2-3-4-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jul 1, 2011</p>
+<ul class="simple">
+<li>[EE2] ExpressionEngine 2.2.1 compatibility</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-3-4">
+<h2>Wygwam 2.3.4<a class="headerlink" href="#wygwam-2-3-4" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jul 1, 2011</p>
+<ul class="simple">
+<li>[EE2] Fixed a Javascript error that would prevent CKEditor from even showing up if a configuration’s Upload Directory setting wasn’t set</li>
+<li>[EE2] Fixed a bug where images and files selected via the EE File Manager would return the wrong URL in EE 2.2</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-3-3">
+<h2>Wygwam 2.3.3<a class="headerlink" href="#wygwam-2-3-3" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jun 28, 2011</p>
+<ul class="simple">
+<li>[EE2] Added EE File Browser integration</li>
+<li>[EE2] Added <a class="reference external" href="http://pixelandtonic.com/assets">Assets</a> integration</li>
+<li>[EE2] Added the “File Browser” setting to the module</li>
+<li>Added the <tt class="docutils literal"><span class="pre">justifyClasses</span></tt> advanced config setting</li>
+<li>Updated CKEditor to 3.6.1</li>
+<li>Updated CKFinder to the latest build of 2.0.2</li>
+<li>[EE2] Fixed a PHP error when using Wygwam with Low Variables, and the Typography class isn’t loaded yet</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-3-2">
+<h2>Wygwam 2.3.2<a class="headerlink" href="#wygwam-2-3-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on May 26, 2011</p>
+<ul class="simple">
+<li>Added support for EE 2.1.5 Beta</li>
+<li>Added support for HTML5 elements <tt class="docutils literal"><span class="pre">section</span></tt>, <tt class="docutils literal"><span class="pre">header</span></tt>, <tt class="docutils literal"><span class="pre">footer</span></tt>, <tt class="docutils literal"><span class="pre">nav</span></tt>, <tt class="docutils literal"><span class="pre">article</span></tt>, <tt class="docutils literal"><span class="pre">aside</span></tt>, <tt class="docutils literal"><span class="pre">figure</span></tt>, <tt class="docutils literal"><span class="pre">dialog</span></tt>, <tt class="docutils literal"><span class="pre">hgroup</span></tt>, <tt class="docutils literal"><span class="pre">time</span></tt>, <tt class="docutils literal"><span class="pre">meter</span></tt>, <tt class="docutils literal"><span class="pre">menu</span></tt>, <tt class="docutils literal"><span class="pre">command</span></tt>, <tt class="docutils literal"><span class="pre">keygen</span></tt>, <tt class="docutils literal"><span class="pre">output</span></tt>, <tt class="docutils literal"><span class="pre">progress</span></tt>, <tt class="docutils literal"><span class="pre">audio</span></tt>, <tt class="docutils literal"><span class="pre">video</span></tt>, <tt class="docutils literal"><span class="pre">details</span></tt>, <tt class="docutils literal"><span class="pre">datagrid</span></tt>, <tt class="docutils literal"><span class="pre">datalist</span></tt> and <tt class="docutils literal"><span class="pre">mark</span></tt></li>
+<li>Made the initial field textarea 10 rows high for mobile devices that don’t support rich text editing</li>
+<li>Fixed IE 9 compatibility</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-3-1">
+<h2>Wygwam 2.3.1<a class="headerlink" href="#wygwam-2-3-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on May 11, 2011</p>
+<ul class="simple">
+<li>Updated CKEditor to 3.6</li>
+<li>Compressed the custom CKEditor skin to reduce the number of CSS requests and speed up page load</li>
+<li>Set the <tt class="docutils literal"><span class="pre">forcePasteAsPlainText</span></tt> CKEditor config setting to “Yes” by default</li>
+<li>Fixed a bug where selected toolbar groups would still show up in the “options” bucket in the toolbar configurator if their first button was disabled</li>
+<li>Fixed a bug where Wygwam variables in Low Variables wouldn’t display images or URLs in templates</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-3">
+<h2>Wygwam 2.3<a class="headerlink" href="#wygwam-2-3" title="Permalink to this headline">¶</a></h2>
+<p>Released on Apr 26, 2011</p>
+<ul class="simple">
+<li>Updated CKEditor to 3.5.3</li>
+<li>Added new “Read More” plugin, allowing you to define excerpt and extended portions of your contents within the same Wygwam field</li>
+<li>Added the <tt class="docutils literal"><span class="pre">:excerpt</span></tt>, <tt class="docutils literal"><span class="pre">:has_excerpt</span></tt>, and <tt class="docutils literal"><span class="pre">:extended</span></tt> tags</li>
+<li>Added the Template Tags page to the docs</li>
+<li>Added an “Edit Configurations” link beside the Editor Configuration field setting</li>
+<li>[EE2] Added field and Matrix cell validation for if the field/cell is set to be required</li>
+<li>EE tags are no longer encoded into <tt class="docutils literal"><span class="pre">&amp;#123;</span></tt> and <tt class="docutils literal"><span class="pre">&amp;#125;</span></tt> in the tag output</li>
+<li>Added Low Variables support for links which are saved with <tt class="docutils literal"><span class="pre">{page_X}</span></tt> tags</li>
+<li>Fixed a bug where deferred Wygwam cells within Matrix fields would get unwanted Javascript code in the field contents when sorting rows</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-2-3">
+<h2>Wygwam 2.2.3<a class="headerlink" href="#wygwam-2-2-3" title="Permalink to this headline">¶</a></h2>
+<p>Released on Mar 15, 2011</p>
+<ul class="simple">
+<li>Added support for Windows-style upload directory paths (e.g. “<tt class="docutils literal"><span class="pre">D:\…</span></tt>”)</li>
+<li>Added the ability for custom Link Types to pre-populate any of the Link Dialog’s settings</li>
+<li>Fixed a CKEditor bug where pasting text into Wygwam fields would add an empty paragraph above the pasted text</li>
+<li>Links generated by custom Link Types no longer get “<tt class="docutils literal"><span class="pre">data-custom-link-type</span></tt>” attributes</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-2-2">
+<h2>Wygwam 2.2.2<a class="headerlink" href="#wygwam-2-2-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on Feb 22, 2011</p>
+<ul class="simple">
+<li>Updated CKEditor to 3.5.2</li>
+<li>Updated CKFinder to 2.0.2</li>
+<li>Added the ability for third parties to add custom Link Types to the Link dialog (<a class="reference external" href="http://pixelandtonic.com/wygwam/docs/link_types">see how</a>)</li>
+<li>Moved Structure integration to a <a class="reference external" href="https://github.com/brandonkelly/wygwam_structure_pages">separate extension</a></li>
+<li>Fixed a bug where the Link dialog would show all Link Type settings at the same time</li>
+<li>Fixed a bug where Wygwam would override the <tt class="docutils literal"><span class="pre">extraPlugins</span></tt> advanced setting</li>
+<li>Fixed glitches with the “Defer CKEditor initialization?” field setting</li>
+<li>Fixed a “Wygwam is undefined” Javascript error in IE8</li>
+<li>Added code to prevent EE’s Typography class from attempting to encode email addresses within Wygwam fields, resulting in a Javascript error in IE7</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-2-1">
+<h2>Wygwam 2.2.1<a class="headerlink" href="#wygwam-2-2-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Feb 9, 2011</p>
+<ul class="simple">
+<li>Reduced the page weight of the Publish Page</li>
+<li>Localized the “Site Page” Link Type option name in the Link dialog</li>
+<li>Fixed an incompatibility with jQuery, which affected Playa’s Drop Panes UI</li>
+<li>Fixed a bug where Structure pages weren’t displayed in the user-defined order</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-2">
+<h2>Wygwam 2.2<a class="headerlink" href="#wygwam-2-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on Feb 9, 2011</p>
+<ul class="simple">
+<li>Updated CKEditor to 3.5.1</li>
+<li>New CKEditor dialog skin</li>
+<li>Added Pages and Structure module integration to the Link dialog</li>
+<li>Added a “Relationship” field to the Link dialog, for defining <tt class="docutils literal"><span class="pre">rel=</span></tt> anchor attributes</li>
+<li>Brought back the Embed Media plugin</li>
+<li>Convert double quote entities (<tt class="docutils literal"><span class="pre">&amp;quot;</span></tt>) to normal double quotes (<tt class="docutils literal"><span class="pre">&quot;</span></tt>) in the templates</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-1-8">
+<h2>Wygwam 2.1.8<a class="headerlink" href="#wygwam-2-1-8" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jan 24, 2011</p>
+<ul class="simple">
+<li>Updated CKEditor to 3.5</li>
+<li>Added <tt class="docutils literal"><span class="pre">dialog_buttonsOrder</span></tt>, <tt class="docutils literal"><span class="pre">disableReadonlyStyling</span></tt>, and <tt class="docutils literal"><span class="pre">removeDialogTabs</span></tt> advanced settings</li>
+<li>Added a Troubleshooting page to the Docs</li>
+<li>Fixed a CSS issue with the Source view in EE 2.1.2 and later</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-1-7">
+<h2>Wygwam 2.1.7<a class="headerlink" href="#wygwam-2-1-7" title="Permalink to this headline">¶</a></h2>
+<p>Released on Dec 15, 2010</p>
+<ul class="simple">
+<li>Added sample Output Formatting code to themes/third_party/wygwam/lib/ckeditor/config.js</li>
+<li>Remove <tt class="docutils literal"><span class="pre">&lt;div&gt;</span></tt>’s added by recent versions of Firebug</li>
+<li>Convert double quote entities (<tt class="docutils literal"><span class="pre">&amp;quot;</span></tt>) to normal double quotes (<tt class="docutils literal"><span class="pre">&quot;</span></tt>) on save</li>
+<li>Keep <tt class="docutils literal"><span class="pre">$config['upload_dir']</span></tt> around until after the <tt class="docutils literal"><span class="pre">wygwam_config</span></tt> hook has been called</li>
+<li>Fixed a couple PHP errors</li>
+<li>[EE1] Wygwam now respects the “Allow image URLs in channel entries?” and “Automatically turn URLs and email addresses into links?” channel preferences</li>
+<li>[EE2] Fixed a couple CSS quirks with EE 2.1.2</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-1-6">
+<h2>Wygwam 2.1.6<a class="headerlink" href="#wygwam-2-1-6" title="Permalink to this headline">¶</a></h2>
+<p>Released on Nov 16, 2010</p>
+<ul class="simple">
+<li>Fixed Javascript error when using the Defer field setting</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-1-5">
+<h2>Wygwam 2.1.5<a class="headerlink" href="#wygwam-2-1-5" title="Permalink to this headline">¶</a></h2>
+<p>Released on Nov 16, 2010</p>
+<ul class="simple">
+<li>Updated CKEditor to 3.4.2</li>
+<li>Added support for the “Create Div” button</li>
+<li>Added support for the “defaultLanguage” and “disableNativeSpellChecker” config options</li>
+<li>Added Welsh language support</li>
+<li>[EE1] Fixed support for multibyte characters</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-1-4">
+<h2>Wygwam 2.1.4<a class="headerlink" href="#wygwam-2-1-4" title="Permalink to this headline">¶</a></h2>
+<p>Released on Sep 23, 2010</p>
+<ul class="simple">
+<li>Updated CKEditor to 3.4.1</li>
+<li>Fixed a Javascript error when no field height is set</li>
+<li>Fixed some deferred initialization wonkiness in Firefox</li>
+<li>[EE1] Fixed the “<tt class="docutils literal"><span class="pre">wygwam_convert_label</span></tt>” localized string</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-1-3">
+<h2>Wygwam 2.1.3<a class="headerlink" href="#wygwam-2-1-3" title="Permalink to this headline">¶</a></h2>
+<p>Released on Sep 16, 2010</p>
+<ul class="simple">
+<li>Added a page describing Style Sets to the documentation</li>
+<li>Made the toolbar configuration instructions more clear</li>
+<li>Made the <tt class="docutils literal"><span class="pre">entities_processNumerical</span></tt> setting default to default to “Yes”</li>
+<li>Fixed a bug where configurations only allowed you to select one of the current MSM site’s upload directories</li>
+<li>Reduced the Publish page weight when multiple Wygwam fields exist that use the same configuration</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-1-2">
+<h2>Wygwam 2.1.2<a class="headerlink" href="#wygwam-2-1-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on Aug 30, 2010</p>
+<ul class="simple">
+<li>Added the ability to clone editor configurations</li>
+<li>Added a “Remove” button to configurations’ advanced options</li>
+<li>Made the entire height of deferred initialization fields clickable</li>
+<li>Tidied up the field styling for Low Variables</li>
+<li>[EE2] Fixed PHP error when no upload directories exist</li>
+<li>[EE2] Wygwam now respects the “Allow image URLs in channel entries?” and “Automatically turn URLs and email addresses into links?” channel preferences</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-1-1">
+<h2>Wygwam 2.1.1<a class="headerlink" href="#wygwam-2-1-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Aug 25, 2010</p>
+<ul class="simple">
+<li>Added a field setting that defers CKEditor initialization until after the field has been clicked on (handy on pages being slowed down by dozens of Wygwam fields)</li>
+<li>Added EE emoticon support</li>
+<li>Fixed toolbar wrapping in Safari and Chrome</li>
+<li>Added <tt class="docutils literal"><span class="pre">display_var_tag()</span></tt> functions so Wygwam fields have the same template processing via Low Variables as they do within <tt class="docutils literal"><span class="pre">{exp:channel:entries}</span></tt></li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-1-0-1">
+<h2>Wygwam 2.1.0.1<a class="headerlink" href="#wygwam-2-1-0-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Aug 24, 2010</p>
+<ul class="simple">
+<li>[EE2] Fixed the Upload Directory setting</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-1">
+<h2>Wygwam 2.1<a class="headerlink" href="#wygwam-2-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Aug 24, 2010</p>
+<ul class="simple">
+<li>Updated CKEditor to 3.4</li>
+<li>Updated CKFinder to 2.0.1</li>
+<li>Restructured files into ee1/ and ee2/ folders</li>
+<li>New translucent skin</li>
+<li>New module for managing editor configurations</li>
+<li>Added <a class="reference external" href="http://loweblog.com/software/low-variables/">Low Variables</a> support (requires Low Variables 1.3)</li>
+<li>File URLs are now saved using {filedir_X} tags</li>
+<li>Beefed up the auto language mapping a bit</li>
+<li>Made all PHP includes use absolute paths</li>
+<li>Removed the MediaEmbed plugin due to incompatibility issues</li>
+<li>[EE1] Keep CKEditor from forgetting HTML entities</li>
+<li>[EE2] Fixed incompatibilities with other add-ons using generate_json()</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-0-4">
+<h2>Wygwam 2.0.4<a class="headerlink" href="#wygwam-2-0-4" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jul 27, 2010</p>
+<ul class="simple">
+<li>Bundled documentation</li>
+<li>Moved theme files into themes/third_party/wygwam</li>
+<li>[EE2] Fixed an issue that caused data loss on auto-save and when submitting an entry with validation errors</li>
+<li>[EE2] Fixed CKEditor language mapping</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-0-3">
+<h2>Wygwam 2.0.3<a class="headerlink" href="#wygwam-2-0-3" title="Permalink to this headline">¶</a></h2>
+<p>Released on May 19, 2010</p>
+<ul class="simple">
+<li>[EE2] Fixed PHP warning on Field Settings page</li>
+<li>[EE2] Fixed <a class="reference external" href="http://pixelandtonic.com/matrix">Matrix</a> cell setting saving</li>
+<li>Fixed IE 6/7 compatibility</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-0-2">
+<h2>Wygwam 2.0.2<a class="headerlink" href="#wygwam-2-0-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on May 4, 2010</p>
+<ul class="simple">
+<li><a class="reference external" href="http://pixelandtonic.com/matrix">Matrix 2</a> compatibility</li>
+<li>Add a conversion script to preserve Wygwam fields when upgrading from EE1 to EE2</li>
+<li>Allow relative upload directory server paths</li>
+<li>Protect against data loss when saving an entry before CKEditor has fully initialized</li>
+<li>Prevent fields from containing nothing but a line break</li>
+<li>Remove <tt class="docutils literal"><span class="pre">&lt;div&gt;</span></tt>’s added by recent versions of Firebug</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-0-1">
+<h2>Wygwam 2.0.1<a class="headerlink" href="#wygwam-2-0-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Mar 2, 2010</p>
+<ul class="simple">
+<li>Updated CKEditor to 3.1.1, which fixed a Copy/Paste bug</li>
+<li><a class="reference external" href="http://github.com/newism/nsm.addon_updater.ee_addon">NSM Addon Updater</a> support in EE2</li>
+<li>Added a <tt class="docutils literal"><span class="pre">`wygwam_config</span></tt> &lt;<a class="reference external" href="http://pixelandtonic.com/wygwam/docs/wygwam_config">http://pixelandtonic.com/wygwam/docs/wygwam_config</a>&gt;`_ extension hook</li>
+<li>Fixed the <tt class="docutils literal"><span class="pre">format_tags</span></tt> field setting</li>
+<li>Fixed layout issues in the global settings when using the Corporate theme for EE2</li>
+<li>Roll with Theme folder URLs without a trailing end slash in EE2</li>
+<li>Protect against a PHP error when saving field settings</li>
+<li>Other minor cosmetic fixes</li>
+</ul>
+</div>
+<div class="section" id="wygwam-2-0">
+<h2>Wygwam 2.0<a class="headerlink" href="#wygwam-2-0" title="Permalink to this headline">¶</a></h2>
+<p>Released on Feb 23, 2010</p>
+<ul class="simple">
+<li>EE2 compatibility</li>
+<li>Brand new look</li>
+<li><em>XHTML</em> and <em>Auto &lt;br&gt;</em> field conversion</li>
+<li>UI for almost every <a class="reference external" href="http://docs.cksource.com/ckeditor_api/symbols/CKEDITOR.config.html">CKEditor config setting</a></li>
+</ul>
+</div>
+<div class="section" id="wygwam-1-1-5">
+<h2>Wygwam 1.1.5<a class="headerlink" href="#wygwam-1-1-5" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jan 16, 2010</p>
+<ul class="simple">
+<li>Fixed Embed Media bug on some servers</li>
+</ul>
+</div>
+<div class="section" id="wygwam-1-1-4">
+<h2>Wygwam 1.1.4<a class="headerlink" href="#wygwam-1-1-4" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jan 15, 2010</p>
+<ul class="simple">
+<li>Updated CKEditor to 3.1</li>
+<li>Updated CKFinder to 1.4.2</li>
+<li>Included fluidByte’s <a class="reference external" href="http://www.fluidbyte.net/index.php?view=embed-youtube-vimeo-etc-into-ckeditor">Embed Media</a> plugin</li>
+<li>Added new :is_empty and :is_populated tags for conditionals</li>
+<li>fixed Dutch language support</li>
+<li>Uploading files now respects your upload directory’s Maximum File Size setting</li>
+</ul>
+</div>
+<div class="section" id="wygwam-1-1-3">
+<h2>Wygwam 1.1.3<a class="headerlink" href="#wygwam-1-1-3" title="Permalink to this headline">¶</a></h2>
+<p>Released on Oct 29, 2009</p>
+<ul class="simple">
+<li>Fixed duplicate editor bug in FF Matrix fields with more than one Wygwam cell</li>
+<li>Fixed a couple file browsing and uploading bugs</li>
+<li>Updated CKEditor to 3.0.1</li>
+<li>Updated CKFinder to 1.4.1.1</li>
+</ul>
+</div>
+<div class="section" id="wygwam-1-1-2">
+<h2>Wygwam 1.1.2<a class="headerlink" href="#wygwam-1-1-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on Oct 7, 2009</p>
+<ul class="simple">
+<li>Added a blank option to Upload Directory setting</li>
+<li>Fixed file browsing and uploading for EE installs with relative Fieldtype Folder URLs and/or varying CP subdomains</li>
+<li>Fixed Editor Height setting for some servers</li>
+<li>Minor bug fixes</li>
+</ul>
+</div>
+<div class="section" id="wygwam-1-1-1">
+<h2>Wygwam 1.1.1<a class="headerlink" href="#wygwam-1-1-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Sep 29, 2009</p>
+<ul class="simple">
+<li>Fixed a PHP warning in Wygwam’s settings</li>
+<li>Fixed button toggling for jQuery 1.2</li>
+</ul>
+</div>
+<div class="section" id="wygwam-1-1">
+<h2>Wygwam 1.1<a class="headerlink" href="#wygwam-1-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Sep 29, 2009</p>
+<ul class="simple">
+<li>File browsing and uploading</li>
+<li>Individual toolbar button toggling</li>
+<li>Field height setting</li>
+</ul>
+</div>
+<div class="section" id="wygwam-1-0-3">
+<h2>Wygwam 1.0.3<a class="headerlink" href="#wygwam-1-0-3" title="Permalink to this headline">¶</a></h2>
+<p>Released on Sep 17, 2009</p>
+<ul class="simple">
+<li>Fixed FF Matrix sorting bug (requires <a class="reference external" href="http://pixelandtonic.com/fieldframe">FieldFrame 1.3.4</a>)</li>
+</ul>
+</div>
+<div class="section" id="wygwam-1-0-1">
+<h2>Wygwam 1.0.1<a class="headerlink" href="#wygwam-1-0-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Sep 1, 2009</p>
+<ul class="simple">
+<li>Site Settings now remembers your license key</li>
+</ul>
+</div>
+<div class="section" id="wygwam-1-0">
+<h2>Wygwam 1.0<a class="headerlink" href="#wygwam-1-0" title="Permalink to this headline">¶</a></h2>
+<p>Released on Sep 1, 2009</p>
+<ul class="simple">
+<li>Initial release</li>
+</ul>
+</div>
+</div>
+
+
+
+
+		</div>
+	</div>
+
+<script type="text/javascript" src="_static/js/docs.js"></script>
+
+</body>
+</html>

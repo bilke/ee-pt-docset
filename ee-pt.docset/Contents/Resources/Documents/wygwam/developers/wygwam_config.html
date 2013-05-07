@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<title>Using the wygwam_config Hook - Wygwam Docs</title>
+	<link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+	<link rel="stylesheet" href="../_static/css/docs.css" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="docs">
+	<script type="text/javascript">
+		if (typeof document.querySelectorAll != 'undefined')
+		{
+			document.body.className += ' hide-dds';
+		}
+	</script>
+
+	<div id="container">
+		<div id="sidebar">
+			<nav class="nav">
+				<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Wygwam Docs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../installation.html">Installing and Updating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using/index.html">Using Wygwam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../templating/field.html">Field Tags</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Developer Docs</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="">Using the <tt class="docutils literal"><span class="pre">wygwam_config</span></tt> Hook</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="link_types.html">Adding Custom Link Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+</li>
+</ul>
+
+			</nav>
+		</div>
+
+		<div id="main" class="has-sidebar">
+
+				<ul id="crumbs">
+					<li><a href="../index.html">Wygwam Docs</a></li>
+					<li><a href="index.html">Developer Docs</a></li>
+				</ul>
+
+
+
+  <div class="section" id="using-the-wygwam-config-hook">
+<h1>Using the <tt class="docutils literal"><span class="pre">wygwam_config</span></tt> Hook<a class="headerlink" href="#using-the-wygwam-config-hook" title="Permalink to this headline">¶</a></h1>
+<p>Wygwam has an extension hook called “<tt class="docutils literal"><span class="pre">wygwam_config</span></tt>”. This hook will enable you to override your Wygwam fields’ <a class="reference external" href="http://docs.cksource.com/ckeditor_api/symbols/CKEDITOR.config.html">CKEditor config settings</a> right on page load, taking your Wygwam customizations to a whole new level.</p>
+<p>If you’ve never written an ExpressionEngine extension before, you can learn how from the <a class="reference external" href="http://ellislab.com/expressionengine/user-guide//development/extensions.html">EE Docs</a>.</p>
+<p>We’ve written a few sample extensions to demonstrate what you can do with the hook:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/pixelandtonic/wygwam_upload_tags">Wygwam Upload Tags</a> parses your upload directory’s Server Path and URL settings for {screen_name}, {member_id}, and {group_id} tags.</li>
+<li><a class="reference external" href="https://github.com/pixelandtonic/wygwam_super_admin_source">Wygwam Super Admin Source</a> enables the Source button for Super Admins, regardless of your Editor Configuration settings.</li>
+<li><a class="reference external" href="https://github.com/pixelandtonic/wygwam_template_links">Wygwam Template Links</a> adds a “Templates” link type to the Link dialog, making it easy to link to your site templates.</li>
+</ul>
+<div class="section" id="hook-parameters">
+<h2>Hook Parameters<a class="headerlink" href="#hook-parameters" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">$config</span></tt></dt>
+<dd>The array of config settings that are about to be JSON-ified and sent to CKEditor during field initialization.</dd>
+<dt><tt class="docutils literal"><span class="pre">$settings</span></tt></dt>
+<dd>The full array of your field’s settings, as they were before being translated into the $config array.</dd>
+</dl>
+<p><strong>Return Data?</strong></p>
+<p>Yes – your extension should return the $config array, whether or not you’ve modified it in any way.</p>
+<p><strong>Appearance of Hook in the Code</strong></p>
+<div class="highlight-php"><div class="highlight"><pre><span class="x">if ($this-&gt;EE-&gt;extensions-&gt;active_hook(&#39;wygwam_config&#39;))</span>
+<span class="x">{</span>
+<span class="x">    $config = $this-&gt;EE-&gt;extensions-&gt;call(&#39;wygwam_config&#39;, $config, $all_settings);</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+
+
+			<nav id="next">
+				Next up: <a href="link_types.html">Adding Custom Link Types</a></li>
+			</nav>
+
+		</div>
+	</div>
+
+<script type="text/javascript" src="../_static/js/docs.js"></script>
+
+</body>
+</html>

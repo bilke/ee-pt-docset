@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<title>Field Tags - Playa Docs</title>
+	<link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+	<link rel="stylesheet" href="../_static/css/docs.css" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="docs">
+	<script type="text/javascript">
+		if (typeof document.querySelectorAll != 'undefined')
+		{
+			document.body.className += ' hide-dds';
+		}
+	</script>
+
+	<div id="container">
+		<div id="sidebar">
+			<nav class="nav">
+				<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Playa Docs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../installation.html">Installing and Updating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using/index.html">Using Playa</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Templating</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="terminology.html">Playa Terminology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="module/index.html">Module Tags</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Field Tags</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+</li>
+</ul>
+
+			</nav>
+		</div>
+
+		<div id="main" class="has-sidebar">
+
+				<ul id="crumbs">
+					<li><a href="../index.html">Playa Docs</a></li>
+					<li><a href="index.html">Templating</a></li>
+				</ul>
+
+
+
+  <div class="section" id="field-tags">
+<h1>Field Tags<a class="headerlink" href="#field-tags" title="Permalink to this headline">¶</a></h1>
+<p>The following tags are available for your Playa fields within <tt class="docutils literal"><span class="pre">{exp:channel:entries}</span></tt> tag pairs.</p>
+<div class="section" id="primary-tag-pair">
+<h2>Primary Tag Pair<a class="headerlink" href="#primary-tag-pair" title="Permalink to this headline">¶</a></h2>
+<p>The Primary Tag Pair will loop through each of your selected entries, outputting whatever data you need from them.</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;h4&gt;</span>Favorite Bands<span class="nt">&lt;/h4&gt;</span>
+{my_playa_field show_expired=&quot;yes&quot; limit=&quot;10&quot;}
+    <span class="nt">&lt;h4&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/bands/{url_title}&quot;</span><span class="nt">&gt;</span>{title}<span class="nt">&lt;/a&gt;&lt;/h4&gt;</span>
+    <span class="nt">&lt;p&gt;</span>{short_desc}<span class="nt">&lt;/p&gt;</span>
+{/my_playa_field}
+</pre></div>
+</div>
+<div class="section" id="tag-parameters">
+<h3>Tag Parameters<a class="headerlink" href="#tag-parameters" title="Permalink to this headline">¶</a></h3>
+<p>The primary tag pair supports almost all of <tt class="docutils literal"><span class="pre">{exp:channel:entries}</span></tt>’ <a class="reference external" href="http://ellislab.com/expressionengine/user-guide/modules/channel/channel_entries.html#parameters">tag parameters</a>, as well as the following:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">child_ids</span></tt></dt>
+<dd>The child entry ID(s) to include. Prefix with “<tt class="docutils literal"><span class="pre">not</span></tt>” to define entries to exclude instead.</dd>
+</dl>
+<p><strong>Note:</strong> Playa sets the <tt class="docutils literal"><span class="pre">disable</span></tt> tag parameter to “<tt class="docutils literal"><span class="pre">categories|category_fields|member_data|pagination</span></tt>” by default. So if you want to display categories, member data, or pagination tags in your Playa tag pair, you’ll need to override that parameter.</p>
+</div>
+<div class="section" id="variable-tags">
+<h3>Variable Tags<a class="headerlink" href="#variable-tags" title="Permalink to this headline">¶</a></h3>
+<p>The primary tag pair supports almost all of <tt class="docutils literal"><span class="pre">{exp:channel:entries}</span></tt>’ <a class="reference external" href="http://ellislab.com/expressionengine/user-guide/modules/channel/channel_entries.html#conditional-variables">conditional variables</a>, <a class="reference external" href="http://ellislab.com/expressionengine/user-guide/modules/channel/channel_entries.html#single-variables">single variables</a>, and <a class="reference external" href="http://ellislab.com/expressionengine/user-guide/modules/channel/channel_entries.html#variable-pairs">variable pairs</a>, as well as the following:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">{if</span> <span class="pre">no_children}</span> <span class="pre">...</span> <span class="pre">{/if}</span></tt></dt>
+<dd>Outputs the contents only when there are no child entries returned.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="ul-and-ol-tags">
+<h2><tt class="docutils literal"><span class="pre">:ul</span></tt> and <tt class="docutils literal"><span class="pre">:ol</span></tt> Tags<a class="headerlink" href="#ul-and-ol-tags" title="Permalink to this headline">¶</a></h2>
+<p>Returns an (un)ordered list of the field’s children’s titles.</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;h4&gt;</span>Favorite Bands<span class="nt">&lt;/h4&gt;</span>
+{my_playa_field:ol show_expired=&quot;yes&quot;}
+</pre></div>
+</div>
+<div class="section" id="id2">
+<h3>Tag Parameters<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">:ul</span></tt> and <tt class="docutils literal"><span class="pre">:ol</span></tt> tags support almost all of <tt class="docutils literal"><span class="pre">{exp:channel:entries}</span></tt>’ <a class="reference external" href="http://ellislab.com/expressionengine/user-guide/modules/channel/channel_entries.html#parameters">tag parameters</a>, as well as the following:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">child_ids</span></tt></dt>
+<dd>The child entry ID(s) to include. Prefix with “<tt class="docutils literal"><span class="pre">not</span></tt>” to define entries to exclude instead.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="total-children-tag">
+<h2><tt class="docutils literal"><span class="pre">:total_children</span></tt> Tag<a class="headerlink" href="#total-children-tag" title="Permalink to this headline">¶</a></h2>
+<p>Returns the total number of the field’s children.</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;p&gt;</span>I have {my_playa_field:total_children show_expired=&quot;yes&quot;} favorite bands.<span class="nt">&lt;/p&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="id4">
+<h3>Tag Parameters<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">:total_children</span></tt> tag supports almost all of <tt class="docutils literal"><span class="pre">{exp:channel:entries}</span></tt>’ <a class="reference external" href="http://ellislab.com/expressionengine/user-guide/modules/channel/channel_entries.html#parameters">tag parameters</a>, as well as the following:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">child_ids</span></tt></dt>
+<dd>The child entry ID(s) to include. Prefix with “<tt class="docutils literal"><span class="pre">not</span></tt>” to define entries to exclude instead.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="child-ids-tag">
+<h2><tt class="docutils literal"><span class="pre">:child_ids</span></tt> Tag<a class="headerlink" href="#child-ids-tag" title="Permalink to this headline">¶</a></h2>
+<p>Returns a list of the field’s children’s entry IDs.</p>
+<div class="highlight-html"><div class="highlight"><pre>{embed=&quot;site/child_entries&quot; child_ids=&quot;{my_playa_field:child_ids}&quot;}
+</pre></div>
+</div>
+<div class="section" id="id6">
+<h3>Tag Parameters<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">:child_ids</span></tt> tag supports almost all of <tt class="docutils literal"><span class="pre">{exp:channel:entries}</span></tt>’ <a class="reference external" href="http://ellislab.com/expressionengine/user-guide/modules/channel/channel_entries.html#parameters">tag parameters</a>, as well as the following:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">delimiter</span></tt></dt>
+<dd>The string used to separate the returned entry IDs. (The default is “<tt class="docutils literal"><span class="pre">|</span></tt>”.)</dd>
+<dt><tt class="docutils literal"><span class="pre">backspace</span></tt></dt>
+<dd>Strips the last <em>X</em> characters from the tag output.</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+
+
+			<nav id="next">
+				Next up: <a href="../changelog.html">Changelog</a></li>
+			</nav>
+
+		</div>
+	</div>
+
+<script type="text/javascript" src="../_static/js/docs.js"></script>
+
+</body>
+</html>

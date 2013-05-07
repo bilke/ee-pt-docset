@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<title>Adding Custom Link Types - Wygwam Docs</title>
+	<link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+	<link rel="stylesheet" href="../_static/css/docs.css" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="docs">
+	<script type="text/javascript">
+		if (typeof document.querySelectorAll != 'undefined')
+		{
+			document.body.className += ' hide-dds';
+		}
+	</script>
+
+	<div id="container">
+		<div id="sidebar">
+			<nav class="nav">
+				<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Wygwam Docs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../installation.html">Installing and Updating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using/index.html">Using Wygwam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../templating/field.html">Field Tags</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Developer Docs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="wygwam_config.html">Using the <tt class="docutils literal"><span class="pre">wygwam_config</span></tt> Hook</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Adding Custom Link Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+</li>
+</ul>
+
+			</nav>
+		</div>
+
+		<div id="main" class="has-sidebar">
+
+				<ul id="crumbs">
+					<li><a href="../index.html">Wygwam Docs</a></li>
+					<li><a href="index.html">Developer Docs</a></li>
+				</ul>
+
+
+
+  <div class="section" id="adding-custom-link-types">
+<h1>Adding Custom Link Types<a class="headerlink" href="#adding-custom-link-types" title="Permalink to this headline">¶</a></h1>
+<p>Wygwam makes it possible for developers to add custom Link Types to Wygwam’s Link dialog, via the <a class="reference internal" href="wygwam_config.html"><em>wygwam_config</em></a> extension hook.</p>
+<p>To add a custom Link Type, append elements to the <tt class="docutils literal"><span class="pre">$config['link_types']</span></tt> array. Here’s how you’d do it:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="c1">// ...</span>
+
+<span class="k">function</span> <span class="nf">wygwam_config</span><span class="p">(</span><span class="nv">$config</span><span class="p">,</span> <span class="nv">$settings</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// If another extension shares the same hook,</span>
+    <span class="c1">// we need to get the latest and greatest config</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">EE</span><span class="o">-&gt;</span><span class="na">extensions</span><span class="o">-&gt;</span><span class="na">last_call</span> <span class="o">!==</span> <span class="k">FALSE</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$config</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">EE</span><span class="o">-&gt;</span><span class="na">extensions</span><span class="o">-&gt;</span><span class="na">last_call</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;link_types&#39;</span><span class="p">][</span><span class="s1">&#39;Drink Recipes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+        <span class="k">array</span><span class="p">(</span><span class="s1">&#39;label&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Drink Nation&#39;</span><span class="p">,</span>  <span class="s1">&#39;url&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;http://drinknation.com/&#39;</span><span class="p">),</span>
+        <span class="k">array</span><span class="p">(</span><span class="s1">&#39;label&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Extra Tasty!&#39;</span><span class="p">,</span>  <span class="s1">&#39;url&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;http://www.extratasty.com/&#39;</span><span class="p">),</span>
+        <span class="k">array</span><span class="p">(</span><span class="s1">&#39;label&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;The Webtender&#39;</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;http://www.webtender.com/&#39;</span><span class="p">)</span>
+    <span class="p">);</span>
+
+    <span class="k">return</span> <span class="nv">$config</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In that example, we created a new Link Type called “Drink Recipes”, and filled it with three websites for the author to choose from.</p>
+<p>Each element within your Link Type array can contain the following keys:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">'label'</span></tt> (required)</dt>
+<dd>The label of your link in the Options list.</dd>
+<dt><tt class="docutils literal"><span class="pre">'label_depth'</span></tt></dt>
+<dd>The number of indentations your link will have within the Options list.</dd>
+<dt><tt class="docutils literal"><span class="pre">'url'</span> <span class="pre">(required)</span></tt></dt>
+<dd>The URL that the link will point to.</dd>
+<dt><tt class="docutils literal"><span class="pre">'target'</span></tt></dt>
+<dd>The link’s default Target setting value (can be “<tt class="docutils literal"><span class="pre">_blank</span></tt>”, “<tt class="docutils literal"><span class="pre">_top</span></tt>”, “<tt class="docutils literal"><span class="pre">_self</span></tt>”, or “<tt class="docutils literal"><span class="pre">_parent</span></tt>”).</dd>
+<dt><tt class="docutils literal"><span class="pre">'id'</span></tt></dt>
+<dd>The link’s default Id setting value.</dd>
+<dt><tt class="docutils literal"><span class="pre">'dir'</span></tt></dt>
+<dd>The link’s default Language Direction setting value (can be “<tt class="docutils literal"><span class="pre">ltr</span></tt>” or “<tt class="docutils literal"><span class="pre">rtl</span></tt>”).</dd>
+<dt><tt class="docutils literal"><span class="pre">'accesskey'</span></tt></dt>
+<dd>The link’s default Access Key setting value.</dd>
+<dt><tt class="docutils literal"><span class="pre">'name'</span></tt></dt>
+<dd>The link’s default Name setting value.</dd>
+<dt><tt class="docutils literal"><span class="pre">'lang'</span></tt></dt>
+<dd>The link’s default Language Code setting value.</dd>
+<dt><tt class="docutils literal"><span class="pre">'tabindex'</span></tt></dt>
+<dd>The link’s default Tab Index setting value.</dd>
+<dt><tt class="docutils literal"><span class="pre">'title'</span></tt></dt>
+<dd>The link’s default Advisory Title setting value.</dd>
+<dt><tt class="docutils literal"><span class="pre">'type'</span></tt></dt>
+<dd>The link’s default Advisory Content Type setting value (ex: “text/html”).</dd>
+<dt><tt class="docutils literal"><span class="pre">'class'</span></tt></dt>
+<dd>The link’s default Stylesheet Classes setting value.</dd>
+<dt><tt class="docutils literal"><span class="pre">'charset'</span></tt></dt>
+<dd>The link’s default Linked Resource Charset setting value.</dd>
+<dt><tt class="docutils literal"><span class="pre">'style'</span></tt></dt>
+<dd>The link’s default Style setting value.</dd>
+<dt><tt class="docutils literal"><span class="pre">'rel'</span></tt></dt>
+<dd>The link’s default Relationship setting value.</dd>
+</dl>
+</div>
+
+
+
+
+			<nav id="next">
+				Next up: <a href="../changelog.html">Changelog</a></li>
+			</nav>
+
+		</div>
+	</div>
+
+<script type="text/javascript" src="../_static/js/docs.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<title>Binding JS Callbacks - Matrix Docs</title>
+	<link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+	<link rel="stylesheet" href="../_static/css/docs.css" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="docs">
+	<script type="text/javascript">
+		if (typeof document.querySelectorAll != 'undefined')
+		{
+			document.body.className += ' hide-dds';
+		}
+	</script>
+
+	<div id="container">
+		<div id="sidebar">
+			<nav class="nav">
+				<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Matrix Docs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../installation.html">Installing and Updating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using/fields.html">Working with Matrix Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../templating/field.html">Field Tags</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Developer Docs</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="celltypes.html">Celltype Development</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Binding JS Callbacks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+</li>
+</ul>
+
+			</nav>
+		</div>
+
+		<div id="main" class="has-sidebar">
+
+				<ul id="crumbs">
+					<li><a href="../index.html">Matrix Docs</a></li>
+					<li><a href="index.html">Developer Docs</a></li>
+				</ul>
+
+
+
+  <div class="section" id="binding-js-callbacks">
+<h1>Binding JS Callbacks<a class="headerlink" href="#binding-js-callbacks" title="Permalink to this headline">¶</a></h1>
+<p>If you wish to add any sort of Javascript-powered functionality to your celltype, you can do it using <tt class="docutils literal"><span class="pre">Matrix.bind()</span></tt>.</p>
+<div class="highlight-js"><div class="highlight"><pre><span class="nx">Matrix</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;fieldtype_class&#39;</span><span class="p">,</span> <span class="s1">&#39;event_name&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">cell</span><span class="p">){</span>
+  <span class="c1">// custom code here</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Matrix supports the following callbacks:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">display</span></tt></dt>
+<dd>Called for each cell present on page load, and each cell created afterwards.</dd>
+<dt><tt class="docutils literal"><span class="pre">beforeSort</span></tt></dt>
+<dd>Called right before a row begins to be sorted.</dd>
+<dt><tt class="docutils literal"><span class="pre">afterSort</span></tt></dt>
+<dd>Called after sorting has stopped.</dd>
+<dt><tt class="docutils literal"><span class="pre">remove</span></tt></dt>
+<dd>Called right before a row is removed from the DOM.</dd>
+</dl>
+</div>
+
+
+
+
+			<nav id="next">
+				Next up: <a href="../changelog.html">Changelog</a></li>
+			</nav>
+
+		</div>
+	</div>
+
+<script type="text/javascript" src="../_static/js/docs.js"></script>
+
+</body>
+</html>

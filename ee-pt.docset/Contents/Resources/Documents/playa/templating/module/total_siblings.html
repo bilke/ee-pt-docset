@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<title>{exp:playa:total_siblings} - Playa Docs</title>
+	<link rel="stylesheet" href="../../_static/pygments.css" type="text/css">
+	<link rel="stylesheet" href="../../_static/css/docs.css" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="docs">
+	<script type="text/javascript">
+		if (typeof document.querySelectorAll != 'undefined')
+		{
+			document.body.className += ' hide-dds';
+		}
+	</script>
+
+	<div id="container">
+		<div id="sidebar">
+			<nav class="nav">
+				<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Playa Docs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html">Installing and Updating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../using/index.html">Using Playa</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Templating</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../terminology.html">Playa Terminology</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Module Tags</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="children.html"><tt class="docutils literal"><span class="pre">{exp:playa:children}</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="parents.html"><tt class="docutils literal"><span class="pre">{exp:playa:parents}</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="siblings.html"><tt class="docutils literal"><span class="pre">{exp:playa:siblings}</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="coparents.html"><tt class="docutils literal"><span class="pre">{exp:playa:coparents}</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="total_children.html"><tt class="docutils literal"><span class="pre">{exp:playa:total_children}</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="total_parents.html"><tt class="docutils literal"><span class="pre">{exp:playa:total_parents}</span></tt></a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href=""><tt class="docutils literal"><span class="pre">{exp:playa:total_siblings}</span></tt></a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="total_coparents.html"><tt class="docutils literal"><span class="pre">{exp:playa:total_coparents}</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="child_ids.html"><tt class="docutils literal"><span class="pre">{exp:playa:child_ids}</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="parent_ids.html"><tt class="docutils literal"><span class="pre">{exp:playa:total_parents}</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="sibling_ids.html"><tt class="docutils literal"><span class="pre">{exp:playa:total_siblings}</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="coparent_ids.html"><tt class="docutils literal"><span class="pre">{exp:playa:coparent_ids}</span></tt></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../field.html">Field Tags</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+</ul>
+</li>
+</ul>
+
+			</nav>
+		</div>
+
+		<div id="main" class="has-sidebar">
+
+				<ul id="crumbs">
+					<li><a href="../../index.html">Playa Docs</a></li>
+					<li><a href="../index.html">Templating</a></li>
+					<li><a href="index.html">Module Tags</a></li>
+				</ul>
+
+
+
+  <div class="section" id="exp-playa-total-siblings">
+<h1><tt class="docutils literal"><span class="pre">{exp:playa:total_siblings}</span></tt><a class="headerlink" href="#exp-playa-total-siblings" title="Permalink to this headline">¶</a></h1>
+<p>You can use the <tt class="docutils literal"><span class="pre">{exp:playa:total_siblings}</span></tt> tag to get the total number of entries that share a common parent with other entries.</p>
+<div class="section" id="tag-parameters">
+<h2>Tag Parameters<a class="headerlink" href="#tag-parameters" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">{exp:playa:total_siblings}</span></tt> supports almost all of <tt class="docutils literal"><span class="pre">{exp:channel:entries}</span></tt>’ <a class="reference external" href="http://ellislab.com/expressionengine/user-guide/modules/channel/channel_entries.html#parameters">tag parameters</a>, as well as the following:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">entry_id</span></tt></dt>
+<dd>The main entry’s ID(s). If your tag is within an <tt class="docutils literal"><span class="pre">{exp:channel:entries}</span></tt> tag pair, this will default to the current entry’s ID.</dd>
+<dt><tt class="docutils literal"><span class="pre">sibling_id</span></tt></dt>
+<dd>The sibling entry ID(s) to include. Prefix with “not ” to define entries to exclude instead.</dd>
+<dt><tt class="docutils literal"><span class="pre">parent_id</span></tt></dt>
+<dd>The parent entry ID(s) that the siblings must have in common. Prefix with “not ” to define entries to exclude instead.</dd>
+<dt><tt class="docutils literal"><span class="pre">field</span></tt></dt>
+<dd>The Playa field’s name where the relationships were made, or the Matrix field’s name if your Playa field lives within a Matrix field.</dd>
+<dt><tt class="docutils literal"><span class="pre">field_id</span></tt></dt>
+<dd>The Playa field’s ID where the relationships were made, or the Matrix field’s ID if your Playa field lives within a Matrix field.</dd>
+<dt><tt class="docutils literal"><span class="pre">col</span></tt></dt>
+<dd>The Matrix column’s name where the relationships were made.</dd>
+<dt><tt class="docutils literal"><span class="pre">col_id</span></tt></dt>
+<dd>The Matrix column’s ID where the relationships were made.</dd>
+<dt><tt class="docutils literal"><span class="pre">row_id</span></tt></dt>
+<dd>The Matrix row’s ID where the relationships were made.</dd>
+</dl>
+</div>
+</div>
+
+
+
+
+			<nav id="next">
+				Next up: <a href="total_coparents.html">{exp:playa:total_coparents}</a></li>
+			</nav>
+
+		</div>
+	</div>
+
+<script type="text/javascript" src="../../_static/js/docs.js"></script>
+
+</body>
+</html>

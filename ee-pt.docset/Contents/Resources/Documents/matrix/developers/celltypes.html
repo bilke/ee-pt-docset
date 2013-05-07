@@ -1,0 +1,318 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<title>Celltype Development - Matrix Docs</title>
+	<link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+	<link rel="stylesheet" href="../_static/css/docs.css" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="docs">
+	<script type="text/javascript">
+		if (typeof document.querySelectorAll != 'undefined')
+		{
+			document.body.className += ' hide-dds';
+		}
+	</script>
+
+	<div id="container">
+		<div id="sidebar">
+			<nav class="nav">
+				<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Matrix Docs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../installation.html">Installing and Updating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using/fields.html">Working with Matrix Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../templating/field.html">Field Tags</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Developer Docs</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="">Celltype Development</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="js_callbacks.html">Binding JS Callbacks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+</li>
+</ul>
+
+			</nav>
+		</div>
+
+		<div id="main" class="has-sidebar">
+
+				<ul id="crumbs">
+					<li><a href="../index.html">Matrix Docs</a></li>
+					<li><a href="index.html">Developer Docs</a></li>
+				</ul>
+
+
+
+  <div class="section" id="celltype-development">
+<h1>Celltype Development<a class="headerlink" href="#celltype-development" title="Permalink to this headline">¶</a></h1>
+<p>Developing a celltype for Matrix is just as easy as creating a <a class="reference external" href="http://ellislab.com/expressionengine/user-guide/development/fieldtypes.html">fieldtype</a> in EE. In fact, the first step is to create one.</p>
+<p>The only function required to get your fieldtype to show up as a Matrix celltype is <a class="reference external" href="#display_cell">display_cell()</a>.</p>
+<div class="section" id="celltype-functions">
+<h2>Celltype Functions<a class="headerlink" href="#celltype-functions" title="Permalink to this headline">¶</a></h2>
+<p>Here are all of the Matrix-specific functions you can add:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">display_cell_settings(</span> <span class="pre">$data</span> <span class="pre">)</span></tt></dt>
+<dd><p class="first">Adds custom cell settings to the Matrix Configuration setting within the Edit Field form.</p>
+<p><strong>Arguments</strong></p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">$data</span></tt></dt>
+<dd>An array of the previously-saved celltype settings for the current column.</dd>
+</dl>
+<p><strong>Returns</strong></p>
+<p>A multidimensional array of setting name/HTML pairs.</p>
+<div class="last highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">class</span> <span class="nc">My_celltype_ft</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">function</span> <span class="nf">display_cell_settings</span><span class="p">(</span> <span class="nv">$data</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;maxl&#39;</span><span class="p">]))</span>
+        <span class="p">{</span>
+            <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;maxl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;multiline&#39;</span><span class="p">]))</span>
+        <span class="p">{</span>
+            <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;multiline&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;n&#39;</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
+            <span class="k">array</span><span class="p">(</span><span class="nx">lang</span><span class="p">(</span><span class="s1">&#39;maxl&#39;</span><span class="p">),</span> <span class="nx">form_input</span><span class="p">(</span><span class="s1">&#39;maxl&#39;</span><span class="p">,</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;maxl&#39;</span><span class="p">],</span> <span class="s1">&#39;class=&quot;matrix-textarea&quot;&#39;</span><span class="p">)),</span>
+            <span class="k">array</span><span class="p">(</span><span class="nx">lang</span><span class="p">(</span><span class="s1">&#39;multiline&#39;</span><span class="p">),</span> <span class="nx">form_checkbox</span><span class="p">(</span><span class="s1">&#39;multiline&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;multiline&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;y&#39;</span><span class="p">)))</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt><tt class="docutils literal"><span class="pre">save_cell_settings(</span> <span class="pre">$data</span> <span class="pre">)</span></tt></dt>
+<dd><p class="first">Modifies the Matrix cell settings’ post data before it gets saved to the database.</p>
+<p><strong>Arguments</strong></p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">$data</span></tt></dt>
+<dd>Post data that came from any inputs you created in <tt class="docutils literal"><span class="pre">display_cell_settings()</span></tt>.</dd>
+</dl>
+<p><strong>Returns</strong></p>
+<p>An array with the modified post data.</p>
+<div class="last highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">class</span> <span class="nc">My_celltype_ft</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">function</span> <span class="nf">save_cell_settings</span><span class="p">(</span> <span class="nv">$data</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nb">is_numeric</span><span class="p">(</span><span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;maxl&#39;</span><span class="p">]))</span>
+        <span class="p">{</span>
+            <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;maxl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nv">$data</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt><tt class="docutils literal"><span class="pre">settings_modify_matrix_column(</span> <span class="pre">$data</span> <span class="pre">)</span></tt></dt>
+<dd><p class="first">Modifies the settings of your exp_matrix_data column(s).</p>
+<p><strong>Arguments</strong></p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">$data</span></tt></dt>
+<dd>The data about your column that was inserted into exp_matrix_cols, as well as a “matrix_action” key that describes what Matrix is about to do to it (“add”, “get_data”, or “delete”).</dd>
+</dl>
+<p><strong>Returns</strong></p>
+<p>Array with the settings for your exp_matrix_data columns, which will be passed to dbforge-&gt;add_column() upon creation, and dbforge-&gt;modify_column() when changed.</p>
+<div class="last highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">class</span> <span class="nc">My_celltype_ft</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">function</span> <span class="nf">settings_modify_matrix_column</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// decode the col settings</span>
+        <span class="nv">$settings</span> <span class="o">=</span> <span class="nb">unserialize</span><span class="p">(</span><span class="nb">base64_decode</span><span class="p">(</span><span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;col_settings&#39;</span><span class="p">]));</span>
+
+        <span class="k">switch</span> <span class="p">(</span><span class="nv">$settings</span><span class="p">[</span><span class="s1">&#39;content&#39;</span><span class="p">])</span>
+        <span class="p">{</span>
+            <span class="k">case</span> <span class="s1">&#39;integer&#39;</span><span class="o">:</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;col_id_&#39;</span><span class="o">.</span><span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;col_id&#39;</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="s1">&#39;default&#39;</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">));</span>
+            <span class="p">}</span>
+
+            <span class="k">case</span> <span class="s1">&#39;numeric&#39;</span><span class="o">:</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;col_id_&#39;</span><span class="o">.</span><span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;col_id&#39;</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;default&#39;</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">));</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt><tt class="docutils literal"><span class="pre">display_cell(</span> <span class="pre">$data</span> <span class="pre">)</span></tt></dt>
+<dd><p class="first">Creates the custom Matrix cell HTML for the Publish form.</p>
+<p><strong>Arguments</strong></p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">$data</span></tt></dt>
+<dd>The previously-saved cell data.</dd>
+</dl>
+<p><strong>Other Variables</strong></p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">$this-&gt;settings</span></tt></dt>
+<dd>Combination of your fieldtype’s global settings and the column settings.</dd>
+<dt><tt class="docutils literal"><span class="pre">$this-&gt;field_id</span></tt></dt>
+<dd>The Matrix field’s field_id.</dd>
+<dt><tt class="docutils literal"><span class="pre">$this-&gt;field_name</span></tt></dt>
+<dd>The Matrix field’s field_name, e.g. “field_id_1”.</dd>
+<dt><tt class="docutils literal"><span class="pre">$this-&gt;row_id</span></tt></dt>
+<dd>The row’s row_id.</dd>
+<dt><tt class="docutils literal"><span class="pre">$this-&gt;col_id</span></tt></dt>
+<dd>The column’s col_id.</dd>
+<dt><tt class="docutils literal"><span class="pre">$this-&gt;cell_name</span></tt></dt>
+<dd>The name you give your cell input.</dd>
+</dl>
+<p><strong>Return</strong></p>
+<p>String of HTML to be inserted into the Matrix cell in the Publish form</p>
+<div class="last highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">class</span> <span class="nc">My_celltype_ft</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">function</span> <span class="nf">display_cell</span><span class="p">(</span> <span class="nv">$data</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;&lt;textarea class=&quot;matrix-textarea&quot; name=&quot;&#39;</span><span class="o">.</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">cell_name</span><span class="o">.</span><span class="s1">&#39;&quot; rows=&quot;1&quot;&gt;&#39;</span><span class="o">.</span><span class="nv">$data</span><span class="o">.</span><span class="s1">&#39;&lt;/textarea&gt;&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt><tt class="docutils literal"><span class="pre">validate_cell(</span> <span class="pre">$data</span> <span class="pre">)</span></tt></dt>
+<dd><p class="first">Validates the Matrix cell’s post data before it gets saved to the database.</p>
+<p><strong>Arguments</strong></p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">$data</span></tt></dt>
+<dd>The cell’s post data.</dd>
+</dl>
+<p><strong>Other Variables</strong></p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">$this-&gt;settings</span></tt></dt>
+<dd>Combination of your fieldtype’s global settings, the column settings, and the variables “col_id”, “col_name”, “col_required”, and “row_name”.</dd>
+</dl>
+<p><strong>Return</strong></p>
+<p>Either the validation error, or <tt class="docutils literal"><span class="pre">TRUE</span></tt> if there isn’t an error.</p>
+<div class="last highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">class</span> <span class="nc">My_celltype_ft</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">function</span> <span class="nf">validate_cell</span><span class="p">(</span> <span class="nv">$data</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">settings</span><span class="p">[</span><span class="s1">&#39;col_required&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$data</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="nx">lang</span><span class="p">(</span><span class="s1">&#39;col_required&#39;</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="k">TRUE</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt><tt class="docutils literal"><span class="pre">save_cell(</span> <span class="pre">$data</span> <span class="pre">)</span></tt></dt>
+<dd><p class="first">Modifies the Matrix cell’s post data before it gets saved to the database.</p>
+<p><strong>Arguments</strong></p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">$data</span></tt></dt>
+<dd>The cell’s post data.</dd>
+</dl>
+<p><strong>Other Variables</strong></p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">$this-&gt;settings</span></tt></dt>
+<dd>Combination of your fieldtype’s global settings, the column settings, and the variables “col_id”, “col_name”, “col_required”, and “row_name”.</dd>
+</dl>
+<p><strong>Returns</strong></p>
+<p>The modified post data</p>
+<div class="last highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">class</span> <span class="nc">My_celltype_ft</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">function</span> <span class="nf">save_cell</span><span class="p">(</span> <span class="nv">$data</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$data</span> <span class="o">==</span> <span class="s1">&#39;&amp;nbsp;&#39;</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nv">$data</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nv">$data</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+<dt><tt class="docutils literal"><span class="pre">post_save_cell(</span> <span class="pre">$data</span> <span class="pre">)</span></tt></dt>
+<dd><p class="first">Performs actions after a row has been saved.</p>
+<p><strong>Arguments</strong></p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">$data</span></tt></dt>
+<dd>The cell’s post data, or the data returned by save_cell()</dd>
+</dl>
+<p><strong>Other Variables</strong></p>
+<dl class="last docutils">
+<dt><tt class="docutils literal"><span class="pre">$this-&gt;settings</span></tt></dt>
+<dd>Combination of your fieldtype’s global settings, the column settings, the col_id, col_name, row_id, and row_name</dd>
+</dl>
+</dd>
+<dt><tt class="docutils literal"><span class="pre">delete_rows(</span> <span class="pre">$row_ids</span> <span class="pre">)</span></tt></dt>
+<dd><p class="first">Performs actions right before rows get deleted.</p>
+<p><strong>Arguments</strong></p>
+<dl class="last docutils">
+<dt><tt class="docutils literal"><span class="pre">$row_ids</span></tt></dt>
+<dd>The row IDs about to be deleted.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+</div>
+
+
+
+
+			<nav id="next">
+				Next up: <a href="js_callbacks.html">Binding JS Callbacks</a></li>
+			</nav>
+
+		</div>
+	</div>
+
+<script type="text/javascript" src="../_static/js/docs.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<title>Creating a Custom Style Set - Wygwam Docs</title>
+	<link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+	<link rel="stylesheet" href="../_static/css/docs.css" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="docs">
+	<script type="text/javascript">
+		if (typeof document.querySelectorAll != 'undefined')
+		{
+			document.body.className += ' hide-dds';
+		}
+	</script>
+
+	<div id="container">
+		<div id="sidebar">
+			<nav class="nav">
+				<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Wygwam Docs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../installation.html">Installing and Updating</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Using Wygwam</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="fields.html">Working with Wygwam Fields</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">Creating a Custom Style Set</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../templating/field.html">Field Tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developers/index.html">Developer Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+</li>
+</ul>
+
+			</nav>
+		</div>
+
+		<div id="main" class="has-sidebar">
+
+				<ul id="crumbs">
+					<li><a href="../index.html">Wygwam Docs</a></li>
+					<li><a href="index.html">Using Wygwam</a></li>
+				</ul>
+
+
+
+  <div class="section" id="creating-a-custom-style-set">
+<h1>Creating a Custom Style Set<a class="headerlink" href="#creating-a-custom-style-set" title="Permalink to this headline">¶</a></h1>
+<p>To customize the contents of the “Styles” toolbar menu, you need to create and assign a custom Style Set to your field’s configuration.</p>
+<p>First, create a new Javascript file named my_styles.js. This file will hold your custom Style Set:</p>
+<div class="highlight-js"><div class="highlight"><pre><span class="nx">CKEDITOR</span><span class="p">.</span><span class="nx">stylesSet</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span> <span class="s1">&#39;my_styles&#39;</span><span class="p">,</span>
+<span class="p">[</span>
+    <span class="c1">// Block Styles</span>
+    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Blue Title&#39;</span><span class="p">,</span> <span class="nx">element</span><span class="o">:</span> <span class="s1">&#39;h2&#39;</span><span class="p">,</span> <span class="nx">styles</span><span class="o">:</span> <span class="p">{</span> <span class="s1">&#39;color&#39;</span><span class="o">:</span> <span class="s1">&#39;Blue&#39;</span> <span class="p">}</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Red Title&#39;</span> <span class="p">,</span> <span class="nx">element</span><span class="o">:</span> <span class="s1">&#39;h3&#39;</span><span class="p">,</span> <span class="nx">styles</span><span class="o">:</span> <span class="p">{</span> <span class="s1">&#39;color&#39;</span><span class="o">:</span> <span class="s1">&#39;Red&#39;</span> <span class="p">}</span> <span class="p">},</span>
+
+    <span class="c1">// Inline Styles</span>
+    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;CSS Style&#39;</span><span class="p">,</span> <span class="nx">element</span><span class="o">:</span> <span class="s1">&#39;span&#39;</span><span class="p">,</span> <span class="nx">attributes</span><span class="o">:</span> <span class="p">{</span> <span class="s1">&#39;class&#39;</span><span class="o">:</span> <span class="s1">&#39;my_style&#39;</span> <span class="p">}</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Marker: Yellow&#39;</span><span class="p">,</span> <span class="nx">element</span><span class="o">:</span> <span class="s1">&#39;span&#39;</span><span class="p">,</span> <span class="nx">styles</span><span class="o">:</span> <span class="p">{</span> <span class="s1">&#39;background-color&#39;</span><span class="o">:</span> <span class="s1">&#39;Yellow&#39;</span> <span class="p">}</span> <span class="p">}</span>
+<span class="p">]);</span>
+</pre></div>
+</div>
+<p>Each “style” within your Style Set is an Object with the following attributes:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">name</span></tt></dt>
+<dd>The name that will appear within the Styles menu</dd>
+<dt><tt class="docutils literal"><span class="pre">element</span></tt></dt>
+<dd>The element your selection will be converted to (or wrapped by, in the case of “span”) if the style is selected</dd>
+<dt><tt class="docutils literal"><span class="pre">styles</span></tt> (optional)</dt>
+<dd>CSS styles that will be applied directly to the element</dd>
+<dt><tt class="docutils literal"><span class="pre">attributes</span></tt> (optional)</dt>
+<dd>Any other attributes to be added to the element (i.e. “class”)</dd>
+</dl>
+<p>Upload this file to your server somewhere, such as /themes/third_party/wygwam_assets/.</p>
+<p>Now we need to point Wygwam to our new style set. Go to Add-Ons → Modules → Wygwam, and click on the configuration you want to be using these styles. Then click on the “Add an advanced setting…” drop-down, and choose “styleSet”. A text field will appear. Replace its contents with:</p>
+<div class="highlight-text"><div class="highlight"><pre>my_styles:/themes/third_party/wygwam_assets/my_styles.js
+</pre></div>
+</div>
+<p>(If you uploaded your Javascript file to a different location, use the correct URL.)</p>
+<p>Save your configuration, and you’re done!</p>
+</div>
+
+
+
+
+			<nav id="next">
+				Next up: <a href="../templating/field.html">Field Tags</a></li>
+			</nav>
+
+		</div>
+	</div>
+
+<script type="text/javascript" src="../_static/js/docs.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,517 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<title>Changelog - Playa Docs</title>
+	<link rel="stylesheet" href="_static/pygments.css" type="text/css">
+	<link rel="stylesheet" href="_static/css/docs.css" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="docs">
+	<script type="text/javascript">
+		if (typeof document.querySelectorAll != 'undefined')
+		{
+			document.body.className += ' hide-dds';
+		}
+	</script>
+
+	<div id="container">
+		<div id="sidebar">
+			<nav class="nav">
+				<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Playa Docs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Installing and Updating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using/index.html">Using Playa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templating/index.html">Templating</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Changelog</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+			</nav>
+		</div>
+
+		<div id="main" class="has-sidebar">
+
+				<ul id="crumbs">
+					<li><a href="index.html">Playa Docs</a></li>
+				</ul>
+
+
+
+  <div class="section" id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="playa-4-4-2">
+<h2>Playa 4.4.2<a class="headerlink" href="#playa-4-4-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on Apr 23, 2013</p>
+<ul class="simple">
+<li>ExpressionEngine 2.6 compatibility.</li>
+</ul>
+</div>
+<div class="section" id="playa-4-4-1">
+<h2>Playa 4.4.1<a class="headerlink" href="#playa-4-4-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Apr 17, 2013</p>
+<ul class="simple">
+<li>Playa is now compatible with jQuery 1.9.</li>
+<li>Fixed a bug where using the channel filter would only display entries from the channel with an ID of 1.</li>
+<li>Fixed SQL errors that would occur on clean installs of Playa.</li>
+</ul>
+</div>
+<div class="section" id="playa-4-4">
+<h2>Playa 4.4<a class="headerlink" href="#playa-4-4" title="Permalink to this headline">¶</a></h2>
+<p>Released on Apr 16, 2013</p>
+<ul class="simple">
+<li>Added Better Workflow compatibility (requires BWF 1.6 or later).</li>
+<li>Added the ability to filter entries by member group.</li>
+<li>Added the ability to only show entries which are editable by the current user.</li>
+<li>Added support for <tt class="docutils literal"><span class="pre">CURRENT_USER</span></tt> and <tt class="docutils literal"><span class="pre">NOT_CURRENT_USER</span></tt> constants when filtering Playa relations by author.</li>
+<li>Deprecated the <tt class="docutils literal"><span class="pre">{child:property}</span></tt> and <tt class="docutils literal"><span class="pre">{parent:property}</span></tt> tags within Playa tag pairs, in favor of the <tt class="docutils literal"><span class="pre">var_prefix</span></tt> parameter.</li>
+<li>Drastically decreased Playa’s memory footprint in the templates.</li>
+<li>Prevented several vectors of SQL injection attacks.</li>
+<li>Fixed a parsing bug for nested Playa tags.</li>
+<li>Fixed a bug where Site ID would not be applied as a filter on MSM installations.</li>
+</ul>
+</div>
+<div class="section" id="playa-4-3-3">
+<h2>Playa 4.3.3<a class="headerlink" href="#playa-4-3-3" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jul 25, 2012</p>
+<ul class="simple">
+<li>Fixed a MySQL error that would occur when updating Playa if Matrix isn’t installed</li>
+<li>Fixed a bug that would prevent Playa from parsing any variable tags that begin with ‘e’, ‘x’, or ‘p’</li>
+</ul>
+</div>
+<div class="section" id="playa-4-3-2">
+<h2>Playa 4.3.2<a class="headerlink" href="#playa-4-3-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jul 25, 2012</p>
+<ul class="simple">
+<li>Fixed a bug where Playa tags would randomly not parse on the front end</li>
+</ul>
+</div>
+<div class="section" id="playa-4-3-1">
+<h2>Playa 4.3.1<a class="headerlink" href="#playa-4-3-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jul 24, 2012</p>
+<ul class="simple">
+<li>Added the <tt class="docutils literal"><span class="pre">var_prefix=</span></tt> parameter to Playa’s module tag pairs and fieldtype tag pair</li>
+<li>Added &#8220;Sites&#8221; field setting and &#8220;Site&#8221; filter to multi-select Playa fields (only visible if MSM is enabled)</li>
+<li>You can now pass entry-specific tags into Playa’s module and fieldtype tag parameters, such as <tt class="docutils literal"><span class="pre">{entry_id}</span></tt> and <tt class="docutils literal"><span class="pre">{my_field_name}</span></tt></li>
+<li>Improved template performance</li>
+<li>Changed the relationship keyword format to “<tt class="docutils literal"><span class="pre">[EntryID]</span> <span class="pre">[UrlTitle]</span> <span class="pre">[EntryTitle]</span></tt>”</li>
+<li>Relationship keywords now get saved into exp_matrix_data for Playa columns that are set to Searchable</li>
+<li>Added new <tt class="docutils literal"><span class="pre">$data</span></tt> argument to the <tt class="docutils literal"><span class="pre">playa_fetch_rels_query</span></tt> extension hook</li>
+<li>Fixed relationship deletion when Matrix rows are deleted, and added an update script that deletes any orphaned Matrix-based relationships</li>
+<li>Fixed an &#8220;Array to string conversion&#8221; PHP error in PHP 5.4</li>
+<li>Fixed a PHP error if <tt class="docutils literal"><span class="pre">entry_id=</span></tt> is set to a non-numeric value</li>
+<li>Fixed a MySQL error when passing multiple entry IDs to <tt class="docutils literal"><span class="pre">child_id=</span></tt> or <tt class="docutils literal"><span class="pre">parent_id=</span></tt> params</li>
+<li>Fixed a bug where Playa would only migrate the last selected MH Multi Rel field’s relations</li>
+</ul>
+</div>
+<div class="section" id="playa-4-3">
+<h2>Playa 4.3<a class="headerlink" href="#playa-4-3" title="Permalink to this headline">¶</a></h2>
+<p>Released on May 15, 2012</p>
+<ul class="simple">
+<li>Added <a class="reference external" href="http://pixelandtonic.com/blog/playa-coparents">co-parent relationships</a> via three new Playa module tags</li>
+<li>When filtering entries in a Playa field, Playa now passes the ACT value in the post data, so it’s not lost in a .htaccess redirect</li>
+<li><tt class="docutils literal"><span class="pre">field=</span></tt>, <tt class="docutils literal"><span class="pre">field_id=</span></tt>, <tt class="docutils literal"><span class="pre">col=</span></tt>, <tt class="docutils literal"><span class="pre">col_id=</span></tt>, and <tt class="docutils literal"><span class="pre">row_id=</span></tt> params now apply to both sides of sibling relationships</li>
+<li>Fixed a bug where clicking on the arrow button in single-select mode would hide the dropdown just as soon as it was shown</li>
+<li>Fixed a PHP error that occurred when updating Playa from an earlier version than 4.0</li>
+<li>Fixed a MySQL error that occurred when using Playa module tags without an <tt class="docutils literal"><span class="pre">entry_id=</span></tt> param value</li>
+</ul>
+</div>
+<div class="section" id="playa-4-2-1">
+<h2>Playa 4.2.1<a class="headerlink" href="#playa-4-2-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Apr 20, 2012</p>
+<ul class="simple">
+<li>Improved template tag performance</li>
+<li>Fixed an EE error notice when accessing Low Variables with a Playa field</li>
+<li>Fixed a bug where closing Playa module tags would show up on the front end of the site</li>
+<li>Fixed a PHP error when using <tt class="docutils literal"><span class="pre">parent:</span></tt> and <tt class="docutils literal"><span class="pre">child:</span></tt> tags</li>
+</ul>
+</div>
+<div class="section" id="playa-4-2">
+<h2>Playa 4.2<a class="headerlink" href="#playa-4-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on Apr 17, 2012</p>
+<ul class="simple">
+<li>Added Low Variables compatibility</li>
+<li>The <tt class="docutils literal"><span class="pre">entry_id=</span></tt> param now supports multiple piped entry IDs across all module tags</li>
+<li><tt class="docutils literal"><span class="pre">{exp:playa:children}</span></tt> and <tt class="docutils literal"><span class="pre">{exp:playa:parents}</span></tt>’ <tt class="docutils literal"><span class="pre">entry_id=</span></tt> param now supports multiple entry IDs separated by <tt class="docutils literal"><span class="pre">&amp;&amp;</span></tt>’s to get all of the common children or parents, respectively</li>
+<li>Playa no longer uses the deprecated <tt class="docutils literal"><span class="pre">set_gmp()</span></tt> function</li>
+<li>Drop panes’ JavaScript now triggers a “change” event when an entry is selected or deselected</li>
+<li>Fixed a bug where the <tt class="docutils literal"><span class="pre">{exp:playa:siblings}</span></tt> tag would return all Playa children, rather than just the siblings</li>
+<li>Renamed Playa’s language file back to lang.playa.php</li>
+<li>Fixed a bug where the Output Profiler was getting included in keyword search results if there were no matched entries</li>
+<li>Fixed CSS conflicts with NSM Override.css</li>
+<li>Added new <tt class="docutils literal"><span class="pre">playa_field_selections_query</span></tt>, <tt class="docutils literal"><span class="pre">playa_save_rels</span></tt>, and <tt class="docutils literal"><span class="pre">playa_fetch_rels_query</span></tt> hooks</li>
+<li>Fixed a bug where the single-select’s entries dropdown would disappear if you clicked on its scrollbar</li>
+<li>Fixed the Ctrl-click behavior on Windows</li>
+<li>Fixed a CSS glitch if there are less than two available or selected entries</li>
+</ul>
+</div>
+<div class="section" id="playa-4-1-0-3">
+<h2>Playa 4.1.0.3<a class="headerlink" href="#playa-4-1-0-3" title="Permalink to this headline">¶</a></h2>
+<p>Released on Nov 17, 2011</p>
+<ul class="simple">
+<li>Fixed a MySQL error in the Playa 4 updater script if there were Playa relationships existing in both normal Playa fields and Matrix fields</li>
+</ul>
+</div>
+<div class="section" id="playa-4-1-0-2">
+<h2>Playa 4.1.0.2<a class="headerlink" href="#playa-4-1-0-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on Nov 2, 2011</p>
+<ul class="simple">
+<li>Fixed a bug where the entry list would intermittently disappear immediately after opening in the single-select UI mode</li>
+</ul>
+</div>
+<div class="section" id="playa-4-1-0-1">
+<h2>Playa 4.1.0.1<a class="headerlink" href="#playa-4-1-0-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Nov 1, 2011</p>
+<ul class="simple">
+<li>Fixed MySQL errors on <tt class="docutils literal"><span class="pre">{exp:playa:children}</span></tt> and <tt class="docutils literal"><span class="pre">{exp:playa:parents}</span></tt></li>
+</ul>
+</div>
+<div class="section" id="playa-4-1">
+<h2>Playa 4.1<a class="headerlink" href="#playa-4-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Nov 1, 2011</p>
+<ul class="simple">
+<li>Added <tt class="docutils literal"><span class="pre">{exp:playa:siblings}</span></tt>, <tt class="docutils literal"><span class="pre">{exp:playa:total_siblings}</span></tt>, and <tt class="docutils literal"><span class="pre">{exp:playa:sibling_ids}</span></tt> tags</li>
+<li>Added the <tt class="docutils literal"><span class="pre">child_id=</span></tt> param to <tt class="docutils literal"><span class="pre">{exp:playa:children}</span></tt></li>
+<li>Added the <tt class="docutils literal"><span class="pre">parent_id=</span></tt> to <tt class="docutils literal"><span class="pre">{exp:playa:parents}</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">:total_children</span></tt> and <tt class="docutils literal"><span class="pre">:total_parents</span></tt> now always return a number</li>
+<li>Playa now uses <tt class="docutils literal"><span class="pre">$EE-&gt;TMPL-&gt;parse_variables_row()</span></tt> to parse relative entry tags (<tt class="docutils literal"><span class="pre">parent:</span></tt>/<tt class="docutils literal"><span class="pre">child:</span></tt>) so things like <tt class="docutils literal"><span class="pre">{parent:entry_date</span> <span class="pre">format=&quot;%F</span> <span class="pre">%d</span> <span class="pre">%Y&quot;}</span></tt> now work``</li>
+<li>Tweaked the single-select UI so that the keyword search is always visible, no matter where the user clicked on the field</li>
+<li>Ensure that there are no duplicate entries pulled in from the same Playa tag</li>
+<li>Fixed bugs for better IE7 compatibility</li>
+</ul>
+</div>
+<div class="section" id="playa-4-0-5">
+<h2>Playa 4.0.5<a class="headerlink" href="#playa-4-0-5" title="Permalink to this headline">¶</a></h2>
+<p>Released on Apr 27, 2011</p>
+<ul class="simple">
+<li>Added field and Matrix cell validation for if the field/cell is set to be required</li>
+<li>Added an MH Multi Relationship field converter</li>
+<li>Fixed a bug where Matrix cell tags would display the parent entry’s data rather than the child’s on some servers</li>
+</ul>
+</div>
+<div class="section" id="playa-4-0-4-1">
+<h2>Playa 4.0.4.1<a class="headerlink" href="#playa-4-0-4-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Mar 16, 2011</p>
+<ul class="simple">
+<li>Removed <tt class="docutils literal"><span class="pre">print_r()</span></tt> statement</li>
+</ul>
+</div>
+<div class="section" id="playa-4-0-4">
+<h2>Playa 4.0.4<a class="headerlink" href="#playa-4-0-4" title="Permalink to this headline">¶</a></h2>
+<p>Released on Mar 16, 2011</p>
+<ul class="simple">
+<li>Fixed some template parsing errors caused by <tt class="docutils literal"><span class="pre">:total_children</span></tt> tags which don’t have anything to return</li>
+<li>Fixed a Javascript error in Internet Explorer when using the single-select UI mode</li>
+<li>Fixed the <tt class="docutils literal"><span class="pre">orderby=</span></tt> param</li>
+<li>Updated the Playa3 folder to Playa 3.1.2 for EE1 users</li>
+</ul>
+</div>
+<div class="section" id="playa-4-0-3">
+<h2>Playa 4.0.3<a class="headerlink" href="#playa-4-0-3" title="Permalink to this headline">¶</a></h2>
+<p>Released on Feb 23, 2011</p>
+<ul class="simple">
+<li>Added “Show expired entries?” and “Show future entries?” field settings</li>
+<li><tt class="docutils literal"><span class="pre">show_future_entries=</span></tt> and <tt class="docutils literal"><span class="pre">show_expired=</span></tt> tag parameters are now set to “no” by default across all Playa tags</li>
+<li>Fixed a security vulnerability with the <tt class="docutils literal"><span class="pre">dynamic_parameters=</span></tt> tag parameter</li>
+<li>Fixed <tt class="docutils literal"><span class="pre">sort=&quot;random&quot;</span></tt> tag parameter</li>
+<li>Fixed a bug where <tt class="docutils literal"><span class="pre">total_children</span></tt> and <tt class="docutils literal"><span class="pre">total_parents</span></tt> tags would return the total number of entries when they should have returned “0”</li>
+<li>Fixed a bug where Playa tags wouldn’t return anything after having already been parsed once in the same HTTP request</li>
+<li>Fixed a bug where Playa’s fieldtype tags would only output once when the parent <tt class="docutils literal"><span class="pre">{exp:channel:entries}</span></tt> tag had <tt class="docutils literal"><span class="pre">cache=&quot;yes&quot;</span></tt> set</li>
+<li>Fixed a bug where Playa wouldn’t display entries being pulled from a different MSM site <em>(``site=`` tag parameter required to get it working)</em></li>
+<li>Fixed a Javascript error when using a Playa field within a Matrix field which doesn’t have any available entries</li>
+<li>Fixed a bug where Playa fields wouldn’t display the correct entry status colors for statuses whose Highlight setting begins with “<tt class="docutils literal"><span class="pre">#</span></tt>”</li>
+</ul>
+</div>
+<div class="section" id="playa-4-0-2-1">
+<h2>Playa 4.0.2.1<a class="headerlink" href="#playa-4-0-2-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Feb 7, 2011</p>
+<ul class="simple">
+<li>Fixed a PHP error when using <tt class="docutils literal"><span class="pre">field=</span></tt> or <tt class="docutils literal"><span class="pre">col=</span></tt> params</li>
+</ul>
+</div>
+<div class="section" id="playa-4-0-2">
+<h2>Playa 4.0.2<a class="headerlink" href="#playa-4-0-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on Feb 7, 2011</p>
+<ul class="simple">
+<li>Added <tt class="docutils literal"><span class="pre">{if</span> <span class="pre">no_children}</span></tt> and <tt class="docutils literal"><span class="pre">{if</span> <span class="pre">no_parents}</span></tt> conditionals</li>
+<li>Simplified the field markup a bit to improve Javascript performance</li>
+<li>Fixed a PHP error that occurred when using Playa’s module tags on a template that has no <tt class="docutils literal"><span class="pre">{exp:channel:entries}</span></tt> tags</li>
+<li>Fixed a CSS conflict with the Corporate theme that occurred when using Playa within a Matrix field</li>
+</ul>
+</div>
+<div class="section" id="playa-4-0-1">
+<h2>Playa 4.0.1<a class="headerlink" href="#playa-4-0-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Feb 3, 2011</p>
+<ul class="simple">
+<li>Added a new “Filter Minimum” setting to the global fieldtype settings</li>
+<li>Fixed several issues with fieldtype tag parsing by converting fieldtype tags to module tags before <tt class="docutils literal"><span class="pre">{exp:channel:entries}</span></tt> has a chance to parse them</li>
+<li>Fixed a PHP error when using the <tt class="docutils literal"><span class="pre">:child_ids</span></tt> and <tt class="docutils literal"><span class="pre">:parent_ids</span></tt> tags</li>
+<li>Fixed a bug where the Drop Panes UI wouldn&#8217;t display entries in the user-defined order</li>
+<li>Fixed a bug where Playa fields within Matrix fields wouldn&#8217;t remember their field settings when using the keyword search or applying filters</li>
+<li>Fixed a bug where the Single Select UI would show a large empty drop-down box if there were no keyword search results to display</li>
+<li>Fixed the appearance of Drop Panes when there are less than three available entries</li>
+<li>Fixed a couple CSS conflicts with the Corporate theme</li>
+<li>Prevented the scrollbar from displaying when it&#8217;s not necessary in Firefox</li>
+<li><tt class="docutils literal"><span class="pre">field=</span></tt> parameters in <tt class="docutils literal"><span class="pre">{exp:playa}</span></tt> tags now respect the primary entry&#8217;s <tt class="docutils literal"><span class="pre">site_id</span></tt></li>
+<li>Improved SQL performance in templates</li>
+<li>Updated the code examples in the Nested Relationships docs to use the <tt class="docutils literal"><span class="pre">:child_ids</span></tt> tag rather than the deprecated <tt class="docutils literal"><span class="pre">:entry_ids</span></tt> tag.</li>
+<li>Added a note to the Updating Instructions to warn against uninstalling Playa before updating</li>
+</ul>
+</div>
+<div class="section" id="playa-4-0">
+<h2>Playa 4.0<a class="headerlink" href="#playa-4-0" title="Permalink to this headline">¶</a></h2>
+<p>Released on Feb 2, 2011</p>
+<ul class="simple">
+<li>Dropped EE1 compatibility</li>
+<li>New translucent Drop Panes UI</li>
+<li>New single-select UI with autocomplete</li>
+<li>New <tt class="docutils literal"><span class="pre">{exp:playa}</span></tt> module tags, enabling much more powerful templating</li>
+<li>Relationships are now stored in <tt class="docutils literal"><span class="pre">exp_playa_relationships</span></tt> rather than EE’s built-in <tt class="docutils literal"><span class="pre">exp_relationships</span></tt></li>
+<li>Replaced “UI Mode” field setting with simpler “Allow multiple relationships?” setting</li>
+<li>The filter bar above the Drop Panes UI now automatically becomes visible when 20 or more entries are available to be selected</li>
+<li>Added Playa converters for Relationship fields and Solspace’s Related Entries module</li>
+</ul>
+</div>
+<div class="section" id="playa-3-1-2">
+<h2>Playa 3.1.2<a class="headerlink" href="#playa-3-1-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on Mar 16, 2011</p>
+<ul class="simple">
+<li>Added <tt class="docutils literal"><span class="pre">start_on=</span></tt> and <tt class="docutils literal"><span class="pre">stop_before=</span></tt> tag parameters</li>
+<li>Simplified the POST data Playa passes to remember which entries are already selected, preventing a “Disallowed Key Characters” error</li>
+<li>[EE1] Fixed a bug where Playa Drop Panes cells would not know their input names on newly created Matrix rows, resulting in a “Disallowed Key Characters” error</li>
+<li>[EE2] Fixed a PHP error that occurred when deleting a Playa field without any relationships</li>
+<li>[EE2] Prevented a PHP error that occurred when ExpressionEngine called Playa’s <tt class="docutils literal"><span class="pre">post_save()</span></tt> method without having called its <tt class="docutils literal"><span class="pre">save()</span></tt> method first</li>
+</ul>
+</div>
+<div class="section" id="playa-3-1-1">
+<h2>Playa 3.1.1<a class="headerlink" href="#playa-3-1-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Dec 15, 2010</p>
+<ul class="simple">
+<li>[EE2] Relationships created by a Playa field are now deleted from the database when the Playa field is deleted <em>(requires EE 2.1.2)</em></li>
+<li>[EE2] Relationships created by a Playa cell within a Matrix field are now deleted from the database when the Playa column on the entire Matrix field are deleted <em>(requires Matrix 2.1.1)</em></li>
+<li>[EE2] Fixed a couple CSS quirks with EE 2.1.2</li>
+<li>[EE2] Fixed an incompatibility with Solspace Super Search</li>
+</ul>
+</div>
+<div class="section" id="playa-3-1">
+<h2>Playa 3.1<a class="headerlink" href="#playa-3-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Nov 29, 2010</p>
+<ul class="simple">
+<li>Added the ability to pre-filter entries by the current author</li>
+<li>Added the ability to pre-filter entries by the current channel</li>
+<li>Playa-based relationships are now properly deleted when their containing Matrix row is removed <em>(requires Matrix 2.1)</em></li>
+<li>Single primary tags (and empty primary tag pairs) will now return nothing, rather than fall back to the <tt class="docutils literal"><span class="pre">:ul</span></tt> tag</li>
+<li>[EE1] Moved the language folder into the module’s folder</li>
+<li>Added Upgrading Instructions to the Docs</li>
+</ul>
+</div>
+<div class="section" id="playa-3-0-10">
+<h2>Playa 3.0.10<a class="headerlink" href="#playa-3-0-10" title="Permalink to this headline">¶</a></h2>
+<p>Released on Nov 16, 2010</p>
+<ul class="simple">
+<li>[EE2] Fixed template parsing when two fields from different MSM sites have the same name</li>
+<li>[EE2] Fixed Drop Panes UI when used within Matrix and without filters</li>
+<li>[EE2] Fixed a PHP error</li>
+<li>[EE1] Fixed a Javascript error</li>
+</ul>
+</div>
+<div class="section" id="playa-3-0-9">
+<h2>Playa 3.0.9<a class="headerlink" href="#playa-3-0-9" title="Permalink to this headline">¶</a></h2>
+<p>Released on Aug 30, 2010</p>
+<ul class="simple">
+<li>Added <tt class="docutils literal"><span class="pre">dynamic_parameters=</span></tt> param</li>
+<li>Made all PHP includes use absolute paths</li>
+<li>[EE1] Added <a class="reference external" href="http://expressionengine.com/index.php?affiliate=brandonkelly&amp;page=/downloads/details/cloner/">Cloner</a> support</li>
+<li>[EE2] Added <a class="reference external" href="http://devot-ee.com/add-ons/mx-cloner/">MX Cloner</a> support</li>
+<li>[EE2] Added autosave support</li>
+<li>[EE2] Fixed incompatibilities with other add-ons using <tt class="docutils literal"><span class="pre">generate_json()</span></tt></li>
+</ul>
+</div>
+<div class="section" id="playa-3-0-8">
+<h2>Playa 3.0.8<a class="headerlink" href="#playa-3-0-8" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jul 27, 2010</p>
+<ul class="simple">
+<li>Bundled documentation</li>
+<li>Moved theme files to themes/third_party/playa</li>
+<li>Added <tt class="docutils literal"><span class="pre">{rel_id}</span></tt> tag</li>
+<li>No longer use Search module for Keyword filter</li>
+<li>Show category filter even if there’s only one category</li>
+<li>Fix Javascript error when jQuery is in noConflict mode</li>
+<li>[EE2] Fixed PHP error on some servers when installing Playa</li>
+<li>[EE2] Fixed PHP errors that would occur when saving an entry that didn’t have a Playa field</li>
+<li>[EE2] Fixed Matrix compatibility in templates</li>
+</ul>
+</div>
+<div class="section" id="playa-3-0-7">
+<h2>Playa 3.0.7<a class="headerlink" href="#playa-3-0-7" title="Permalink to this headline">¶</a></h2>
+<p>Released on May 13, 2010</p>
+<ul class="simple">
+<li>Fixed the <tt class="docutils literal"><span class="pre">offset</span></tt> and <tt class="docutils literal"><span class="pre">limit</span></tt> params</li>
+<li>[EE2] Fixed the <tt class="docutils literal"><span class="pre">backspace</span></tt> param</li>
+</ul>
+</div>
+<div class="section" id="playa-3-0-6">
+<h2>Playa 3.0.6<a class="headerlink" href="#playa-3-0-6" title="Permalink to this headline">¶</a></h2>
+<p>Released on May 10, 2010</p>
+<ul class="simple">
+<li>Fixed a Javascript error that occurred when using Select and Multi-select UI modes within <a class="reference external" href="http://pixelandtonic.com/matrix">Matrix</a></li>
+<li>[EE2] Fixed a PHP error that occurred when saving an entry without any Playa selections</li>
+</ul>
+</div>
+<div class="section" id="playa-3-0-5">
+<h2>Playa 3.0.5<a class="headerlink" href="#playa-3-0-5" title="Permalink to this headline">¶</a></h2>
+<p>Released on May 4, 2010</p>
+<ul class="simple">
+<li>[EE1] Fixed field setting saving</li>
+</ul>
+</div>
+<div class="section" id="playa-3-0-4">
+<h2>Playa 3.0.4<a class="headerlink" href="#playa-3-0-4" title="Permalink to this headline">¶</a></h2>
+<p>Released on May 4, 2010</p>
+<ul class="simple">
+<li><a class="reference external" href="http://pixelandtonic.com/matrix">Matrix 2</a> compatibility</li>
+<li>Check for <tt class="docutils literal"><span class="pre">playa_site_index</span></tt> config setting as an alternative to the Site URL for running the Drop Pane filters</li>
+<li>Fixed a bug that limited Playa fields to only display 100 entries when set to show all</li>
+<li>Fixed a PHP error that occurred when installing the module separately from the fieldtype and extension</li>
+<li>Keyword search no longer searches in comments associated with the entries</li>
+</ul>
+</div>
+<div class="section" id="playa-3-0-3">
+<h2>Playa 3.0.3<a class="headerlink" href="#playa-3-0-3" title="Permalink to this headline">¶</a></h2>
+<p>Released on Apr 16, 2010</p>
+<ul class="simple">
+<li>[EE2] Fixed a bug that would cause problems while upgrading EE to 2.0.2</li>
+</ul>
+</div>
+<div class="section" id="playa-3-0-2">
+<h2>Playa 3.0.2<a class="headerlink" href="#playa-3-0-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on Apr 16, 2010</p>
+<ul class="simple">
+<li>Fixed some drag-n-drop weirdness</li>
+<li>Fixed <tt class="docutils literal"><span class="pre">offset=</span></tt> and <tt class="docutils literal"><span class="pre">sort=&quot;random&quot;</span></tt> params</li>
+<li>[EE2] Added <tt class="docutils literal"><span class="pre">{count}</span></tt> and <tt class="docutils literal"><span class="pre">{switch}</span></tt> tags (already available in EE1 thanks to FieldFrame)</li>
+</ul>
+</div>
+<div class="section" id="playa-3-0-1">
+<h2>Playa 3.0.1<a class="headerlink" href="#playa-3-0-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Apr 12, 2010</p>
+<ul class="simple">
+<li>Fixed the Statuses field setting</li>
+<li>Fixed the <tt class="docutils literal"><span class="pre">weblog</span></tt>/<tt class="docutils literal"><span class="pre">channel</span></tt> tag param</li>
+</ul>
+</div>
+<div class="section" id="playa-3-0">
+<h2>Playa 3.0<a class="headerlink" href="#playa-3-0" title="Permalink to this headline">¶</a></h2>
+<p>Released on Apr 12, 2010</p>
+<ul class="simple">
+<li>EE2 Compatibility</li>
+<li>New, simplified Drop Panes UI</li>
+<li>Lots of new field settings to define your available entries</li>
+<li>Huge performance improvements in the Control Panel</li>
+</ul>
+</div>
+<div class="section" id="playa-2-1-4">
+<h2>Playa 2.1.4<a class="headerlink" href="#playa-2-1-4" title="Permalink to this headline">¶</a></h2>
+<p>Released on Mar 20, 2010</p>
+<ul class="simple">
+<li>Fixed bug which caused Playa Drop Pane fields to freeze up while dragging items</li>
+</ul>
+</div>
+<div class="section" id="playa-2-1-3">
+<h2>Playa 2.1.3<a class="headerlink" href="#playa-2-1-3" title="Permalink to this headline">¶</a></h2>
+<p>Released on Feb 23, 2010</p>
+<ul class="simple">
+<li>Added <tt class="docutils literal"><span class="pre">`:entry_ids</span></tt> &lt;<a class="reference external" href="http://pixelandtonic.com/playa/docs/templates#entry_ids">http://pixelandtonic.com/playa/docs/templates#entry_ids</a>&gt;`_ tag</li>
+<li>Removed <tt class="docutils literal"><span class="pre">&lt;optgroup&gt;</span></tt>’s from Weblog filter when the field is only pulling entries from one weblog</li>
+</ul>
+</div>
+<div class="section" id="playa-2-1-2">
+<h2>Playa 2.1.2<a class="headerlink" href="#playa-2-1-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jan 18, 2010</p>
+<ul class="simple">
+<li>PHP and Javascript performance improvements</li>
+<li>Show future and expired entries in Keywords search</li>
+<li>Fixed bugs that surface when using Drop Panes within an <a class="reference external" href="http://pixelandtonic.com/ffmatrix">FF Matrix</a> field</li>
+<li>Properly escape single quotes</li>
+</ul>
+</div>
+<div class="section" id="playa-2-1-1">
+<h2>Playa 2.1.1<a class="headerlink" href="#playa-2-1-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Aug 12, 2009</p>
+<ul class="simple">
+<li>Fixed a Javascript error <em>(thanks `Karl! &lt;http://www.karlswedberg.com/&gt;`_)</em></li>
+<li>Changed the Keyword Search behavior to only initiate a search after the user has stopped typing</li>
+</ul>
+</div>
+<div class="section" id="playa-2-1">
+<h2>Playa 2.1<a class="headerlink" href="#playa-2-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Aug 3, 2009</p>
+<ul class="simple">
+<li>Added <tt class="docutils literal"><span class="pre">group_id</span></tt>, <tt class="docutils literal"><span class="pre">category_group</span></tt>, <tt class="docutils literal"><span class="pre">entry_id</span></tt>, <tt class="docutils literal"><span class="pre">url_title</span></tt>, <tt class="docutils literal"><span class="pre">show_expired</span></tt>, <tt class="docutils literal"><span class="pre">show_future_entries</span></tt>, <tt class="docutils literal"><span class="pre">fixed_order</span></tt>, and <tt class="docutils literal"><span class="pre">sort=&quot;random&quot;</span></tt> <a class="reference external" href="http://pixelandtonic.com/playa/docs/templates#params">tag params</a></li>
+<li>Added <tt class="docutils literal"><span class="pre">:ul</span></tt> and <tt class="docutils literal"><span class="pre">:ol</span></tt> <a class="reference external" href="http://pixelandtonic.com/playa/docs/templates#ol">template tags</a></li>
+<li>New Multi-select and Select <a class="reference external" href="http://pixelandtonic.com/playa/docs/ui-modes">UI modes</a></li>
+<li>IE support</li>
+</ul>
+</div>
+<div class="section" id="playa-2-0-7">
+<h2>Playa 2.0.7<a class="headerlink" href="#playa-2-0-7" title="Permalink to this headline">¶</a></h2>
+<p>Released on May 10, 2009</p>
+<ul class="simple">
+<li>Added Multi-select <a class="reference external" href="http://pixelandtonic.com/playa/docs/ui-modes">UI mode</a> to Playa celltype</li>
+</ul>
+</div>
+<div class="section" id="playa-2-0-6">
+<h2>Playa 2.0.6<a class="headerlink" href="#playa-2-0-6" title="Permalink to this headline">¶</a></h2>
+<p>Released on Apr 22, 2009</p>
+<ul class="simple">
+<li>Added <tt class="docutils literal"><span class="pre">category</span></tt>, <tt class="docutils literal"><span class="pre">author</span></tt>, and <tt class="docutils literal"><span class="pre">weblog</span></tt> <a class="reference external" href="http://pixelandtonic.com/playa/docs/templates#params">tag params</a></li>
+</ul>
+</div>
+<div class="section" id="playa-2-0-4">
+<h2>Playa 2.0.4<a class="headerlink" href="#playa-2-0-4" title="Permalink to this headline">¶</a></h2>
+<p>Released on Apr 19, 2009</p>
+<ul class="simple">
+<li>Fixed <tt class="docutils literal"><span class="pre">{count}</span></tt> and <tt class="docutils literal"><span class="pre">{switch}</span></tt> tags</li>
+</ul>
+</div>
+<div class="section" id="playa-2-0-3">
+<h2>Playa 2.0.3<a class="headerlink" href="#playa-2-0-3" title="Permalink to this headline">¶</a></h2>
+<p>Released on Apr 19, 2009</p>
+<ul class="simple">
+<li>added <tt class="docutils literal"><span class="pre">`:total_related_entries</span></tt> &lt;<a class="reference external" href="http://pixelandtonic.com/playa/docs/templates#total_related_entries">http://pixelandtonic.com/playa/docs/templates#total_related_entries</a>&gt;`_ tag</li>
+</ul>
+</div>
+<div class="section" id="playa-2-0-2">
+<h2>Playa 2.0.2<a class="headerlink" href="#playa-2-0-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on Apr 16, 2009</p>
+<ul class="simple">
+<li>Fixed category filtering</li>
+</ul>
+</div>
+<div class="section" id="playa-2-0">
+<h2>Playa 2.0<a class="headerlink" href="#playa-2-0" title="Permalink to this headline">¶</a></h2>
+<p>Released on Apr 11, 2009</p>
+<ul class="simple">
+<li>Drop Panes <a class="reference external" href="http://pixelandtonic.com/playa/docs/ui-modes">UI mode</a></li>
+<li>In-field filtering and sorting</li>
+<li><a class="reference external" href="http://pixelandtonic.com/ffmatrix">FF Matrix</a> celltype</li>
+<li>New <a class="reference external" href="http://pixelandtonic.com/playa/docs/templates">template tag</a> with <tt class="docutils literal"><span class="pre">status</span></tt>, <tt class="docutils literal"><span class="pre">orderby</span></tt>, <tt class="docutils literal"><span class="pre">sort</span></tt>, <tt class="docutils literal"><span class="pre">limit</span></tt>, and <tt class="docutils literal"><span class="pre">backspace</span></tt> params, as well as <tt class="docutils literal"><span class="pre">{count}</span></tt>, <tt class="docutils literal"><span class="pre">{total_related_entries}</span></tt>, and <tt class="docutils literal"><span class="pre">{switch}</span></tt> tag variables</li>
+</ul>
+</div>
+</div>
+
+
+
+
+		</div>
+	</div>
+
+<script type="text/javascript" src="_static/js/docs.js"></script>
+
+</body>
+</html>

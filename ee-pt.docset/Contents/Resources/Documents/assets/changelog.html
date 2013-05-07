@@ -1,0 +1,388 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<title>Changelog - Assets Docs</title>
+	<link rel="stylesheet" href="_static/pygments.css" type="text/css">
+	<link rel="stylesheet" href="_static/css/docs.css" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="docs">
+	<script type="text/javascript">
+		if (typeof document.querySelectorAll != 'undefined')
+		{
+			document.body.className += ' hide-dds';
+		}
+	</script>
+
+	<div id="container">
+		<div id="sidebar">
+			<nav class="nav">
+				<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Assets Docs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Installing and Updating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using/index.html">Using Assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templating/index.html">Templating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers/index.html">Developer Docs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Changelog</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+			</nav>
+		</div>
+
+		<div id="main" class="has-sidebar">
+
+				<ul id="crumbs">
+					<li><a href="index.html">Assets Docs</a></li>
+				</ul>
+
+
+
+  <div class="section" id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="assets-2-1-2">
+<h2>Assets 2.1.2<a class="headerlink" href="#assets-2-1-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on Apr 30, 2013</p>
+<ul class="simple">
+<li>Added “Cancel” and “Add files” buttons at the bottom of the file selection sheet.</li>
+<li>The Max Width/Height settings are now enforced when uploading images to EE upload directories.</li>
+<li>Corrected a few bad index entries that could have remained in some installation scenarios.</li>
+<li>Failed uploads now display a proper error message.</li>
+<li>Fixed the date display in the file properties modal for EE 2.6.</li>
+<li>Fixed some IE8 CSS glitches.</li>
+<li>Fixed a bug where uplodaing an image via Safecracker would not get its thumbnails and manipulations generated.</li>
+<li>Fixed a bug where the Upload button would still appear to work when it was disabled.</li>
+</ul>
+</div>
+<div class="section" id="assets-2-1-1">
+<h2>Assets 2.1.1<a class="headerlink" href="#assets-2-1-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Apr 23, 2013</p>
+<ul class="simple">
+<li>Added EE 2.6 compatibility.</li>
+<li>Added the <tt class="docutils literal"><span class="pre">file_id</span></tt> parameter to the <tt class="docutils literal"><span class="pre">{exp:assets:files}</span></tt> tag.</li>
+<li>Added the <tt class="docutils literal"><span class="pre">format</span></tt> parameter to the <tt class="docutils literal"><span class="pre">:date</span></tt> field shortcut tag.</li>
+<li>Fixed a bug where <tt class="docutils literal"><span class="pre">{if</span> <span class="pre">no_results}</span></tt> would output content when it shouldn’t have.</li>
+<li>Fixed a bug that prevented letter case-only file renaming.</li>
+<li>Fixed a bug where the <tt class="docutils literal"><span class="pre">{size}</span></tt> variable tag would ignore its <tt class="docutils literal"><span class="pre">unformatted</span></tt> parameter within the primary tag pair.</li>
+<li>Fixed a bug where Upload Folder settings would not be remembered when upgrading to Assets 2.</li>
+<li>Fixed a bug where shortcut tags would not work with files uploaded via SafeCracker.</li>
+<li>Fixed a bug where image borders would show up incorrectly on the Publish page.</li>
+</ul>
+</div>
+<div class="section" id="assets-2-1">
+<h2>Assets 2.1<a class="headerlink" href="#assets-2-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Apr 9, 2013</p>
+<ul class="simple">
+<li>Added support for Rackspace Cloud Files and Google Cloud Storage</li>
+<li>External sources can now be set to a subfolder of a bucket/container</li>
+<li>Added <tt class="docutils literal"><span class="pre">{exp:assets:total_folders}</span></tt> and <tt class="docutils literal"><span class="pre">{exp:assets:total_files}</span></tt></li>
+<li>Added support for <tt class="docutils literal"><span class="pre">sort=&quot;random&quot;</span></tt> to <tt class="docutils literal"><span class="pre">{exp:assets:folders}</span></tt> and <tt class="docutils literal"><span class="pre">{exp:assets:files}</span></tt></li>
+<li>Added the <tt class="docutils literal"><span class="pre">{subfolders}</span></tt> tag to <tt class="docutils literal"><span class="pre">{exp:assets:folders}</span></tt></li>
+<li>Added the <tt class="docutils literal"><span class="pre">{total_subfolders}</span></tt> tag to <tt class="docutils literal"><span class="pre">{exp:assets:folders}</span></tt></li>
+<li>Added the <tt class="docutils literal"><span class="pre">file_id=</span></tt> parameter to <tt class="docutils literal"><span class="pre">{exp:assets:files}</span></tt></li>
+<li>Added a <tt class="docutils literal"><span class="pre">{file_id}</span></tt> tag to <tt class="docutils literal"><span class="pre">{exp:assets:files}</span></tt></li>
+<li>Draggables are now semi-transparent, so it’s possible to see the drop target.</li>
+<li>Image manipulation names are now case-insensitive.</li>
+<li>PNG files are now uploaded to Amazon S3 with the proper MIME type.</li>
+<li>File dates are now automatically set to the file’s modified date when uploaded.</li>
+<li>Fixed an issue with Better Workflow and Playa compatibility.</li>
+<li>Fixed an issue that prevented image thumbnails from appearing when Force URL Query Strings is enabled.</li>
+<li>Fixed an issue with indexing on some Windows servers.</li>
+<li>Fixed a bug where Assets would think it should deny access to sources when using SafeCracker.</li>
+<li>Fixed a bug with <tt class="docutils literal"><span class="pre">{if</span> <span class="pre">no_results}</span></tt> conditionals.</li>
+<li>Fixed a bug where context menus would only appear for the latest lazy-loaded batch of files in the file manager.</li>
+</ul>
+</div>
+<div class="section" id="assets-2-0-5">
+<h2>Assets 2.0.5<a class="headerlink" href="#assets-2-0-5" title="Permalink to this headline">¶</a></h2>
+<p>Released on Feb 4, 2013</p>
+<ul class="simple">
+<li>Assets now displays a spinner image when loading the next set of 100 files</li>
+<li>Fixed lazy file loading when in list view</li>
+<li>Assets now uses EE’s config/mimes.php list as a fallback if PHP can’t determine the mime type of a file when uploading to S3</li>
+<li>Fixed some CSS conflicts with NSM Override CSS (thanks Leevi!)</li>
+<li>Minor Javascript performance and bug fixes</li>
+<li>Fixed a bug where <tt class="docutils literal"><span class="pre">{size}</span></tt> tags would output the raw filesize in bytes rather than formatted when used with a <tt class="docutils literal"><span class="pre">var_prefix</span></tt></li>
+<li>Fixed a few areas that required PHP 5.2 to work properly</li>
+</ul>
+</div>
+<div class="section" id="assets-2-0-4">
+<h2>Assets 2.0.4<a class="headerlink" href="#assets-2-0-4" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jan 31, 2013</p>
+<ul class="simple">
+<li>Assets’ file manager now only shows 100 files initially, and loads the next 100 when the user scrolls to the bottom of the page, and so on</li>
+<li>Fixed a bug with Better Workflow compatibility</li>
+<li>Fixed the <tt class="docutils literal"><span class="pre">{size}</span></tt> tag’s <tt class="docutils literal"><span class="pre">format=</span></tt> parameter</li>
+<li>Fixed a bug that affected file renaming</li>
+<li>Fixed a bug that prevented Assets from realizing that there was a file name conflict</li>
+<li>Fixed a bug where files would not get displayed in Assets fields when the user didn’t have access to their upload directory</li>
+<li>Fixed a bug where selecting a date in the date picker would close the file metadata HUD</li>
+<li>Fixed a bug that prevented a dialog listing stale file records from being displayed after updating Assets’ indexes</li>
+<li>Fixed a bug where just-uploaded files wouldn’t get selected automatically</li>
+</ul>
+</div>
+<div class="section" id="assets-2-0-3">
+<h2>Assets 2.0.3<a class="headerlink" href="#assets-2-0-3" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jan 22, 2013</p>
+<ul class="simple">
+<li>Several keyboard navigation enhancements</li>
+<li>Added the <tt class="docutils literal"><span class="pre">var_prefix</span></tt> param and <tt class="docutils literal"><span class="pre">{if</span> <span class="pre">no_results}</span></tt> conditionals to <tt class="docutils literal"><span class="pre">{exp:assets:files}</span></tt> and <tt class="docutils literal"><span class="pre">{exp:assets:folders}</span></tt></li>
+<li>Resurrected the <tt class="docutils literal"><span class="pre">unformatted=&quot;yes&quot;</span></tt> param fon <tt class="docutils literal"><span class="pre">{size}</span></tt> variable tags</li>
+<li>Fixed the conflict resolution dialog when renaming a file to the same name as another in the same folder</li>
+<li>Fixed a bug that prevented Assets cells within Matrix within Low Variables from saving (thanks Low!)</li>
+<li>Fixed a bug that prevented you from typing ‘PM’ in the Date metadata text field</li>
+<li>Fixed a bug where newly-created subfolders wouldn’t get placed in alphabetical order</li>
+<li>Fixed a CSS glitch when the File Manager is accessed by non-Super Admins</li>
+<li>Fixed a bug where <tt class="docutils literal"><span class="pre">{width:my_manipulation}</span></tt> was outputting the height, and <tt class="docutils literal"><span class="pre">{height:my_manipulation}</span></tt> was outputting the width</li>
+<li>Fixed some wonkiness with File Manager scrolling when the height of the folders was greater than the height of the files</li>
+<li>Fixed horizontal scrolling in the File Manager’s folder list when a folder name is too long to fit in the space it’s given</li>
+<li>Fixed a bug where newly-selected files would get a file name in Assets fields where View was set to “Thumbs” but Show Filenames? was set to “No”</li>
+<li>Fixed a couple PHP errors while upgrading from Assets 1 to 2</li>
+<li>Fixed a couple PHP and MySQL errors when converting a File field to Assets</li>
+<li>Fixed a bug where thumbnails would not display correctly after previewing a Better Workflow entry draft</li>
+<li>Fixed a couple PHP exceptions that were getting thrown when an upload directory or file doesn’t exist anymore</li>
+<li>Fixed field and Matrix cell validation</li>
+<li>Fixed a bug where S3 image thumbnails weren’t getting displayed if the system/expressionengine/cache/assets/s3_sources/ folder was deleted</li>
+</ul>
+</div>
+<div class="section" id="assets-2-0-2">
+<h2>Assets 2.0.2<a class="headerlink" href="#assets-2-0-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jan 17, 2013</p>
+<ul class="simple">
+<li>Fixed a PHP error when loading Better Workflow drafts</li>
+<li>Fixed some areas where Assets wasn’t taking EE upload preference $config overrides into account</li>
+<li>Fixed a bug where moving a folder to an S3 bucket wouldn’t move its subfolders too</li>
+<li>Fixed the List View when PHP is not configured to parse short open tags</li>
+<li>Fixed a PHP error when updating to Assets 2 with nonexistent file paths in the exp_assets table</li>
+<li>Replaced a PHP error with a proper error message when saving Assets’ settings and Assets’ fieldtype is not installed</li>
+</ul>
+</div>
+<div class="section" id="assets-2-0-1">
+<h2>Assets 2.0.1<a class="headerlink" href="#assets-2-0-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jan 16, 2013</p>
+<ul class="simple">
+<li>Fixed a PHP error when running Assets on an earlier version of PHP than 5.3</li>
+<li>Fixed some installation/upgrade issues</li>
+<li>Fixed support for relative server paths (using <tt class="docutils literal"><span class="pre">$config['assets_cp_path']</span></tt>)</li>
+<li>Fixed a bug where the “Allow multiple selections” field setting wouldn’t stick</li>
+</ul>
+</div>
+<div class="section" id="assets-2-0">
+<h2>Assets 2.0<a class="headerlink" href="#assets-2-0" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jan 15, 2013</p>
+<ul class="simple">
+<li>Rewritten and redesigned from the ground up</li>
+<li>Amazon S3 support</li>
+<li>Files and folders are now stored in a local DB index</li>
+<li>Added conflict resolution options when attempting to place two files/folders in the same parent folder with the same name</li>
+<li>Added the ability to replace existing files without losing metadata and entry associations</li>
+<li>Added new <tt class="docutils literal"><span class="pre">{exp:assets:files}</span></tt> and <tt class="docutils literal"><span class="pre">{exp:assets:folders}</span></tt> module tags</li>
+<li>Added support for simple HTML file field uploads via SafeCracker</li>
+<li>Better Workflow compatibility</li>
+<li>Added some new extension hooks</li>
+</ul>
+</div>
+<div class="section" id="assets-1-2-2">
+<h2>Assets 1.2.2<a class="headerlink" href="#assets-1-2-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on Aug 29, 2012</p>
+<ul class="simple">
+<li>Added support for <tt class="docutils literal"><span class="pre">{assets_field:tag_func:manipulation_name}</span></tt> shortcut tags</li>
+<li>Added support for .ppt and .pptx files</li>
+<li>Percent signs are now removed from filenames on upload/move/rename</li>
+<li>Fixed some bugs relating to image manipulation generation</li>
+</ul>
+</div>
+<div class="section" id="assets-1-2-1">
+<h2>Assets 1.2.1<a class="headerlink" href="#assets-1-2-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jul 16, 2012</p>
+<ul class="simple">
+<li>Added <tt class="docutils literal"><span class="pre">unformatted=&quot;yes&quot;</span></tt> parameter to <tt class="docutils literal"><span class="pre">:size</span></tt> shortcut tags and <tt class="docutils literal"><span class="pre">{size}</span></tt> file property tags, to get the unformatted filesize in bytes</li>
+<li>Added support for <tt class="docutils literal"><span class="pre">var_prefix</span></tt> with image manipulations</li>
+<li>Added unique class names to the meta rows within file property modals</li>
+<li>Fixed a bug where image manipulations would not run on a subfolder</li>
+<li>Fixed the error message for disallowed mime types</li>
+</ul>
+</div>
+<div class="section" id="assets-1-2">
+<h2>Assets 1.2<a class="headerlink" href="#assets-1-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jul 10, 2012</p>
+<ul class="simple">
+<li>Assets now creates custom image manipulations when images are uploaded</li>
+<li>Assets now checks for “<tt class="docutils literal"><span class="pre">:manipulation_name</span></tt>” at the end of its file variable tags (e.g. <tt class="docutils literal"><span class="pre">{url:manipulation_name}</span></tt>), and outputs data accordingly</li>
+<li>Added support for <tt class="docutils literal"><span class="pre">{assets_field:manipulation_name}</span></tt> shortcut tag for outputting the URL of an image manipulation</li>
+<li>Assets now keeps exp_files up-to-date whenever an image enters or leaves the top level of an upload directory</li>
+<li>Assets now checks config/mimes.php to determine if a file should be allowed to be uploaded</li>
+<li>All subfolders beginning with an underscore are now hidden within Assets</li>
+<li>Fixed Required Field validation</li>
+<li>Fixed a PHP error when viewing a file</li>
+<li>Fixed a couple MySQL errors</li>
+</ul>
+</div>
+<div class="section" id="assets-1-1-5">
+<h2>Assets 1.1.5<a class="headerlink" href="#assets-1-1-5" title="Permalink to this headline">¶</a></h2>
+<p>Released on Apr 17, 2012</p>
+<ul class="simple">
+<li>Added support for Matrix fields within Low Variables</li>
+<li>Limited access to Assets’ settings to Super Admins</li>
+<li>Assets now uses CodeIgniter’s DIR_WRITE_MODE constant when creating new subfolders</li>
+<li>Fixed a bug where Assets fields wouldn’t get properly initialized if hidden by default</li>
+<li>Fixed a bug where single-select fields would show the “Remove File” button before a file was selected</li>
+<li>Fixed a bug where Assets fields would appear on top of other page elements</li>
+<li>Fixed a bug where all uploaded files were automatically selected in the Add File sheet, even if the associated Assets field only allows a single selection</li>
+<li>Fixed the Ctrl-click behavior on Windows</li>
+<li>Fixed a bug when displaying an Assets field with a dash in its field name in the template</li>
+<li>Fixed a bug where Assets would delete all previous selections when an entry is updated via the Channel Entries API, and doesn&#8217;t include Assets data</li>
+<li>Fixed some CSS conflicts with NSM Override.css</li>
+</ul>
+</div>
+<div class="section" id="assets-1-1-4">
+<h2>Assets 1.1.4<a class="headerlink" href="#assets-1-1-4" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jan 23, 2012</p>
+<ul class="simple">
+<li>[EE2] Added EE 2.4 compatibility, including support for the new <a class="reference external" href="http://expressionengine.com/user_guide/cp/content/files/file_upload_preferences.html#overriding-upload-paths-and-urls-using-configuration-variables">upload preference config variables</a></li>
+<li>Assets now recognizes .xlsx files as Excel files</li>
+<li>Fixed a bug where Assets fields wouldn’t render correctly when placed on a secondary tab in the Publish page</li>
+<li>Fixed a bug that caused Firefox to spike the CPU when editing metadata</li>
+<li>Fixed some IE7 compatibility issues</li>
+<li>Other minor bugfixes</li>
+</ul>
+</div>
+<div class="section" id="assets-1-1-3">
+<h2>Assets 1.1.3<a class="headerlink" href="#assets-1-1-3" title="Permalink to this headline">¶</a></h2>
+<p>Released on Sep 26, 2011</p>
+<ul class="simple">
+<li>Added <a class="reference external" href="https://github.com/pixelandtonic/matrix_multi_upload">Matrix Multi-Upload</a> compatibility (requires MMU 1.0)</li>
+<li>Cleaned up the Matrix celltype styling a bit</li>
+<li>Fixed an incompatibility with PHP 5.0.x and 5.1.x</li>
+</ul>
+</div>
+<div class="section" id="assets-1-1-2-1">
+<h2>Assets 1.1.2.1<a class="headerlink" href="#assets-1-1-2-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Sep 7, 2011</p>
+<ul class="simple">
+<li>Went back to manually converting spaces to “%20”s rather than using <tt class="docutils literal"><span class="pre">urlencode()</span></tt> in file URLs, due to subfolder slashes getting encoded to “%2F”</li>
+</ul>
+</div>
+<div class="section" id="assets-1-1-2">
+<h2>Assets 1.1.2<a class="headerlink" href="#assets-1-1-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on Sep 6, 2011</p>
+<ul class="simple">
+<li>When uploading, moving, or renaming a file, its filename is now cleaned up in the same way that EE does it (converts spaces to underscores, etc.)</li>
+<li>Assets now remembers which files were selected between file view refreshes (i.e. when renaming or moving a file), and will automatically scroll to the first selected file</li>
+<li>Added the <tt class="docutils literal"><span class="pre">assets_cp_path</span></tt> config setting for sites with both relative Upload Directory server paths and a masked Control Panel</li>
+<li>Added <tt class="docutils literal"><span class="pre">orderby=</span></tt> and <tt class="docutils literal"><span class="pre">sort=</span></tt> tag parameters</li>
+<li>File URLs are now run through <tt class="docutils literal"><span class="pre">urlencode()</span></tt>, rather than just getting their spaces swapped for %20’s</li>
+<li>Made all file uploading error language localizable in lang.assets.php</li>
+<li>Fixed the look of selected files in Low Variables when using List View</li>
+<li>Fixed a bug where renaming a folder or file simply to change the text case (“Ex” to “ex”) would append a “1” to the end of the new name</li>
+<li>Fixed a Javascript error due to unescaped curly braces in a regular expression</li>
+</ul>
+</div>
+<div class="section" id="assets-1-1-1">
+<h2>Assets 1.1.1<a class="headerlink" href="#assets-1-1-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Aug 29, 2011</p>
+<ul class="simple">
+<li>Fixed a CSS glitch after sorting files in List View</li>
+<li>Fixed a bug where the user would be prompted to increase PHP’s post_max_size and upload_max_filesize settings even if they were set bigger than the file being uploaded</li>
+<li>Fixed a Javascript error in IE</li>
+</ul>
+</div>
+<div class="section" id="assets-1-1-0-1">
+<h2>Assets 1.1.0.1<a class="headerlink" href="#assets-1-1-0-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Aug 23, 2011</p>
+<ul class="simple">
+<li>Fixed a bug where the status bar would display “upload_status” rather than the localized string while uploading files</li>
+</ul>
+</div>
+<div class="section" id="assets-1-1">
+<h2>Assets 1.1<a class="headerlink" href="#assets-1-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Aug 23, 2011</p>
+<ul class="simple">
+<li>Added Low Variables compatibility (requires LV 1.3.7 or later)</li>
+<li>Added an upload progress bar</li>
+<li>Assets now enforces the Max Size and Allowed File Types settings when uploading files</li>
+<li>After uploading a file, Assets will now automatically scroll to the file and select it</li>
+<li>Assets now remembers which files were selected when changing view modes</li>
+<li>Added the ability to delete multiple folders or files at once</li>
+<li>Added the <tt class="docutils literal"><span class="pre">assets_meta_add_row</span></tt> hook, enabling extensions to add custom metadata fields</li>
+<li>Added property and metadata search parameters (<tt class="docutils literal"><span class="pre">extension=</span></tt>, <tt class="docutils literal"><span class="pre">title=</span></tt>, etc.)</li>
+<li>Added the <tt class="docutils literal"><span class="pre">var_prefix=</span></tt> parameter to the primary tag pair</li>
+<li>Added the <tt class="docutils literal"><span class="pre">{absolute_total_files}</span></tt> variable tag</li>
+<li>Added the <tt class="docutils literal"><span class="pre">{date_modified}</span></tt> variable tag and <tt class="docutils literal"><span class="pre">:date_modified</span></tt> shortcut tag</li>
+<li>The <tt class="docutils literal"><span class="pre">{url}</span></tt> variable tag and <tt class="docutils literal"><span class="pre">:url</span></tt> shortcut tag now encode any spaces as “<tt class="docutils literal"><span class="pre">%20</span></tt>”</li>
+<li>Improved template performance</li>
+<li>Changed the behavior of the “All” checkbox in the Upload Directories field setting so that it deselects all upload directories upon being unchecked</li>
+<li>Added validation to enforce if the Assets field/cell is required</li>
+<li>Assets now deletes unneeded rows in exp_assets_entries when deleting an entry or Matrix row</li>
+<li>Assets now sends its Ajax requests over SSL if you’re accessing the Control Panel via SSL (<a class="reference external" href="https://">https://</a>)</li>
+<li>Fixed a bug where Assets would forget which files had been selected if an entry wasn’t saved due to a validation error</li>
+<li>Fixed a bug where Assets fields wouldn’t remember the file order when returning to an existing entry</li>
+<li>Fixed a couple MSM incompatibilities</li>
+<li>Fixed a bug where clicking “Cancel’ after clicking “Rename Folder/File” would rename the folder or file to “ 1”</li>
+</ul>
+</div>
+<div class="section" id="assets-1-0-3">
+<h2>Assets 1.0.3<a class="headerlink" href="#assets-1-0-3" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jul 19, 2011</p>
+<ul class="simple">
+<li>Added <tt class="docutils literal"><span class="pre">{server_path}</span></tt> and <tt class="docutils literal"><span class="pre">{subfolder}</span></tt> var tags to the primary tag pair</li>
+<li>Added <tt class="docutils literal"><span class="pre">:server_path</span></tt> and <tt class="docutils literal"><span class="pre">:subfolder</span></tt> shortcut tags</li>
+<li>Enabled subfolder creation from the file selection sheet</li>
+<li>Fixed some CSS glitches when using Assets with SafeCracker</li>
+<li>Assets now manually sorts subfolders and file names in thumbnail view, to ensure they are displayed in alphabetical order</li>
+<li>Fixed a SQL syntax error that occurred during installation on some server configurations</li>
+<li>Fixed a PHP error that occurred when using the <tt class="docutils literal"><span class="pre">:width</span></tt> and <tt class="docutils literal"><span class="pre">:height</span></tt> tags</li>
+<li>Fixed a bug where the <tt class="docutils literal"><span class="pre">{filename}</span></tt> var tag and <tt class="docutils literal"><span class="pre">:filename</span></tt> shortcut tag would include the “{filedir_X}” prefix in the return data</li>
+</ul>
+</div>
+<div class="section" id="assets-1-0-2">
+<h2>Assets 1.0.2<a class="headerlink" href="#assets-1-0-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jul 1, 2011</p>
+<ul class="simple">
+<li>Scrollable areas now automatically scroll as needed when clicking the up and down arrows to navigate the list</li>
+<li>Fixed a bug where dragging a subfolder would pull its ancestor folders along with it</li>
+<li>Fixed numerous visual quirks, especially in EE 2.2 or later</li>
+<li>Fixed a bug where templates wouldn’t display files from other MSM sites</li>
+</ul>
+</div>
+<div class="section" id="assets-1-0-1">
+<h2>Assets 1.0.1<a class="headerlink" href="#assets-1-0-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jul 1, 2011</p>
+<ul class="simple">
+<li>The File Manager and File Browser sheet now select the first listed Upload Directory by default</li>
+<li>Added primitive keyboard navigation support to folders and files views</li>
+<li>Added a new “Settings” page to the module, with a License Key setting</li>
+<li>Moved all previously hard-coded language strings into the lang.assets.php</li>
+<li>If the EE Output Profiler is enabled, it no longer has its way with the File Manager’s folder list</li>
+<li>Fixed right-clicking files and folders on Firefox/Mac</li>
+<li>Fixed a bug where affected files’ file_path column in exp_assets wouldn’t get updated when moving or renaming a parent folder</li>
+<li>Fixed a bug where right-clicking on a selected file in an Assets field and choosing “View file” would result in a Javascript error</li>
+<li>Fixed a bug that prevented the metadata textareas from auto-growing as you type in EE 2.2</li>
+<li>Fixed a PHP error during file uploading on some servers</li>
+</ul>
+</div>
+<div class="section" id="assets-1-0">
+<h2>Assets 1.0<a class="headerlink" href="#assets-1-0" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jun 28, 2011</p>
+<ul class="simple">
+<li>Initial release</li>
+</ul>
+</div>
+</div>
+
+
+
+
+		</div>
+	</div>
+
+<script type="text/javascript" src="_static/js/docs.js"></script>
+
+</body>
+</html>

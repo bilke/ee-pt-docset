@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<title>Working with Assets.Sheet - Assets Docs</title>
+	<link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+	<link rel="stylesheet" href="../_static/css/docs.css" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="docs">
+	<script type="text/javascript">
+		if (typeof document.querySelectorAll != 'undefined')
+		{
+			document.body.className += ' hide-dds';
+		}
+	</script>
+
+	<div id="container">
+		<div id="sidebar">
+			<nav class="nav">
+				<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Assets Docs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../installation.html">Installing and Updating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using/index.html">Using Assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../templating/index.html">Templating</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Developer Docs</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="">Working with <tt class="docutils literal"><span class="pre">Assets.Sheet</span></tt></a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+</li>
+</ul>
+
+			</nav>
+		</div>
+
+		<div id="main" class="has-sidebar">
+
+				<ul id="crumbs">
+					<li><a href="../index.html">Assets Docs</a></li>
+					<li><a href="index.html">Developer Docs</a></li>
+				</ul>
+
+
+
+  <div class="section" id="working-with-assets-sheet">
+<h1>Working with <tt class="docutils literal"><span class="pre">Assets.Sheet</span></tt><a class="headerlink" href="#working-with-assets-sheet" title="Permalink to this headline">¶</a></h1>
+<p>If you have an add-on that includes some sort of file selection
+capability, you can implement Assets’ file selection sheet from any page
+with very little effort.</p>
+<div class="section" id="including-the-sheet-resources-from-php">
+<h2>Including the Sheet Resources from PHP<a class="headerlink" href="#including-the-sheet-resources-from-php" title="Permalink to this headline">¶</a></h2>
+<p>First you need to make sure that all of the necessary Javascript and CSS
+resources have been included on the page. Assets abstracts all of this
+behind a simple function:</p>
+<div class="highlight-js"><div class="highlight"><pre><span class="c1">// Make sure that Assets is installed</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">array_key_exists</span><span class="p">(</span><span class="s1">&#39;assets&#39;</span><span class="p">,</span> <span class="nx">$this</span><span class="o">-&gt;</span><span class="nx">EE</span><span class="o">-&gt;</span><span class="nx">addons</span><span class="o">-&gt;</span><span class="nx">get_installed</span><span class="p">()))</span>
+<span class="p">{</span>
+    <span class="nx">require_once</span> <span class="nx">PATH_THIRD</span><span class="p">.</span><span class="s1">&#39;assets/helper.php&#39;</span><span class="p">;</span>
+
+    <span class="nx">$assets_helper</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Assets_helper</span><span class="p">;</span>
+    <span class="nx">$assets_helper</span><span class="o">-&gt;</span><span class="nx">include_sheet_resources</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="calling-the-sheet-from-javascript">
+<h2>Calling the Sheet from Javascript<a class="headerlink" href="#calling-the-sheet-from-javascript" title="Permalink to this headline">¶</a></h2>
+<p>Before getting the sheet to show, you need to initialize a new instance
+of <tt class="docutils literal"><span class="pre">Assets.Sheet</span></tt>:</p>
+<div class="highlight-js"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">mySheet</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Assets</span><span class="p">.</span><span class="nx">Sheet</span><span class="p">({</span>
+
+    <span class="c1">// optional settings (these are the default values):</span>
+    <span class="nx">multiSelect</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nx">filedirs</span><span class="o">:</span>    <span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="c1">// or array of filedir IDs</span>
+    <span class="nx">kinds</span><span class="o">:</span>       <span class="s1">&#39;any&#39;</span><span class="p">,</span> <span class="c1">// or array of file kinds (&quot;image&quot;, &quot;flash&quot;, etc)</span>
+
+    <span class="c1">// onSelect callback (required):</span>
+    <span class="nx">onSelect</span><span class="o">:</span>    <span class="kd">function</span><span class="p">(</span><span class="nx">files</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// files is an array of file IDs and URLs, e.g.:</span>
+        <span class="c1">// [</span>
+        <span class="c1">//   { id: 1, url: &quot;/images/uploads/filename1.jpg&quot; },</span>
+        <span class="c1">//   { id: 2, url: &quot;/images/uploads/filename2.jpg&quot; },</span>
+        <span class="c1">//   { id: 3, url: &quot;/images/uploads/filename2.jpg&quot; }</span>
+        <span class="c1">// ]</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Once you’ve initialized your sheet, you can get it to actually come into
+view by calling:</p>
+<div class="highlight-js"><div class="highlight"><pre><span class="nx">mySheet</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Your sheet will then slide down from the top of the browser window. If
+the user selects any files, the <tt class="docutils literal"><span class="pre">onSelect</span></tt> callback function will be
+called.</p>
+</div>
+</div>
+
+
+
+
+			<nav id="next">
+				Next up: <a href="../changelog.html">Changelog</a></li>
+			</nav>
+
+		</div>
+	</div>
+
+<script type="text/javascript" src="../_static/js/docs.js"></script>
+
+</body>
+</html>

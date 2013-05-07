@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<title>{exp:assets:files} - Assets Docs</title>
+	<link rel="stylesheet" href="../../_static/pygments.css" type="text/css">
+	<link rel="stylesheet" href="../../_static/css/docs.css" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="docs">
+	<script type="text/javascript">
+		if (typeof document.querySelectorAll != 'undefined')
+		{
+			document.body.className += ' hide-dds';
+		}
+	</script>
+
+	<div id="container">
+		<div id="sidebar">
+			<nav class="nav">
+				<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Assets Docs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html">Installing and Updating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../using/index.html">Using Assets</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Templating</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Module Tags</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="folders.html"><tt class="docutils literal"><span class="pre">{exp:assets:folders}</span></tt></a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href=""><tt class="docutils literal"><span class="pre">{exp:assets:files}</span></tt></a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="total_folders.html"><tt class="docutils literal"><span class="pre">{exp:assets:total_folders}</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="total_files.html"><tt class="docutils literal"><span class="pre">{exp:assets:total_files}</span></tt></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../field.html">Field Tags</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../developers/index.html">Developer Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+</ul>
+</li>
+</ul>
+
+			</nav>
+		</div>
+
+		<div id="main" class="has-sidebar">
+
+				<ul id="crumbs">
+					<li><a href="../../index.html">Assets Docs</a></li>
+					<li><a href="../index.html">Templating</a></li>
+					<li><a href="index.html">Module Tags</a></li>
+				</ul>
+
+
+
+  <div class="section" id="exp-assets-files">
+<h1><tt class="docutils literal"><span class="pre">{exp:assets:files}</span></tt><a class="headerlink" href="#exp-assets-files" title="Permalink to this headline">¶</a></h1>
+<p>You can use the <tt class="docutils literal"><span class="pre">{exp:assets:files}</span></tt> tag pair to loop through files managed by Assets.</p>
+<div class="highlight-html"><div class="highlight"><pre>{exp:assets:folders keywords=&quot;drink&quot; recursive=&quot;yes&quot;}
+    <span class="nt">&lt;h3&gt;</span>{folder_name}<span class="nt">&lt;/h3&gt;</span>
+    <span class="nt">&lt;ul&gt;</span>
+        {exp:assets:files folder_id=&quot;{folder_id}&quot;}
+            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;{url:huge}&quot;</span> <span class="na">target=</span><span class="s">&quot;_blank&quot;</span><span class="nt">&gt;</span>{if title != &quot;&quot;}{title}{if:else}{filename}{/if}<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+        {/exp:assets:files}
+    <span class="nt">&lt;/ul&gt;</span>
+{/exp:assets:folders}
+</pre></div>
+</div>
+<div class="section" id="tag-parameters">
+<h2>Tag Parameters<a class="headerlink" href="#tag-parameters" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">{exp:assets:files}</span></tt> supports the following parameters:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">folder</span></tt></dt>
+<dd>The path of the folder containing the files you wish to output. Set
+this parameter in the format of either
+“<tt class="docutils literal"><span class="pre">{filedir_X}optional/subfolder/path</span></tt>” or
+“<tt class="docutils literal"><span class="pre">{source_X}optional/subfolder/path</span></tt>”. You may pass multiple
+IDs, delimited by pipes (‘<tt class="docutils literal"><span class="pre">|</span></tt>’).</dd>
+<dt><tt class="docutils literal"><span class="pre">folder_id</span></tt></dt>
+<dd>The ID of the folder containing the files you wish to output. You
+may pass multiple IDs, delimited by pipes (‘<tt class="docutils literal"><span class="pre">|</span></tt>’).</dd>
+<dt><tt class="docutils literal"><span class="pre">url</span></tt></dt>
+<dd>Search for files by URL. You may pass multiple values, delimited by pipes (‘<tt class="docutils literal"><span class="pre">|</span></tt>’) or double-ampersands (‘<tt class="docutils literal"><span class="pre">&amp;&amp;</span></tt>’). Prefix the value(s) with ‘<tt class="docutils literal"><span class="pre">=</span></tt>’ for exact match searching.</dd>
+<dt><tt class="docutils literal"><span class="pre">server_path</span></tt></dt>
+<dd>Search for files by server path. You may pass multiple values, delimited by pipes (‘<tt class="docutils literal"><span class="pre">|</span></tt>’) or double-ampersands (‘<tt class="docutils literal"><span class="pre">&amp;&amp;</span></tt>’). Prefix the value(s) with ‘<tt class="docutils literal"><span class="pre">=</span></tt>’ for exact match searching.</dd>
+<dt><tt class="docutils literal"><span class="pre">subfolder</span></tt></dt>
+<dd>Search for files by subfolder. You may pass multiple values, delimited by pipes (‘<tt class="docutils literal"><span class="pre">|</span></tt>’) or double-ampersands (‘<tt class="docutils literal"><span class="pre">&amp;&amp;</span></tt>’). Prefix the value(s) with ‘<tt class="docutils literal"><span class="pre">=</span></tt>’ for exact match searching.</dd>
+<dt><tt class="docutils literal"><span class="pre">filename</span></tt></dt>
+<dd>Search for files by filename. You may pass multiple values, delimited by pipes (‘<tt class="docutils literal"><span class="pre">|</span></tt>’) or double-ampersands (‘<tt class="docutils literal"><span class="pre">&amp;&amp;</span></tt>’). Prefix the value(s) with ‘<tt class="docutils literal"><span class="pre">=</span></tt>’ for exact match searching.</dd>
+<dt><tt class="docutils literal"><span class="pre">extension</span></tt></dt>
+<dd>Search for files by extension. You may pass multiple values, delimited by pipes (‘<tt class="docutils literal"><span class="pre">|</span></tt>’) or double-ampersands (‘<tt class="docutils literal"><span class="pre">&amp;&amp;</span></tt>’). Prefix the value(s) with ‘<tt class="docutils literal"><span class="pre">=</span></tt>’ for exact match searching.</dd>
+<dt><tt class="docutils literal"><span class="pre">date_modified</span></tt></dt>
+<dd>Search for files by modified date (a Unix timestamp). You may pass multiple values, delimited by pipes (‘<tt class="docutils literal"><span class="pre">|</span></tt>’) or double-ampersands (‘<tt class="docutils literal"><span class="pre">&amp;&amp;</span></tt>’). Prefix the value(s) with ‘<tt class="docutils literal"><span class="pre">&lt;</span></tt>’ , ‘<tt class="docutils literal"><span class="pre">&gt;</span></tt>’ , ‘<tt class="docutils literal"><span class="pre">&lt;=</span></tt>’  or ‘<tt class="docutils literal"><span class="pre">&gt;=</span></tt>’ to match a range.</dd>
+<dt><tt class="docutils literal"><span class="pre">kind</span></tt></dt>
+<dd><p class="first">Search for files by kind. You may pass multiple values, delimited by pipes (‘<tt class="docutils literal"><span class="pre">|</span></tt>’) or double-ampersands (‘<tt class="docutils literal"><span class="pre">&amp;&amp;</span></tt>’). Prefix the value(s) with ‘<tt class="docutils literal"><span class="pre">=</span></tt>’ for exact match searching.</p>
+<p>Posible values include:</p>
+<blockquote class="last">
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">access</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">audio</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">excel</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">flash</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">html</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">illustrator</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">image</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">pdf</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">photoshop</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">php</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">text</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">video</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">word</span></tt></li>
+</ul>
+</div></blockquote>
+</dd>
+<dt><tt class="docutils literal"><span class="pre">width</span></tt></dt>
+<dd>Search for images by width. You may pass multiple values, delimited by pipes (‘<tt class="docutils literal"><span class="pre">|</span></tt>’) or double-ampersands (‘<tt class="docutils literal"><span class="pre">&amp;&amp;</span></tt>’). Prefix the value(s) with ‘<tt class="docutils literal"><span class="pre">&lt;</span></tt>’ , ‘<tt class="docutils literal"><span class="pre">&gt;</span></tt>’ , ‘<tt class="docutils literal"><span class="pre">&lt;=</span></tt>’  or ‘<tt class="docutils literal"><span class="pre">&gt;=</span></tt>’ to match a range.</dd>
+<dt><tt class="docutils literal"><span class="pre">height</span></tt></dt>
+<dd>Search for images by height. You may pass multiple values, delimited by pipes (‘<tt class="docutils literal"><span class="pre">|</span></tt>’) or double-ampersands (‘<tt class="docutils literal"><span class="pre">&amp;&amp;</span></tt>’). Prefix the value(s) with ‘<tt class="docutils literal"><span class="pre">&lt;</span></tt>’ , ‘<tt class="docutils literal"><span class="pre">&gt;</span></tt>’ , ‘<tt class="docutils literal"><span class="pre">&lt;=</span></tt>’  or ‘<tt class="docutils literal"><span class="pre">&gt;=</span></tt>’ to match a range.</dd>
+<dt><tt class="docutils literal"><span class="pre">size</span></tt></dt>
+<dd>Search for files by size (in bytes). You may pass multiple values, delimited by pipes (‘<tt class="docutils literal"><span class="pre">|</span></tt>’) or double-ampersands (‘<tt class="docutils literal"><span class="pre">&amp;&amp;</span></tt>’). Prefix the value(s) with ‘<tt class="docutils literal"><span class="pre">&lt;</span></tt>’ , ‘<tt class="docutils literal"><span class="pre">&gt;</span></tt>’ , ‘<tt class="docutils literal"><span class="pre">&lt;=</span></tt>’  or ‘<tt class="docutils literal"><span class="pre">&gt;=</span></tt>’ to match a range.</dd>
+<dt><tt class="docutils literal"><span class="pre">file_id</span></tt></dt>
+<dd>Search for files by their ID in the exp_assets_files table. You may pass multiple values, delimited by pipes (‘<tt class="docutils literal"><span class="pre">|</span></tt>’).</dd>
+<dt><tt class="docutils literal"><span class="pre">title</span></tt></dt>
+<dd>Search for files by their Title metadata value. You may pass multiple values, delimited by pipes (‘<tt class="docutils literal"><span class="pre">|</span></tt>’) or double-ampersands (‘<tt class="docutils literal"><span class="pre">&amp;&amp;</span></tt>’). Prefix the value(s) with ‘<tt class="docutils literal"><span class="pre">=</span></tt>’ for exact match searching.</dd>
+<dt><tt class="docutils literal"><span class="pre">date</span></tt></dt>
+<dd>Search for files by their Date metadata value (a Unix timestamp). You may pass multiple values, delimited by pipes (‘<tt class="docutils literal"><span class="pre">|</span></tt>’) or double-ampersands (‘<tt class="docutils literal"><span class="pre">&amp;&amp;</span></tt>’). Prefix the value(s) with ‘<tt class="docutils literal"><span class="pre">&lt;</span></tt>’ , ‘<tt class="docutils literal"><span class="pre">&gt;</span></tt>’ , ‘<tt class="docutils literal"><span class="pre">&lt;=</span></tt>’  or ‘<tt class="docutils literal"><span class="pre">&gt;=</span></tt>’ to match a range.</dd>
+<dt><tt class="docutils literal"><span class="pre">alt_text</span></tt></dt>
+<dd>Search for files by their Alt Text metadata value. You may pass multiple values, delimited by pipes (‘<tt class="docutils literal"><span class="pre">|</span></tt>’) or double-ampersands (‘<tt class="docutils literal"><span class="pre">&amp;&amp;</span></tt>’). Prefix the value(s) with ‘<tt class="docutils literal"><span class="pre">=</span></tt>’ for exact match searching.</dd>
+<dt><tt class="docutils literal"><span class="pre">caption</span></tt></dt>
+<dd>Search for files by their Caption metadata value. You may pass multiple values, delimited by pipes (‘<tt class="docutils literal"><span class="pre">|</span></tt>’) or double-ampersands (‘<tt class="docutils literal"><span class="pre">&amp;&amp;</span></tt>’). Prefix the value(s) with ‘<tt class="docutils literal"><span class="pre">=</span></tt>’ for exact match searching.</dd>
+<dt><tt class="docutils literal"><span class="pre">author</span></tt></dt>
+<dd>Search for files by their Author/Credit/Producer metadata value. You may pass multiple values, delimited by pipes (‘<tt class="docutils literal"><span class="pre">|</span></tt>’) or double-ampersands (‘<tt class="docutils literal"><span class="pre">&amp;&amp;</span></tt>’). Prefix the value(s) with ‘<tt class="docutils literal"><span class="pre">=</span></tt>’ for exact match searching.</dd>
+<dt><tt class="docutils literal"><span class="pre">desc</span></tt></dt>
+<dd>Search for files by their Description metadata value. You may pass multiple values, delimited by pipes (‘<tt class="docutils literal"><span class="pre">|</span></tt>’) or double-ampersands (‘<tt class="docutils literal"><span class="pre">&amp;&amp;</span></tt>’). Prefix the value(s) with ‘<tt class="docutils literal"><span class="pre">=</span></tt>’ for exact match searching.</dd>
+<dt><tt class="docutils literal"><span class="pre">location</span></tt></dt>
+<dd>Search for files by their Location metadata value. You may pass multiple values, delimited by pipes (‘<tt class="docutils literal"><span class="pre">|</span></tt>’) or double-ampersands (‘<tt class="docutils literal"><span class="pre">&amp;&amp;</span></tt>’). Prefix the value(s) with ‘<tt class="docutils literal"><span class="pre">=</span></tt>’ for exact match searching.</dd>
+<dt><tt class="docutils literal"><span class="pre">keywords</span></tt></dt>
+<dd>Search for files by their Keywords metadata value. You may pass multiple values, delimited by pipes (‘<tt class="docutils literal"><span class="pre">|</span></tt>’) or double-ampersands (‘<tt class="docutils literal"><span class="pre">&amp;&amp;</span></tt>’). Prefix the value(s) with ‘<tt class="docutils literal"><span class="pre">=</span></tt>’ for exact match searching.</dd>
+<dt><tt class="docutils literal"><span class="pre">offset</span></tt></dt>
+<dd>Skips the first <em>X</em> files</dd>
+<dt><tt class="docutils literal"><span class="pre">limit</span></tt></dt>
+<dd>Limits the number of files to be returned</dd>
+<dt><tt class="docutils literal"><span class="pre">orderby</span></tt></dt>
+<dd><p class="first">Orders the files by a specified property. Possible values include:</p>
+<ul class="last simple">
+<li><tt class="docutils literal"><span class="pre">name</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">folder</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">date</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">size</span></tt></li>
+</ul>
+</dd>
+<dt><tt class="docutils literal"><span class="pre">sort</span></tt></dt>
+<dd>Sorts the results. Can be set to “<tt class="docutils literal"><span class="pre">desc</span></tt>” or “<tt class="docutils literal"><span class="pre">random</span></tt>”.</dd>
+</dl>
+<p><strong>Note</strong>: Either the <tt class="docutils literal"><span class="pre">folder</span></tt> or <tt class="docutils literal"><span class="pre">folder_id</span></tt> param must be present
+for <tt class="docutils literal"><span class="pre">{exp:assets:files}</span></tt> to output anything.</p>
+</div>
+<div class="section" id="variable-tags">
+<h2>Variable Tags<a class="headerlink" href="#variable-tags" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">{exp:assets:files}</span></tt> supports the following variable tags:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">{url}</span></tt></dt>
+<dd><p class="first">The URL to the file.</p>
+<p class="last"><tt class="docutils literal"><span class="pre">{url:manipulation_name}</span></tt> is also available, for outputting the URL to an image manipulation.</p>
+</dd>
+<dt><tt class="docutils literal"><span class="pre">{server_path}</span></tt></dt>
+<dd><p class="first">The server path to the file.</p>
+<p class="last"><tt class="docutils literal"><span class="pre">{server_path:manipulation_name}</span></tt> is also available, for outputting the server path to an image manipulation.</p>
+</dd>
+<dt><tt class="docutils literal"><span class="pre">{subfolder}</span></tt></dt>
+<dd>The subfolder that the file lives in, if any.</dd>
+<dt><tt class="docutils literal"><span class="pre">{filename}</span></tt></dt>
+<dd>The name of the file, sans-extension.</dd>
+<dt><tt class="docutils literal"><span class="pre">{extension}</span></tt></dt>
+<dd>The file extension.</dd>
+<dt><tt class="docutils literal"><span class="pre">{date_modified}</span></tt></dt>
+<dd>The date/time that the file was last modified. Supports the <a class="reference external" href="http://ellislab.com/expressionengine/user-guide/templates/date_variable_formatting.html">format</a> parameter.</dd>
+<dt><tt class="docutils literal"><span class="pre">{kind}</span></tt></dt>
+<dd><p class="first">The kind of file it is. Possible values are:</p>
+<blockquote class="last">
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">access</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">audio</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">excel</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">flash</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">html</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">illustrator</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">image</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">pdf</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">photoshop</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">php</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">text</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">video</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">word</span></tt></li>
+</ul>
+</div></blockquote>
+</dd>
+<dt><tt class="docutils literal"><span class="pre">{width}</span></tt></dt>
+<dd><p class="first">The width of the image.</p>
+<p class="last"><tt class="docutils literal"><span class="pre">{width:manipulation_name}</span></tt> is also available, for outputting the width of an image manipulation.</p>
+</dd>
+<dt><tt class="docutils literal"><span class="pre">{height}</span></tt></dt>
+<dd><p class="first">The height of the image.</p>
+<p class="last"><tt class="docutils literal"><span class="pre">{height:manipulation_name}</span></tt> is also available, for outputting the height of an image manipulation.</p>
+</dd>
+<dt><tt class="docutils literal"><span class="pre">{size}</span></tt></dt>
+<dd><p class="first">The formatted size of the file (e.g. “20 KB”). You can also pass <tt class="docutils literal"><span class="pre">unformatted=&quot;yes&quot;</span></tt> to get the raw file size in bytes.</p>
+<p class="last"><tt class="docutils literal"><span class="pre">{size:manipulation_name}</span></tt> is also available, for outputting the file size of an image manipulation.</p>
+</dd>
+<dt><tt class="docutils literal"><span class="pre">{file_id}</span></tt></dt>
+<dd>The ID of the file (based on the <tt class="docutils literal"><span class="pre">id</span></tt> column in the exp_assets_files table).</dd>
+<dt><tt class="docutils literal"><span class="pre">{title}</span></tt></dt>
+<dd>The value of the file’s Title metadata field.</dd>
+<dt><tt class="docutils literal"><span class="pre">{date}</span></tt></dt>
+<dd>The value of the file’s Date metadata field. Supports the <a class="reference external" href="http://ellislab.com/expressionengine/user-guide/templates/date_variable_formatting.html">format</a> parameter.</dd>
+<dt><tt class="docutils literal"><span class="pre">{alt_text}</span></tt></dt>
+<dd>The value of the file’s Alt Text metadata field.</dd>
+<dt><tt class="docutils literal"><span class="pre">{caption}</span></tt></dt>
+<dd>The value of the file’s Caption metadata field.</dd>
+<dt><tt class="docutils literal"><span class="pre">{author}</span></tt></dt>
+<dd>The value of the file’s Author/Credit/Producer metadata field.</dd>
+<dt><tt class="docutils literal"><span class="pre">{desc}</span></tt></dt>
+<dd>The value of the file’s Description metadata field.</dd>
+<dt><tt class="docutils literal"><span class="pre">{location}</span></tt></dt>
+<dd>The value of the file’s Location metadata field.</dd>
+<dt><tt class="docutils literal"><span class="pre">{total_files}</span></tt></dt>
+<dd>The total number of files being output.</dd>
+</dl>
+</div>
+</div>
+
+
+
+
+			<nav id="next">
+				Next up: <a href="total_folders.html">{exp:assets:total_folders}</a></li>
+			</nav>
+
+		</div>
+	</div>
+
+<script type="text/javascript" src="../../_static/js/docs.js"></script>
+
+</body>
+</html>

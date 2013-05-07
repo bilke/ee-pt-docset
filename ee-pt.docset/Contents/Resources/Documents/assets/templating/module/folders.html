@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<title>{exp:assets:folders} - Assets Docs</title>
+	<link rel="stylesheet" href="../../_static/pygments.css" type="text/css">
+	<link rel="stylesheet" href="../../_static/css/docs.css" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="docs">
+	<script type="text/javascript">
+		if (typeof document.querySelectorAll != 'undefined')
+		{
+			document.body.className += ' hide-dds';
+		}
+	</script>
+
+	<div id="container">
+		<div id="sidebar">
+			<nav class="nav">
+				<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Assets Docs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html">Installing and Updating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../using/index.html">Using Assets</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Templating</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Module Tags</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href=""><tt class="docutils literal"><span class="pre">{exp:assets:folders}</span></tt></a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="files.html"><tt class="docutils literal"><span class="pre">{exp:assets:files}</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="total_folders.html"><tt class="docutils literal"><span class="pre">{exp:assets:total_folders}</span></tt></a></li>
+<li class="toctree-l4"><a class="reference internal" href="total_files.html"><tt class="docutils literal"><span class="pre">{exp:assets:total_files}</span></tt></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../field.html">Field Tags</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../developers/index.html">Developer Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+</ul>
+</li>
+</ul>
+
+			</nav>
+		</div>
+
+		<div id="main" class="has-sidebar">
+
+				<ul id="crumbs">
+					<li><a href="../../index.html">Assets Docs</a></li>
+					<li><a href="../index.html">Templating</a></li>
+					<li><a href="index.html">Module Tags</a></li>
+				</ul>
+
+
+
+  <div class="section" id="exp-assets-folders">
+<h1><tt class="docutils literal"><span class="pre">{exp:assets:folders}</span></tt><a class="headerlink" href="#exp-assets-folders" title="Permalink to this headline">¶</a></h1>
+<p>You can use the <tt class="docutils literal"><span class="pre">{exp:assets:folders}</span></tt> tag pair to loop through folders managed by Assets.</p>
+<div class="highlight-html"><div class="highlight"><pre><span class="nt">&lt;ul&gt;</span>
+    {exp:assets:folders}
+        <span class="nt">&lt;li&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;{path=assets/view/{folder_id}}&quot;</span><span class="nt">&gt;</span>{folder_name}<span class="nt">&lt;/a&gt;</span>
+            {if total_subfolders}
+                <span class="nt">&lt;ul&gt;</span>
+                    {subfolders}
+                <span class="nt">&lt;/ul&gt;</span>
+            {/if}
+        <span class="nt">&lt;/li&gt;</span>
+    {/exp:assets:folders}
+<span class="nt">&lt;/ul&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="tag-parameters">
+<h2>Tag Parameters<a class="headerlink" href="#tag-parameters" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">{exp:assets:folders}</span></tt> supports the following parameters:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">parent_folder</span></tt></dt>
+<dd>The path of the parent folder whose subfolders you wish to output.
+Set this parameter in the format of either
+“<tt class="docutils literal"><span class="pre">{filedir_X}optional/subfolder/path</span></tt>” or
+“<tt class="docutils literal"><span class="pre">{source_X}optional/subfolder/path</span></tt>”. If this parameter is
+omitted, Assets will loop through all of your EE upload directories
+and S3 buckets.</dd>
+<dt><tt class="docutils literal"><span class="pre">keywords</span></tt></dt>
+<dd>A pipe-delimited list of keywords to filter the folders by.</dd>
+<dt><tt class="docutils literal"><span class="pre">recursive</span></tt></dt>
+<dd>If this is set to “<tt class="docutils literal"><span class="pre">yes</span></tt>”, all nested folders will be returned
+as well. (Set to “<tt class="docutils literal"><span class="pre">no</span></tt>” by default.)</dd>
+<dt><tt class="docutils literal"><span class="pre">offset</span></tt></dt>
+<dd>Skips the first <em>X</em> folders</dd>
+<dt><tt class="docutils literal"><span class="pre">limit</span></tt></dt>
+<dd>Limits the number of folders to be returned</dd>
+<dt><tt class="docutils literal"><span class="pre">sort</span></tt></dt>
+<dd>Sorts the results. Can be set to “<tt class="docutils literal"><span class="pre">desc</span></tt>” or “<tt class="docutils literal"><span class="pre">random</span></tt>”.</dd>
+</dl>
+</div>
+<div class="section" id="variable-tags">
+<h2>Variable Tags<a class="headerlink" href="#variable-tags" title="Permalink to this headline">¶</a></h2>
+<p><tt class="docutils literal"><span class="pre">{exp:assets:folders}</span></tt> supports the following variable tags:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">{folder_id}</span></tt></dt>
+<dd>The ID that Assets has assigned to the current folder.</dd>
+<dt><tt class="docutils literal"><span class="pre">{folder_name}</span></tt></dt>
+<dd>The name of the current folder.</dd>
+<dt><tt class="docutils literal"><span class="pre">{depth}</span></tt></dt>
+<dd>The depth of the current folder. Top-level sources’ depth are ‘0’,
+first-level subfolders’ depth are ‘1’, their subfolders’ depth are ‘2’,
+and so on.</dd>
+<dt><tt class="docutils literal"><span class="pre">{total_subfolders}</span></tt></dt>
+<dd>The total number of subfolders the current folder has.</dd>
+<dt><tt class="docutils literal"><span class="pre">{subfolders}</span></tt></dt>
+<dd>If this tag is present, it will get replaced with the entire
+<tt class="docutils literal"><span class="pre">{exp:assets:folders}</span></tt> tag pair’s template code, including the
+<tt class="docutils literal"><span class="pre">{subfolders}</span></tt> tag. This provides a way to recursively output your
+entire folder tree (see example below).</dd>
+</dl>
+</div>
+</div>
+
+
+
+
+			<nav id="next">
+				Next up: <a href="files.html">{exp:assets:files}</a></li>
+			</nav>
+
+		</div>
+	</div>
+
+<script type="text/javascript" src="../../_static/js/docs.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<title>Field Tags - Matrix Docs</title>
+	<link rel="stylesheet" href="../_static/pygments.css" type="text/css">
+	<link rel="stylesheet" href="../_static/css/docs.css" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="docs">
+	<script type="text/javascript">
+		if (typeof document.querySelectorAll != 'undefined')
+		{
+			document.body.className += ' hide-dds';
+		}
+	</script>
+
+	<div id="container">
+		<div id="sidebar">
+			<nav class="nav">
+				<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Matrix Docs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../installation.html">Installing and Updating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using/fields.html">Working with Matrix Fields</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Field Tags</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../developers/index.html">Developer Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+</li>
+</ul>
+
+			</nav>
+		</div>
+
+		<div id="main" class="has-sidebar">
+
+				<ul id="crumbs">
+					<li><a href="../index.html">Matrix Docs</a></li>
+				</ul>
+
+
+
+  <div class="section" id="field-tags">
+<h1>Field Tags<a class="headerlink" href="#field-tags" title="Permalink to this headline">¶</a></h1>
+<p>The following tags are available for your Matrix fields within <tt class="docutils literal"><span class="pre">{exp:channel:entries}</span></tt> tag pairs.</p>
+<div class="section" id="primary-tag-pair">
+<h2>Primary Tag Pair<a class="headerlink" href="#primary-tag-pair" title="Permalink to this headline">¶</a></h2>
+<p>To fully customize your Matrix field’s output, use its primary tag pair.</p>
+<div class="highlight-html"><div class="highlight"><pre>{my_matrix_field}
+    <span class="nt">&lt;h2&gt;</span>{speaker_name}<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;{speaker_photo}&quot;</span> <span class="na">alt=</span><span class="s">&quot;{speaker_name}&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;p&gt;</span>{speaker_description}<span class="nt">&lt;/p&gt;</span>
+{/my_matrix_field}
+</pre></div>
+</div>
+<div class="section" id="tag-parameters">
+<h3>Tag Parameters<a class="headerlink" href="#tag-parameters" title="Permalink to this headline">¶</a></h3>
+<p>Matrix’s primary tag pair supports the following tags:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">search</span></tt></dt>
+<dd><p class="first">Only loop through rows that match a certain criteria. Mimics the parameter for {exp:channel:entries}, and supports comparison operators <tt class="docutils literal"><span class="pre">&lt;</span></tt>, <tt class="docutils literal"><span class="pre">&gt;</span></tt>, <tt class="docutils literal"><span class="pre">&lt;=</span></tt>, and <tt class="docutils literal"><span class="pre">&gt;=</span></tt> as well.</p>
+<div class="last highlight-html"><div class="highlight"><pre>{my_matrix_field search:age=&quot;&gt;=16&quot;}
+</pre></div>
+</div>
+</dd>
+<dt><tt class="docutils literal"><span class="pre">row_id</span></tt></dt>
+<dd><p class="first">Only show a specific row by its ID in the exp_matrix_data table.</p>
+<div class="highlight-html"><div class="highlight"><pre>{my_matrix_field row_id=&quot;1|2|3&quot;}
+</pre></div>
+</div>
+<p>Or prefix with “not” to exclude rows:</p>
+<div class="last highlight-html"><div class="highlight"><pre>{my_matrix_field row_id=&quot;not 4|5|6&quot;}
+</pre></div>
+</div>
+</dd>
+<dt><tt class="docutils literal"><span class="pre">fixed_order</span></tt></dt>
+<dd><p class="first">Only show specific rows, in a specific order</p>
+<div class="last highlight-html"><div class="highlight"><pre>{my_matrix_field fixed_order=&quot;3|2|1&quot;}
+</pre></div>
+</div>
+</dd>
+<dt><tt class="docutils literal"><span class="pre">orderby</span></tt></dt>
+<dd>Order the rows by their column values.</dd>
+<dt><tt class="docutils literal"><span class="pre">sort</span></tt></dt>
+<dd><p class="first">Specifies how the column values set in <tt class="docutils literal"><span class="pre">orderby</span></tt> should be sorted. Possible values are “<tt class="docutils literal"><span class="pre">asc</span></tt>” and “<tt class="docutils literal"><span class="pre">desc</span></tt>”.</p>
+<div class="highlight-html"><div class="highlight"><pre>{my_matrix_field orderby=&quot;session_time|session_track&quot; sort=&quot;asc|desc&quot;}
+</pre></div>
+</div>
+<p class="last">You can also set it to “<tt class="docutils literal"><span class="pre">random</span></tt>” to have rows returned in a random order.</p>
+</dd>
+<dt><tt class="docutils literal"><span class="pre">offset</span></tt></dt>
+<dd>Skips the first <em>X</em> rows.</dd>
+<dt><tt class="docutils literal"><span class="pre">limit</span></tt></dt>
+<dd><p class="first">Limits the number of rows to be returned.</p>
+<div class="last highlight-html"><div class="highlight"><pre>{my_matrix_field offset=&quot;5&quot; limit=&quot;1&quot;}
+</pre></div>
+</div>
+</dd>
+<dt><tt class="docutils literal"><span class="pre">backspace</span></tt></dt>
+<dd><p class="first">Strips the last <em>X</em> characters from the tag output.</p>
+<div class="last highlight-html"><div class="highlight"><pre>{my_matrix_field backspace=&quot;2&quot;}{speaker_name}, {/my_matrix_field}
+</pre></div>
+</div>
+</dd>
+<dt><tt class="docutils literal"><span class="pre">dynamic_parameters</span></tt></dt>
+<dd>Set specific tag parameters “on the fly” using POST data submitted via a form. Mimics the parameter for <a class="reference external" href="http://ellislab.com/expressionengine/user-guide/modules/channel/channel_entries.html#dynamic-parameters">{exp:channel:entries}</a>.</dd>
+<dt><tt class="docutils literal"><span class="pre">var_prefix</span></tt></dt>
+<dd><p class="first">Tells Matrix to only parse variables that have a certain prefix. This is handy when you’re dealing with variable name conflicts, such as if you’ve got a Matrix field with a Playa column pulling in entries with their own Matrix field:</p>
+<div class="last highlight-html"><div class="highlight"><pre>{my_matrix_field var_prefix=&quot;spkr&quot;}
+    {spkr:favorite_bands} {!-- a Playa column --}
+        {albums var_prefix=&quot;albm&quot;} {!-- a Matrix field inside the band channel --}
+            {spkr:row_count}.{albm:row_count} - {albm:album_title}
+        {/albums}
+    {/spkr:favorite_bands}
+{/my_matrix_field}
+</pre></div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="variable-tags">
+<h3>Variable Tags<a class="headerlink" href="#variable-tags" title="Permalink to this headline">¶</a></h3>
+<p>The following single variables are available within your tag pair:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">{row_id}</span></tt></dt>
+<dd>The current row’s unique ID.</dd>
+<dt><tt class="docutils literal"><span class="pre">{row_count}</span></tt></dt>
+<dd>The current row’s count.</dd>
+<dt><tt class="docutils literal"><span class="pre">{row_index}</span></tt></dt>
+<dd>The current row’s index. (This is the same as <tt class="docutils literal"><span class="pre">{row_count}</span></tt>, except it starts counting at 0 rather than 1.)</dd>
+<dt><tt class="docutils literal"><span class="pre">{total_rows}</span></tt></dt>
+<dd>The total number of rows being returned.</dd>
+<dt><tt class="docutils literal"><span class="pre">{field_row_count}</span></tt></dt>
+<dd>The current row’s count within the actual field in the CP, regardless of its position in the current tag output.</dd>
+<dt><tt class="docutils literal"><span class="pre">{field_row_index}</span></tt></dt>
+<dd>The current row’s index within the actual field in the CP, regardless of its position in the current tag output. (This is the same as <tt class="docutils literal"><span class="pre">{field_row_count}</span></tt>, except it starts counting at 0 rather than 1.)</dd>
+<dt><tt class="docutils literal"><span class="pre">{field_total_rows}</span></tt></dt>
+<dd>The total number of rows in the field in the CP, regardless of how many rows the current tags are outputting.</dd>
+<dt><tt class="docutils literal"><span class="pre">{switch}</span></tt></dt>
+<dd><p class="first">Switch between multiple values based on the current row index.</p>
+<div class="last highlight-html"><div class="highlight"><pre>{my_matrix_field}
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;{switch=&#39;odd|even&#39;}&quot;</span><span class="nt">&gt;</span>
+        {row_count} of {total_rows}: {speaker_name}
+    <span class="nt">&lt;/li&gt;</span>
+{/my_matrix_field}
+</pre></div>
+</div>
+</dd>
+<dt><tt class="docutils literal"><span class="pre">{prev_row}</span></tt> … <tt class="docutils literal"><span class="pre">{/prev_row}</span></tt></dt>
+<dd><p class="first">Access the previous row in the field</p>
+<div class="last highlight-html"><pre>{gallery row_id="{segment_3}"}
+    &lt;h1&gt;{photo_title}&lt;/h1&gt;
+    &lt;img src="{photo}" alt="{photo_title}" /&gt;
+    &lt;p&gt;{photo_description}&lt;/p&gt;
+
+    {prev_row}&lt;a href="/galleries/{segment_2}/{row_id}"&gt;← {photo_title}&lt;/a&gt;{/prev_row}
+    {if prev_row &amp;&amp; next_row} | {/if}
+    {next_row}&lt;a href="/galleries/{segment_2}/{row_id}"&gt;{photo_title} →&lt;/a&gt;{/next_row}
+{/gallery}</pre>
+</div>
+</dd>
+<dt><tt class="docutils literal"><span class="pre">{next_row}</span></tt> … <tt class="docutils literal"><span class="pre">{/next_row}</span></tt></dt>
+<dd><p class="first">Access the next row in the field</p>
+<div class="last highlight-html"><pre>{gallery row_id="{segment_3}"}
+    &lt;h1&gt;{photo_title}&lt;/h1&gt;
+    &lt;img src="{photo}" alt="{photo_title}" /&gt;
+    &lt;p&gt;{photo_description}&lt;/p&gt;
+
+    {prev_row}&lt;a href="/galleries/{segment_2}/{row_id}"&gt;← {photo_title}&lt;/a&gt;{/prev_row}
+    {if prev_row &amp;&amp; next_row} | {/if}
+    {next_row}&lt;a href="/galleries/{segment_2}/{row_id}"&gt;{photo_title} →&lt;/a&gt;{/next_row}
+{/gallery}</pre>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="table-tag">
+<h2><tt class="docutils literal"><span class="pre">:table</span></tt> Tag<a class="headerlink" href="#table-tag" title="Permalink to this headline">¶</a></h2>
+<p>Matrix’s <tt class="docutils literal"><span class="pre">:table</span></tt> tag to quickly create an HTML table filled with your field’s data.</p>
+<div class="highlight-html"><div class="highlight"><pre>{my_matrix_field:table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;}
+</pre></div>
+</div>
+<div class="section" id="id1">
+<h3>Tag Parameters<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">:table</span></tt> tag accepts all of the primary tag pair’s parameters, as well as a couple of its own:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">set_row_ids</span></tt></dt>
+<dd>When set to “<tt class="docutils literal"><span class="pre">yes</span></tt>”, <tt class="docutils literal"><span class="pre">id</span></tt> attributes to all <tt class="docutils literal"><span class="pre">&lt;tr&gt;``s</span> <span class="pre">within</span> <span class="pre">the</span> <span class="pre">``&lt;tbody&gt;</span></tt>, set to “<tt class="docutils literal"><span class="pre">row_id_</span></tt>” followed by the row’s unique ID.</dd>
+<dt><tt class="docutils literal"><span class="pre">set_classes</span></tt></dt>
+<dd>When set to “<tt class="docutils literal"><span class="pre">yes</span></tt>”, class attributes will be added to all <tt class="docutils literal"><span class="pre">&lt;th&gt;</span></tt> and <tt class="docutils literal"><span class="pre">&lt;td&gt;</span></tt>’s, set to the column names.</dd>
+<dt><tt class="docutils literal"><span class="pre">set_widths</span></tt></dt>
+<dd>When set to “<tt class="docutils literal"><span class="pre">yes</span></tt>”, width attributes will be added to all <tt class="docutils literal"><span class="pre">&lt;th&gt;</span></tt> and <tt class="docutils literal"><span class="pre">&lt;td&gt;</span></tt>’s, set to the column widths.</dd>
+<dt><tt class="docutils literal"><span class="pre">cellspacing</span></tt></dt>
+<dd>Sets the table’s <tt class="docutils literal"><span class="pre">cellspacing</span></tt> attribute.</dd>
+<dt><tt class="docutils literal"><span class="pre">cellpadding</span></tt></dt>
+<dd>Sets the table’s <tt class="docutils literal"><span class="pre">cellpadding</span></tt> attribute.</dd>
+<dt><tt class="docutils literal"><span class="pre">border</span></tt></dt>
+<dd>Sets the table’s <tt class="docutils literal"><span class="pre">border</span></tt> attribute.</dd>
+<dt><tt class="docutils literal"><span class="pre">width</span></tt></dt>
+<dd>Sets the table’s <tt class="docutils literal"><span class="pre">width</span></tt> attribute.</dd>
+<dt><tt class="docutils literal"><span class="pre">class</span></tt></dt>
+<dd>Sets the table’s <tt class="docutils literal"><span class="pre">class</span></tt> attribute.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="prev-row-and-next-row">
+<h2><tt class="docutils literal"><span class="pre">:prev_row</span></tt> and <tt class="docutils literal"><span class="pre">:next_row</span></tt><a class="headerlink" href="#prev-row-and-next-row" title="Permalink to this headline">¶</a></h2>
+<p>Access the previous or next row in your field, from a given starting point. The starting point is whatever the first row would be with your declared field parameters.</p>
+<div class="highlight-html"><div class="highlight"><pre>{gallery:next_row row_id=&quot;{segment_3}&quot;}
+    Up next: <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;/galleries/{segment_2}/{row_id}&quot;</span><span class="nt">&gt;</span>{photo_title}<span class="nt">&lt;/a&gt;</span>
+{/gallery:next_row}
+</pre></div>
+</div>
+<div class="section" id="id2">
+<h3>Tag Parameters<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">:prev_row</span></tt> and <tt class="docutils literal"><span class="pre">:next_row</span></tt> tags accept all of the primary tag pair’s parameters.</p>
+</div>
+</div>
+<div class="section" id="total-rows">
+<h2><tt class="docutils literal"><span class="pre">:total_rows</span></tt><a class="headerlink" href="#total-rows" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">:total_rows</span></tt> tag returns the total number of rows within your Matrix field.</p>
+<div class="highlight-html"><div class="highlight"><pre>{if my_matrix_field:total_rows &gt;= 5}
+    We’ve got a great lineup of {my_matrix_field:total_rows} speakers!
+{/if}
+</pre></div>
+</div>
+<div class="section" id="id3">
+<h3>Tag Parameters<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>The :total_rows tag accepts all of the primary tag pair’s parameters.</p>
+</div>
+</div>
+<div class="section" id="average-lowest-highest-and-sum">
+<h2><tt class="docutils literal"><span class="pre">:average</span></tt>, <tt class="docutils literal"><span class="pre">:lowest</span></tt>, <tt class="docutils literal"><span class="pre">:highest</span></tt>, and <tt class="docutils literal"><span class="pre">:sum</span></tt><a class="headerlink" href="#average-lowest-highest-and-sum" title="Permalink to this headline">¶</a></h2>
+<p>These tags return the average, lowest, highest, or sum value of a given numeric column in your Matrix field.</p>
+<div class="highlight-html"><div class="highlight"><pre>The my_matrix_field’ average age is {my_matrix_field:average col=&quot;age&quot;}.
+</pre></div>
+</div>
+<div class="section" id="id4">
+<h3>Tag Parameters<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>These tags accept all of the primary tag pair’s parameters, as well as the following:</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">col</span></tt></dt>
+<dd>The name of the column you wish to get info about. <em>(Required)</em></dd>
+<dt><tt class="docutils literal"><span class="pre">decimals</span></tt></dt>
+<dd>The number of decimal points the number should have. (The default is 0.)</dd>
+<dt><tt class="docutils literal"><span class="pre">dec_point</span></tt></dt>
+<dd>The character that will be used for the decimal. (The default is a period.)</dd>
+<dt><tt class="docutils literal"><span class="pre">thousands_sep</span></tt></dt>
+<dd>The character that will be used as the thousands separator. (The default is a comma.)</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+
+
+			<nav id="next">
+				Next up: <a href="../developers/index.html">Developer Docs</a></li>
+			</nav>
+
+		</div>
+	</div>
+
+<script type="text/javascript" src="../_static/js/docs.js"></script>
+
+</body>
+</html>

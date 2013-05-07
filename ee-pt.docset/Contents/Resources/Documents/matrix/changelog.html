@@ -1,0 +1,513 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<title>Changelog - Matrix Docs</title>
+	<link rel="stylesheet" href="_static/pygments.css" type="text/css">
+	<link rel="stylesheet" href="_static/css/docs.css" type="text/css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="docs">
+	<script type="text/javascript">
+		if (typeof document.querySelectorAll != 'undefined')
+		{
+			document.body.className += ' hide-dds';
+		}
+	</script>
+
+	<div id="container">
+		<div id="sidebar">
+			<nav class="nav">
+				<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Matrix Docs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="installation.html">Installing and Updating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using/fields.html">Working with Matrix Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templating/field.html">Field Tags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developers/index.html">Developer Docs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Changelog</a><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+			</nav>
+		</div>
+
+		<div id="main" class="has-sidebar">
+
+				<ul id="crumbs">
+					<li><a href="index.html">Matrix Docs</a></li>
+				</ul>
+
+
+
+  <div class="section" id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="matrix-2-5-4">
+<h2>Matrix 2.5.4<a class="headerlink" href="#matrix-2-5-4" title="Permalink to this headline">¶</a></h2>
+<p>Released on Apr 23, 2013</p>
+<ul class="simple">
+<li>Added EE 2.6 compatibility.</li>
+<li>Fixed Low Search and Solspace Super Search compatibility.</li>
+<li>Fixed some issues with Better Workflow compatibility.</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-5-3">
+<h2>Matrix 2.5.3<a class="headerlink" href="#matrix-2-5-3" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jan 22, 2013</p>
+<ul class="simple">
+<li>[EE2] Matrix now sets <tt class="docutils literal"><span class="pre">is_draft</span> <span class="pre">=</span> <span class="pre">TRUE</span></tt> on celltypes when viewing a Better Workflow draft</li>
+<li>[EE2] Fixed a bug conflict between the “Is col required?” column setting label and the “The [col name] column is required” cell validation error text</li>
+<li>[EE2] Matrix now handles NULL values appropriately when “<tt class="docutils literal"><span class="pre">IS_EMPTY</span></tt>” is passed into a <tt class="docutils literal"><span class="pre">search:col_name=</span></tt> param</li>
+<li>[EE2] Fixed some PHP errors when outputting a file’s size</li>
+<li>The <tt class="docutils literal"><span class="pre">beforeSort</span></tt> and <tt class="docutils literal"><span class="pre">afterSort</span></tt> callbacks are now triggered when clicking “Move to top” and “Move to bottom”, fixing a Wygwam bug</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-5-2">
+<h2>Matrix 2.5.2<a class="headerlink" href="#matrix-2-5-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on Dec 17, 2012</p>
+<ul class="simple">
+<li>[EE2] Fixed a JS error when using a Matrix field with a dash in its name in a Safecracker form</li>
+<li>[EE2] Text columns that had Format set to “Numeric” now get converted to Number columns with Decimals set to “2” rather than “0” when updating from &lt; Matrix 2.5</li>
+<li>[EE2] Changed the behavior of validating Number cells</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-5-1">
+<h2>Matrix 2.5.1<a class="headerlink" href="#matrix-2-5-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Dec 7, 2012</p>
+<ul class="simple">
+<li>[EE2] Fixed a bug that prevented tags with parameters from getting parsed when inside a Matrix tag pair</li>
+<li>[EE2] Fixed an MySQL error on EE 2.5.3 when the RTE is not installed</li>
+<li>[EE2] Fixed a PHP notice that affected a few servers when parsing column tag modifiers</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-5">
+<h2>Matrix 2.5<a class="headerlink" href="#matrix-2-5" title="Permalink to this headline">¶</a></h2>
+<p>Released on Dec 5, 2012</p>
+<ul class="simple">
+<li>[EE2] Added <a class="reference external" href="http://betterworkflow.electricputty.co.uk/">Better Workflow</a> support (requires BWF 1.5)</li>
+<li>[EE2] Added a new Rich Text celltype, powered by EE’s new rich text editor (thanks <a class="reference external" href="https://twitter.com/_rsan">Rob</a>!)</li>
+<li>[EE2] Added a new Number celltype, which replaces the numeric Text celltype modes</li>
+<li>[EE2] Added a new Text Direction setting to Text columns</li>
+<li>[EE2] Drastic performance enhancements, especially when the open_basedir restriction is enabled</li>
+<li>Added new “Move to top” and “Move to bottom” options to row contextual menus</li>
+<li>[EE2] Celltypes now get sorted alphabetically by name in the Col Type settings</li>
+<li>[EE2] Matrix now sets <tt class="docutils literal"><span class="pre">$field_name</span></tt>, <tt class="docutils literal"><span class="pre">$col_id</span></tt>, <tt class="docutils literal"><span class="pre">$cell_name</span></tt>, <tt class="docutils literal"><span class="pre">$row_id</span></tt> (if available) and <tt class="docutils literal"><span class="pre">$field_id</span></tt>/<tt class="docutils literal"><span class="pre">$var_id</span></tt> on celltypes before calling their <tt class="docutils literal"><span class="pre">validate_cell()</span></tt> methods</li>
+<li>[EE2] Matrix now sets <tt class="docutils literal"><span class="pre">$col_id</span></tt> on celltypes before calling their <tt class="docutils literal"><span class="pre">save_cell_settings()</span></tt> methods</li>
+<li>[EE2] Added var prefix support to File manipulation shortcut tags, e.g. <tt class="docutils literal"><span class="pre">{var_prefix:file_col:manipulation_name}</span></tt></li>
+<li>[EE2] Fixed a bug where Low Variables wouldn’t show the correct language strings</li>
+<li>Fixed some “object is undefined” errors when manually calling <tt class="docutils literal"><span class="pre">Matrix.instances[x].initRows()</span></tt> from Javascript</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-4-3">
+<h2>Matrix 2.4.3<a class="headerlink" href="#matrix-2-4-3" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jul 26, 2012</p>
+<ul class="simple">
+<li>[EE2] Fixed <tt class="docutils literal"><span class="pre">{switch}</span></tt> tags</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-4-2">
+<h2>Matrix 2.4.2<a class="headerlink" href="#matrix-2-4-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jul 24, 2012</p>
+<ul class="simple">
+<li>[EE2] Added the <tt class="docutils literal"><span class="pre">var_prefix=</span></tt> parameter</li>
+<li>The Maximum Rows field setting no longer hides existing rows in fields with too many rows</li>
+<li>Matrix fields that are hidden by default, or live in a secondary Publish tag, are no longer initialized until they are visible, fixing Text cell display issues, among other things</li>
+<li>Fixed a bug where Matrix would display deleted rows if there was a validation error</li>
+<li>Fixed a bug where the date picker wouldn’t show up for Date cells within Low Variables</li>
+<li>When you duplicate a Matrix-based Low Variable, Matrix will now duplicate the column settings</li>
+<li>Changed what happens to the HTML DOM when rows are deleted (hidden rather than removed) to fix issues with CKEditor instances (like Wygwam fields) that live further down in the page</li>
+<li>[EE1] Fixed some bugs with the LG Data Matrix conversion script</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-4-1">
+<h2>Matrix 2.4.1<a class="headerlink" href="#matrix-2-4-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on May 29, 2012</p>
+<ul class="simple">
+<li>Fixed a bug where Matrix didn’t call celltypes’ replace_tag() function on column tags that have parameters</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-4">
+<h2>Matrix 2.4<a class="headerlink" href="#matrix-2-4" title="Permalink to this headline">¶</a></h2>
+<p>Released on May 22, 2012</p>
+<ul class="simple">
+<li>Added support for the full breadth of the native File Field’s <a class="reference external" href="http://expressionengine.com/user_guide/modules/channel/custom_fields.html#file-field">template tags and parameters</a>, including Image Manipulation tags, to the File celltype</li>
+<li>Added support for <tt class="docutils literal"><span class="pre">replace_tag_catchall()</span></tt> within celltypes</li>
+<li>File cells now show an error when displayed in SafeCracker, pointing the user to SafeCracker File</li>
+<li>Fixed a bug where File fields wouldn’t show the File Browser within Low Variables</li>
+<li>Fixed a PHP error when saving an entry via SafeCracker</li>
+<li>Fixed a bug where Date cell using a 24-hour time format would lose their data if there was a validation error</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-3">
+<h2>Matrix 2.3<a class="headerlink" href="#matrix-2-3" title="Permalink to this headline">¶</a></h2>
+<p>Released on Apr 17, 2012</p>
+<ul class="simple">
+<li>Added Low Variables compatibility (requires LV 2.2 or later)</li>
+<li>Matrix fields without any rows now display a “No rows exist” dummy row</li>
+<li>Reverted back to the pre-Matrix 2.2 behavior of deleting empty rows when saving</li>
+<li>Cell data is now run through <tt class="docutils literal"><span class="pre">form_prep()</span></tt>, just like normal field data</li>
+<li>Fixed a PHP 5.4 compatibility issue with File cells</li>
+<li>Fixed a bug where text columns would not display plugin-based formatting options when editing an existing Matrix field</li>
+<li>Fixed a bug where unaltered rows’ keywords would go missing after submitting partial Matrix data from a SAEF</li>
+<li>Fixed a bug where <tt class="docutils literal"><span class="pre">{field_row_count}</span></tt> and <tt class="docutils literal"><span class="pre">{field_row_index}</span></tt> would cap out at 100 and 99, respectively</li>
+<li>Fixed some CSS conflicts with NSM Override.css</li>
+<li>Fixed a bug where File cells would display a broken image if a thumbnail doesn’t exist</li>
+<li>Renamed the language files back to the lang.xyz.php format</li>
+<li>Added new `` matrix_save_row`` hook</li>
+<li>The <tt class="docutils literal"><span class="pre">matrix_data_query</span></tt> hook is now called every time <tt class="docutils literal"><span class="pre">_data_query()</span></tt> is called, and extensions are now passed a 4th argument, <tt class="docutils literal"><span class="pre">$select_mode</span></tt></li>
+<li>Fixed a PHP error when submitting a SAEF for an entry that has a Matrix field, but without Matrix data in the post</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-2-4">
+<h2>Matrix 2.2.4<a class="headerlink" href="#matrix-2-2-4" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jan 24, 2012</p>
+<ul class="simple">
+<li>[EE2] Added EE 2.4 compatibility, including support for the new <a class="reference external" href="http://expressionengine.com/user_guide/cp/content/files/file_upload_preferences.html#overriding-upload-paths-and-urls-using-configuration-variables">upload preference config variables</a></li>
+<li>[EE2] Added support for saving entries via the Channel Entries API</li>
+<li>[EE2] Date cols’ database columns in exp_matrix_data are no longer set to <tt class="docutils literal"><span class="pre">UNSIGNED</span></tt>, allowing for dates prior to 1/1/1970 to be saved (you must re-save your Matrix field before this takes effect)</li>
+<li>[EE2] Entering “0” in a required text cell now passes validation</li>
+<li>[EE2] Fixed a PHP error in the field settings, “Undefined property: Admin_content::$file_upload_preferences_model”</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-2-3-2">
+<h2>Matrix 2.2.3.2<a class="headerlink" href="#matrix-2-2-3-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on Nov 28, 2011</p>
+<ul class="simple">
+<li><em>Really</em> fixed the front end-facing PHP error that Matrix 2.2.3.1 attempted to fix</li>
+<li>Fixed a bug where numeric text cells’ decimal points would get rounded out by default (to achieve the same effect, now you must use <tt class="docutils literal"><span class="pre">decimals=&quot;0&quot;</span></tt>)</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-2-3-1">
+<h2>Matrix 2.2.3.1<a class="headerlink" href="#matrix-2-2-3-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Nov 21, 2011</p>
+<ul class="simple">
+<li>Fixed a front end-facing PHP error on fields that hadn’t been saved since Matrix 2.1.1</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-2-3">
+<h2>Matrix 2.2.3<a class="headerlink" href="#matrix-2-2-3" title="Permalink to this headline">¶</a></h2>
+<p>Released on Nov 17, 2011</p>
+<ul class="simple">
+<li>Added the <tt class="docutils literal"><span class="pre">fixed_order=</span></tt> param</li>
+<li>[EE2] Added <tt class="docutils literal"><span class="pre">decimals=</span></tt>, <tt class="docutils literal"><span class="pre">dec_point=</span></tt>, and <tt class="docutils literal"><span class="pre">thousands_sep=</span></tt> params to numeric Text cells</li>
+<li>Celltype tags are now parsed after <tt class="docutils literal"><span class="pre">{field_row_index}</span></tt>, <tt class="docutils literal"><span class="pre">{field_row_count}</span></tt>, <tt class="docutils literal"><span class="pre">{row_id}</span></tt> and <tt class="docutils literal"><span class="pre">{row_index}</span></tt> tags</li>
+<li>Fixed a bug where extra previously-saved rows would get displayed after decreasing the Max Rows setting</li>
+<li>Fixed a Text cell bug caused by ampersands not getting encoded properly</li>
+<li>Fixed some IE7 display issues</li>
+<li>[EE2] Fixed “Unable to load requested field type file: ft..php” error when a Matrix tag pair has no column tags</li>
+<li>[EE2] Text cells only call <tt class="docutils literal"><span class="pre">$EE-&gt;typography-&gt;parse_type()</span></tt> if the Content Type setting is set to “all”</li>
+<li>[EE1] Fixed a bug where Date cells’ calendar would get hidden by the next row</li>
+<li>[EE2] Fixed a PHP error if the Typography class wasn’t loaded yet</li>
+<li>Decreased an interval’s duration from 1ms to 100ms to prevent CPU spikes in Firefox</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-2-2-1">
+<h2>Matrix 2.2.2.1<a class="headerlink" href="#matrix-2-2-2-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jul 1, 2011</p>
+<ul class="simple">
+<li>[EE2] ExpressionEngine 2.2.1 compatibility</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-2-2">
+<h2>Matrix 2.2.2<a class="headerlink" href="#matrix-2-2-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jun 22, 2011</p>
+<ul class="simple">
+<li>[EE2] ExpressionEngine 2.2 compatibility</li>
+<li>[EE2] Added an “Allowed Directory” setting to File columns, which limits file selection to a single upload directory <em>(requires EE 2.2)</em></li>
+<li>[EE2] File columns’ “File Type” setting is now enforced <em>(requires EE 2.2)</em></li>
+<li>[EE2] Added a “Decimal” option to Text columns’ Content setting</li>
+<li>[EE2] Celltypes are now sorted by name in the Col Type drop-down</li>
+<li>[EE2] <tt class="docutils literal"><span class="pre">$this-&gt;EE-&gt;load-&gt;view()</span></tt> et al. now works from celltypes’ <tt class="docutils literal"><span class="pre">display_tag()</span></tt> functions</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-2-1">
+<h2>Matrix 2.2.1<a class="headerlink" href="#matrix-2-2-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Apr 27, 2011</p>
+<ul class="simple">
+<li>New entries now get zero rows by default (unless the Minimum Rows setting is set)</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-2-0-1">
+<h2>Matrix 2.2.0.1<a class="headerlink" href="#matrix-2-2-0-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Apr 12, 2011</p>
+<ul class="simple">
+<li>[EE2] Fixed a bug where <tt class="docutils literal"><span class="pre">$this-&gt;setting['entry_id']</span></tt> wasn’t available for celltypes’ <tt class="docutils literal"><span class="pre">save_cell()</span></tt> method, which affected Playa’s ability to save new cell data</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-2">
+<h2>Matrix 2.2<a class="headerlink" href="#matrix-2-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on Apr 12, 2011</p>
+<ul class="simple">
+<li>Added the “Minimum Rows” field setting</li>
+<li>Matrix fields that have no rows actually display no rows now</li>
+<li>Clicking the tab key in the Matrix field configuration settings now favors inputs in the same column</li>
+<li>[EE2] Added the “Is col required?” column setting</li>
+<li>[EE2] Added the <tt class="docutils literal"><span class="pre">validate_cell()</span></tt> celltype method</li>
+<li>[EE2] Changed the way Matrix columns are associated with their fields (we now use the exp_matrix_cols.field_id column)</li>
+<li>[EE2] Matrix columns are now duplicated alongside field duplication, via MSM</li>
+<li>[EE2] Removed unnecessary <tt class="docutils literal"><span class="pre">&lt;input</span> <span class="pre">type=&quot;file&quot;&gt;</span></tt> from File cells</li>
+<li>[EE1] Replaced the jQuery UI Datepicker with an EE1-style calendar for Date cells</li>
+<li>Cell tags are now parsed before <tt class="docutils literal"><span class="pre">{field_row_index}</span></tt>, <tt class="docutils literal"><span class="pre">{field_row_count}</span></tt>, <tt class="docutils literal"><span class="pre">{row_index}</span></tt>, <tt class="docutils literal"><span class="pre">{row_count}</span></tt>, and <tt class="docutils literal"><span class="pre">{row_id}</span></tt> tags</li>
+<li>[EE1] Fixed the “Auto &lt;br&gt;” Text format setting</li>
+<li>[EE2] Fixed a validation bug where the File celltype would think there was a problem selecting a file, even if there wasn’t</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-1-4-1">
+<h2>Matrix 2.1.4.1<a class="headerlink" href="#matrix-2-1-4-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Mar 16, 2011</p>
+<ul class="simple">
+<li>[EE2] Fixed a PHP error that occurred when parsing Matrix tag pairs that have parameters</li>
+<li>[EE2] Minor template performance enhancement</li>
+<li>[EE1] Matrix now passes the current cell object to celltypes using the legacy <tt class="docutils literal"><span class="pre">onDisplayCell</span></tt> Javascript callback</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-1-4">
+<h2>Matrix 2.1.4<a class="headerlink" href="#matrix-2-1-4" title="Permalink to this headline">¶</a></h2>
+<p>Released on Mar 15, 2011</p>
+<ul class="simple">
+<li>Added <tt class="docutils literal"><span class="pre">:average</span></tt>, <tt class="docutils literal"><span class="pre">:sum</span></tt>, <tt class="docutils literal"><span class="pre">:lowest</span></tt>, and <tt class="docutils literal"><span class="pre">:highest</span></tt> fieldtype tags</li>
+<li>Replaced “Remove column” and “Remove row” language with “Delete column” and “Delete row”</li>
+<li>Moved all field language into the localizable lang file</li>
+<li>Fixed a Javascript error preventing Matrix fields from initializing if the field name contained double quotes</li>
+<li>[EE2] Fixed some cross-browser keystroke detection issues for numeric text fields</li>
+<li>[EE2] Brought back custom Matrix tag parsing for its primary tag pair, while we wait for ExpressionEngine templating bugs to be fixed</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-1-3">
+<h2>Matrix 2.1.3<a class="headerlink" href="#matrix-2-1-3" title="Permalink to this headline">¶</a></h2>
+<p>Released on Feb 2, 2011</p>
+<ul class="simple">
+<li>Fine-tuned the keystroke detection in text cells</li>
+<li>Added a defense against negative <tt class="docutils literal"><span class="pre">offset=</span></tt> and <tt class="docutils literal"><span class="pre">limit=</span></tt> params</li>
+<li>[EE2] Eliminated Matrix’s reliance on its extension</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-1-2">
+<h2>Matrix 2.1.2<a class="headerlink" href="#matrix-2-1-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jan 4, 2011</p>
+<ul class="simple">
+<li>Added <tt class="docutils literal"><span class="pre">{row_index}</span></tt>, and <tt class="docutils literal"><span class="pre">{field_row_count}</span></tt>, <tt class="docutils literal"><span class="pre">{field_row_index}</span></tt>, <tt class="docutils literal"><span class="pre">{field_total_rows}</span></tt> single variable tags</li>
+<li>Added <tt class="docutils literal"><span class="pre">{prev_row}</span></tt> and <tt class="docutils literal"><span class="pre">{next_row}</span></tt> variable tag pairs</li>
+<li>Prevented some duplicate SQL queries in the templates</li>
+<li>[EE1] Fixed a PHP error that occurred when deleting entries</li>
+<li>[EE2] Fixed a bug where <tt class="docutils literal"><span class="pre">settings_modify_matrix_column()</span></tt> was passed column settings in an inconsistent format</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-1-1-2">
+<h2>Matrix 2.1.1.2<a class="headerlink" href="#matrix-2-1-1-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on Dec 22, 2010</p>
+<ul class="simple">
+<li>[EE2] Added an error message to the bundled File celltype for when the EE2 File Manager <a class="reference external" href="http://expressionengine.com/bug_tracker/bug/13240/">doesn’t work</a></li>
+<li>[EE2] Fixed a bug that would cause a SQL error when deleting a Matrix field that had no rows</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-1-1-1">
+<h2>Matrix 2.1.1.1<a class="headerlink" href="#matrix-2-1-1-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Dec 15, 2010</p>
+<ul class="simple">
+<li>[EE2] Fixed a PHP bug that occurred  while deleting a Matrix field</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-1-1">
+<h2>Matrix 2.1.1<a class="headerlink" href="#matrix-2-1-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Dec 15, 2010</p>
+<ul class="simple">
+<li>Added “Auto &lt;br&gt;” and “XHTML” text formatting options to Text cells</li>
+<li>Text cells now respect the “Allow image URLs in channel entries?” and “Automatically turn URLs and email addresses into links?” channel preferences</li>
+<li>Fixed column label previewing for new, unsaved columns in the field settings</li>
+<li>Column instructions can now have line breaks</li>
+<li>Added <tt class="docutils literal"><span class="pre">set_row_ids=</span></tt>, <tt class="docutils literal"><span class="pre">set_classes=</span></tt>, <tt class="docutils literal"><span class="pre">set_widths=</span></tt>, <tt class="docutils literal"><span class="pre">border=</span></tt>, <tt class="docutils literal"><span class="pre">width=</span></tt>, and <tt class="docutils literal"><span class="pre">class=</span></tt> parameters to the <tt class="docutils literal"><span class="pre">:table</span></tt> tag</li>
+<li>Fixed a couple PHP errors</li>
+<li>[EE2] Added “Integer” and “Number” text content options to Text cells</li>
+<li>[EE2] Added <tt class="docutils literal"><span class="pre">settings_modify_matrix_column()</span></tt> celltype method, enabling celltypes to customize their <tt class="docutils literal"><span class="pre">exp_matrix_data</span></tt> column(s) settings</li>
+<li>[EE2] Celltypes are now filled-up with their field settings before their <tt class="docutils literal"><span class="pre">pre-process()</span></tt> method is called</li>
+<li>[EE2] Column settings and data associated with a Matrix field are now deleted from the database when the Matrix field is deleted <em>(requires EE 2.1.2)</em></li>
+<li>[EE2] Fixed template parser for celltypes which don’t return anything in their tag functions</li>
+<li>[EE2] Fixed an incompatibility with Solspace Super Search</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-1">
+<h2>Matrix 2.1<a class="headerlink" href="#matrix-2-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Nov 29, 2010</p>
+<ul class="simple">
+<li>Single primary tags (and empty primary tag pairs) will now return nothing, rather than fall back to the <tt class="docutils literal"><span class="pre">:table</span></tt> tag</li>
+<li><tt class="docutils literal"><span class="pre">{switch}</span></tt> tags are now parsed after cell tags</li>
+<li>Added Upgrading Instructions to the Docs</li>
+<li>Added <tt class="docutils literal"><span class="pre">post_save_cell()</span></tt> celltype callback function</li>
+<li>Added <tt class="docutils literal"><span class="pre">delete_rows()</span></tt> celltype callback function</li>
+<li>[EE2] Celltypes’ <tt class="docutils literal"><span class="pre">pre_process()</span></tt> method will now be called if it exists</li>
+<li>[EE2] Calling <tt class="docutils literal"><span class="pre">$this-&gt;EE-&gt;load-&gt;view()</span></tt> now works as expected from <tt class="docutils literal"><span class="pre">display_cell_settings()</span></tt> and <tt class="docutils literal"><span class="pre">display_cell()</span></tt></li>
+</ul>
+</div>
+<div class="section" id="matrix-2-0-12">
+<h2>Matrix 2.0.12<a class="headerlink" href="#matrix-2-0-12" title="Permalink to this headline">¶</a></h2>
+<p>Released on Nov 16, 2010</p>
+<ul class="simple">
+<li>[EE2] Fixed template parsing when two fields from different MSM sites have the same name</li>
+<li>[EE2] Fixed a PHP error</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-0-11">
+<h2>Matrix 2.0.11<a class="headerlink" href="#matrix-2-0-11" title="Permalink to this headline">¶</a></h2>
+<p>Released on Sep 17, 2010</p>
+<ul class="simple">
+<li>Fixed a PHP bug that presented the second to last column twice, in place of the should-be last column</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-0-10">
+<h2>Matrix 2.0.10<a class="headerlink" href="#matrix-2-0-10" title="Permalink to this headline">¶</a></h2>
+<p>Released on Sep 16, 2010</p>
+<ul class="simple">
+<li>Prevent scrollbars on Text cells</li>
+<li>Fixed a bug where Matrix would consider an empty array to be non-null cell data</li>
+<li>[EE1] Respect the “Convert ASCII to Entities” global weblog preference</li>
+<li>[EE1] Fixed PHP errors that occurred when a selected celltype was disabled</li>
+<li>[EE2] Added <tt class="docutils literal"><span class="pre">:filename</span></tt>, <tt class="docutils literal"><span class="pre">:extension</span></tt>, and <tt class="docutils literal"><span class="pre">:filesize</span></tt> tags to File celltype</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-0-9">
+<h2>Matrix 2.0.9<a class="headerlink" href="#matrix-2-0-9" title="Permalink to this headline">¶</a></h2>
+<p>Released on Aug 31, 2010</p>
+<ul class="simple">
+<li>Fixed display issue when a dollar sign is present in the column labels or instructions</li>
+<li>[EE2] Added autosave support</li>
+<li>[EE2] Made <tt class="docutils literal"><span class="pre">$this-&gt;row</span></tt> available to celltypes within <tt class="docutils literal"><span class="pre">replace_tag()</span></tt>, etc.</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-0-8">
+<h2>Matrix 2.0.8<a class="headerlink" href="#matrix-2-0-8" title="Permalink to this headline">¶</a></h2>
+<p>Released on Aug 16, 2010</p>
+<ul class="simple">
+<li>Made it easier for other JS scripts to interact with Matrix fields on the Publish page</li>
+<li>Made all PHP includes use absolute paths</li>
+<li>Remember cells with the value of “0”</li>
+<li>[EE1] Fixed “Operation aborted” IE error in SAEFs</li>
+<li>[EE1] Fixed <tt class="docutils literal"><span class="pre">dynamic_parameters=</span></tt> param</li>
+<li>[EE2] Added <a class="reference external" href="http://devot-ee.com/add-ons/mx-cloner/">MX Cloner</a> support</li>
+<li>[EE2] Make <tt class="docutils literal"><span class="pre">$this-&gt;row_id</span></tt> available to celltypes in <tt class="docutils literal"><span class="pre">display_cell()</span></tt> for pre-saved rows</li>
+<li>[EE2] Fixed incompatibilities with other add-ons using <tt class="docutils literal"><span class="pre">generate_json()</span></tt></li>
+<li>[EE2] Made File cells return nothing in the template when no file is selected</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-0-7-1">
+<h2>Matrix 2.0.7.1<a class="headerlink" href="#matrix-2-0-7-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jul 30, 2010</p>
+<ul class="simple">
+<li>Removed <tt class="docutils literal"><span class="pre">console.log()</span></tt> call from JS</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-0-7">
+<h2>Matrix 2.0.7<a class="headerlink" href="#matrix-2-0-7" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jul 27, 2010</p>
+<ul class="simple">
+<li>Bundled documentation</li>
+<li>Moved theme files into themes/third_party/matrix</li>
+<li>Fixed JS syntax issues</li>
+<li>[EE1] <a class="reference external" href="http://expressionengine.com/downloads/details/cloner/">Cloner</a> support</li>
+<li>[EE1] LG Add-on Updater support</li>
+<li>[EE2] Fixed alternate template tags for celltypes (“<tt class="docutils literal"><span class="pre">{cell:alt_tag}</span></tt>”)</li>
+<li>[EE2] Fixed PHP errors that would occur when saving an entry that didn’t have a Matrix field</li>
+<li>[EE2] Fixed an issue that prevented Matrix tags from working when being pulled from a different MSM site</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-0-6">
+<h2>Matrix 2.0.6<a class="headerlink" href="#matrix-2-0-6" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jun 10, 2010</p>
+<ul class="simple">
+<li>[EE2] Fixed a template-facing PHP error</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-0-5">
+<h2>Matrix 2.0.5<a class="headerlink" href="#matrix-2-0-5" title="Permalink to this headline">¶</a></h2>
+<p>Released on Jun 10, 2010</p>
+<ul class="simple">
+<li>Bring back support for <tt class="docutils literal"><span class="pre">&lt;</span></tt>, <tt class="docutils literal"><span class="pre">&gt;</span></tt>, <tt class="docutils literal"><span class="pre">&lt;=</span></tt>, and <tt class="docutils literal"><span class="pre">&gt;=</span></tt> prefixes for the <tt class="docutils literal"><span class="pre">search:</span></tt> parameter</li>
+<li>Fixed PHP warning that occurred when using a celltype that doesn’t have any settings</li>
+<li>[EE1] Auto-serialize and -unserialize array-based cell data, for consistency with FF Matrix 1.x</li>
+<li>[EE1] Fixed PHP warning when updating from FF Matrix</li>
+<li>[EE2] Template performance improvements</li>
+<li>[EE2] Made the <tt class="docutils literal"><span class="pre">col_id</span></tt>, <tt class="docutils literal"><span class="pre">col_name</span></tt>, and <tt class="docutils literal"><span class="pre">row_name</span></tt> available to celltypes on save</li>
+<li>[EE2] Retain Matrix data when submitting an entry that doesn’t validate</li>
+<li>[EE2] Fixed a MySQL error that occurred when installing the Matrix extension on some Windows servers</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-0-4">
+<h2>Matrix 2.0.4<a class="headerlink" href="#matrix-2-0-4" title="Permalink to this headline">¶</a></h2>
+<p>Released on May 19, 2010</p>
+<ul class="simple">
+<li>Added <tt class="docutils literal"><span class="pre">{row_id}</span></tt> <a class="reference external" href="http://pixelandtonic.com/matrix/docs/templates">tag variable</a></li>
+<li>Added <tt class="docutils literal"><span class="pre">row_id=</span></tt> <a class="reference external" href="http://pixelandtonic.com/matrix/docs/templates">tag parameter</a></li>
+<li>Fixed jQuery 1.4 compatibility</li>
+<li>Fixed an IE 6/7 compatibility issue</li>
+<li>Changed the way the row contextual menus get appended to the DOM, fixing a z-index issue with the Corporate theme</li>
+<li>Changed the way Text cells’ Max Length setting gets enforced, fixing an issue with saving cells with multibyte characters</li>
+<li>[EE1] Fixed an issue that prevented Matrix tags from working when being pulled from a different MSM site</li>
+<li>[EE1] Fixed <tt class="docutils literal"><span class="pre">{switch}</span></tt> tags</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-0-3">
+<h2>Matrix 2.0.3<a class="headerlink" href="#matrix-2-0-3" title="Permalink to this headline">¶</a></h2>
+<p>Released on May 10, 2010</p>
+<ul class="simple">
+<li>[EE1] Fixed a bug that prevented the menu options from displaying</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-0-2">
+<h2>Matrix 2.0.2<a class="headerlink" href="#matrix-2-0-2" title="Permalink to this headline">¶</a></h2>
+<p>Released on May 9, 2010</p>
+<ul class="simple">
+<li>Fixed <tt class="docutils literal"><span class="pre">orderby</span></tt> and <tt class="docutils literal"><span class="pre">sort</span></tt> params</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-0-1">
+<h2>Matrix 2.0.1<a class="headerlink" href="#matrix-2-0-1" title="Permalink to this headline">¶</a></h2>
+<p>Released on May 8, 2010</p>
+<ul class="simple">
+<li>Moved all language to the localizable language files</li>
+<li>Fixed text selection quirks</li>
+<li>Fixed <tt class="docutils literal"><span class="pre">{if</span> <span class="pre">matrix_field}</span></tt> conditionals for Matrix fields that don’t have any searchable columns</li>
+<li>[EE1] Fixed SAEF support (requires <a class="reference external" href="http://pixelandtonic.com/fieldframe">FieldFrame</a> 1.4.2)</li>
+<li>[EE1] Fixed <tt class="docutils literal"><span class="pre">search:xyz</span></tt> params</li>
+<li>[EE1] Fixed the combination of <tt class="docutils literal"><span class="pre">offset</span></tt> and <tt class="docutils literal"><span class="pre">limit</span></tt> params</li>
+<li>[EE2] Switched conditional tag parsing over to EE’s native function</li>
+</ul>
+</div>
+<div class="section" id="matrix-2-0">
+<h2>Matrix 2.0<a class="headerlink" href="#matrix-2-0" title="Permalink to this headline">¶</a></h2>
+<p>Released on May 4, 2010</p>
+<ul class="simple">
+<li>EE2 Compatibility</li>
+<li>New UI</li>
+<li>File celltype for EE2</li>
+<li>Column instructions settings</li>
+<li>Column width settings</li>
+<li>Per-column search settings</li>
+<li>Data is now stored in its own database table</li>
+</ul>
+</div>
+<div class="section" id="matrix-1-5">
+<h2>Matrix 1.5<a class="headerlink" href="#matrix-1-5" title="Permalink to this headline">¶</a></h2>
+<p>Released on Feb 23, 2010</p>
+<ul class="simple">
+<li>Initial public release</li>
+<li>Added <tt class="docutils literal"><span class="pre">dynamic_parameters=</span></tt> param</li>
+<li>Added calendar picker to Date celltype</li>
+<li>Allow empty strings in <tt class="docutils literal"><span class="pre">offset=</span></tt> and <tt class="docutils literal"><span class="pre">limit=</span></tt> params</li>
+</ul>
+</div>
+</div>
+
+
+
+
+		</div>
+	</div>
+
+<script type="text/javascript" src="_static/js/docs.js"></script>
+
+</body>
+</html>
